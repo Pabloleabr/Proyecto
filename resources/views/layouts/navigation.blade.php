@@ -16,6 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
+                        Ejercicios
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('crear-ejer')" :active="request()->routeIs('crear-ejer')">
+                        Crear Ejercicio
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->

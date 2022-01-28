@@ -9,6 +9,14 @@ class Ejercicio extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'titulo' ,
+        'descripcion' ,
+        'resultado' ,
+        'dificultad' ,
+        'user_id',
+    ];
+
     public function lenguajes()
     {
         return $this->belongsToMany(Lenguaje::class);
