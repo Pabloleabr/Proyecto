@@ -22,11 +22,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('ejercicio/{id}', [EjercicioController::class, 'show'])
+Route::get('ejercicio/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');
 Route::get('ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
-Route::get('soluciones/{id}', [EjercicioController::class, 'show_soluciones'])
+Route::get('soluciones/{ejercicio}', [EjercicioController::class, 'show_soluciones'])
 ->name('ver-soluciones');
 
 Route::middleware(['auth'])->group(function () {
@@ -36,13 +36,13 @@ Route::middleware(['auth'])->group(function () {
     ->name('guardar-ejer');
     Route::get('mis_ejer', [EjercicioController::class, 'mis_ejer'])
     ->name('mis-ejer');
-    Route::delete('delete/ejer/{id}', [EjercicioController::class, 'delete_ejer'])
+    Route::delete('delete/ejer/{ejercicio}', [EjercicioController::class, 'delete_ejer'])
     ->name('borrar-ejer');
-    Route::post('ejercicio/rate/{id}', [EjercicioController::class, 'rate'])
+    Route::post('ejercicio/rate/{ejercicio}', [EjercicioController::class, 'rate'])
     ->name('rate-ejer');
-    Route::post('respuesta/rate/{id}', [EjercicioController::class, 'rate_respuesta'])
+    Route::post('respuesta/rate/{respuesta}', [EjercicioController::class, 'rate_respuesta'])
     ->name('rate-respuesta');
-    Route::post('solucion/{id}', [EjercicioController::class, 'store_solucion'])
+    Route::post('solucion/{ejercicio}', [EjercicioController::class, 'store_solucion'])
     ->name('guardar-solucion');
 
 });

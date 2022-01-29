@@ -24,10 +24,8 @@ class EjercicioController extends Controller
         $validado = request()->validate([
             'titulo' => 'required|string',
             'descripcion' => 'required|string',
-            'resultados' => 'required|string',
             'dificultad' => 'required|string',
             'lenguajes' => 'required|array'
-
         ]);
         $dificultad = ['facil', 'normal', 'dificil', 'extremo'];
 
@@ -46,10 +44,9 @@ class EjercicioController extends Controller
             return redirect()->back()->with('error', 'Ya has creado un ejercicio con ese titulo');
         }
 
-        $ejer = Ejercicio::create([
+        $ejercicio = Ejercicio::create([
             'titulo' => $validado['titulo'],
             'descripcion' => $validado['descripcion'],
-            'resultado' => $validado['resultados'],
             'dificultad' => $validado['dificultad'],
             'user_id' => $user->id,
         ]);
@@ -57,24 +54,18 @@ class EjercicioController extends Controller
         //inserto en la tabla de la relacion ejer_lenguajes sus relaciones
         foreach ($validado['lenguajes'] as $lenguaje) {
             DB::table('ejercicios_lenguajes')->insert([
-                'ejercicio_id' => $ejer->id,
+                'ejercicio_id' => $ejercicio->id,
                 'lenguaje_id' => $lenguaje,
             ]);
         }
 
-        return redirect("ejercicio/$ejer->id");
+        return redirect(route("mostrar-ejer", $ejercicio));
     }
 
-    public function show($id)
+    public function show(Ejercicio $ejercicio)
     {
-        $ejer = DB::table('ejercicios')->where('id', $id)->get();
-
-        if(empty($ejer)){
-            return redirect('/')->with('error', 'ese ejercicio no existe');
-        }
-
         return view('ejercicios.ejercicio', [
-            'ejercicio' => $ejer[0],
+            'ejercicio' => $ejercicio,
         ]);
 
     }
@@ -120,9 +111,8 @@ class EjercicioController extends Controller
      * @param  int $id
      * @return void
      */
-    public function rate($id)
+    public function rate(Ejercicio $ejercicio)
     {
-
         $usuario = DB::table('users')->where('email', session('usuario'))->first();
         $validado = request()->validate([
             'rating' => 'integer|required|in:1,2,3,4,5'
@@ -130,14 +120,14 @@ class EjercicioController extends Controller
 
         $solucionado = DB::table('respuestas')
         ->where('user_id', $usuario->id)
-        ->where('ejer_id', $id);
+        ->where('ejer_id', $ejercicio->id);
 
         if (!$solucionado->exists()) {
             return redirect()->back()->with('error', 'termina el ejercicio antes, y entrega una solucion');
         }
 
         DB::table('rating_ejer')->upsert([
-            'ejer_id' => $id,
+            'ejer_id' => $ejercicio->id,
             'user_id' => $usuario->id,
             'rating' => $validado['rating'],
         ],['ejer_id', 'user_id'], ['rating']);

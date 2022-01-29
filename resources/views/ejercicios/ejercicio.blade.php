@@ -1,10 +1,13 @@
-<x-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{$ejercicio->titulo}}
+        </h2>
+    </x-slot>
     <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
         <div class="flex justify-between ">
-            <h2 class="text-lg text-gray-900 block mb-2 dark:text-gray-300">
-                {{$ejercicio->titulo}}
-            </h2>
-            <form action="/ejercicio/rate/{{$ejercicio->id}}" method="post">
+
+            <form action="{{route('rate-ejer', $ejercicio)}}" method="post">
             @csrf
                 <select name="rating" id="">
                     <option value="1">1</option>
@@ -19,7 +22,7 @@
         <div class="flex ml-2 mb-2 ">
             <p class="whitespace-pre-line max-w-md bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5 "
             >{{$ejercicio->descripcion}}</p>
-            <form action="/solucion/{{$ejercicio->id}}" method="POST" class="w-full ml-4 mr-2">
+            <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full ml-4 mr-2">
                 @csrf
                 <textarea name="code" id="code" cols="50" rows="10" style="resize:none" class="h-80 whitespace-pre-line bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5"
                 placeholder="code here..."></textarea>
@@ -27,9 +30,10 @@
             </form>
         </div>
         <div class="flex justify-between" >
-            <a href="/soluciones/{{$ejercicio->id}}" class="hover:text-blue-400">Soluciones</a>
+            <a href="{{route('ver-soluciones', $ejercicio)}}" class="hover:text-blue-400">Soluciones</a>
 
-            @if (App\Http\Controllers\UserController::logueado())
+{{--Ponerlo en una página que sea solo para mis ejercicios
+                 @if (App\Http\Controllers\UserController::logueado())
                 @if (Illuminate\Support\Facades\DB::table('users')->where('email', session('usuario'))->first()->id === $ejercicio->user_id)
                     <form action="/delete/ejer/{{$ejercicio->id}}" method="post">
                     @csrf
@@ -37,9 +41,9 @@
                         <input type="submit" value="Borrar" class="bg-gray-300 hover:bg-red-500 p-2 rounded-lg" onclick="return confirm('Seguro que quieres borrarlo?')">
                     </form>
                 @endif
-            @endif
+            @endif --}}
         </div>
 
     </div>
 
-</x-layout>
+</x-app-layout>

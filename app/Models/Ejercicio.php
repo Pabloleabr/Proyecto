@@ -12,7 +12,6 @@ class Ejercicio extends Model
     protected $fillable = [
         'titulo' ,
         'descripcion' ,
-        'resultado' ,
         'dificultad' ,
         'user_id',
     ];

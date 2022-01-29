@@ -6,29 +6,28 @@
         </h2>
     </x-slot>
 
-    <form action="/store_ejer" method="POST" class="m-8">
+    <form action="{{ route('guardar-ejer') }}" method="POST" class="m-8">
         @csrf
         <div class="mb-6">
             <label for="titulo" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
                 Título</label>
             <input name="titulo" type="text" id="titulo" value="{{ old('titulo') }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required>
         </div>
         <div class="mb-6">
             <label for="descripcion" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
                 Descrición</label>
             <textarea name="descripcion" id="descripcion" cols="30" rows="10" style="resize: none"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required>{{ old('descripcion') }}
-            </textarea>
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                required>{{old('descripcion', '')}}</textarea>
         </div>
 
         <div class="mb-6">
             <label for="dificultad" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
                 Dificultad</label>
             <select name="dificultad" type="text" id="dificultad"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                 required>
                 <option value="facil">facil</option>
                 <option value="normal">normal</option>
