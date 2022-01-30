@@ -1,4 +1,5 @@
 <x-app-layout>
+    <div class="p-4">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Ejercicios
@@ -21,7 +22,7 @@
             <option value="dificil">dificil</option>
             <option value="extremo">extremo</option>
 
-        <input type="submit" value="buscar" class="border rounded-lg ml-2 p-1 hover:bg-gray-100 ">
+        <input type="submit" value="buscar" class="border bg-gray-100 rounded-lg ml-2 p-1 hover:bg-gray-500 hover:text-white">
     </form>
     <div class="mt-2">
         @php
@@ -45,7 +46,7 @@
             <div class="p-2 mb-2 border-gray-800 text-gray-900 rounded-lg border bg-gray-200 hover:bg-green-200">
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$ejer->titulo}}
-                        <span class="text-sm text-gray-500 ml-2 border border-gray-900 p-1">{{$ejer->dificultad}}</span>
+                        <span class="text-sm text-gray-500 ml-2 mb-2 border border-gray-900 p-1">{{$ejer->dificultad}}</span>
                         <ul class="flex justify-center ml-2">
                         @for ($i = 0.5; $i < $ejer->avgrating; $i++)
                             <li>
@@ -72,4 +73,5 @@
         @endforeach
     </div>
     {{$ejercicios->links()}}
+    </div>
 </x-app-layout>

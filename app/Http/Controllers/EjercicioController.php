@@ -64,8 +64,16 @@ class EjercicioController extends Controller
 
     public function show(Ejercicio $ejercicio)
     {
+        $respuesta1 = '';
+        $userId = Auth::user()->id;
+        foreach ($ejercicio->respuestas as $respuesta){
+            if($respuesta->user_id == $userId){
+                $respuesta1 = $respuesta->respuesta;
+            }
+        }
         return view('ejercicios.ejercicio', [
             'ejercicio' => $ejercicio,
+            'respuesta' => $respuesta1
         ]);
 
     }
@@ -74,7 +82,7 @@ class EjercicioController extends Controller
     {
         $ejer = $this->getEjercicios();
         $paginado = $ejer->paginate(10);
-        $lenguajes = DB::table('lenguajes')->get();
+        $lenguajes = Lenguaje::all();
 
         return view('ejercicios.ejercicios', [
             'ejercicios' => $paginado,
@@ -91,11 +99,11 @@ class EjercicioController extends Controller
     public function mis_ejer()
     {
 
-        $usuario = DB::table('users')->where('email', session('usuario'))->first();
+        $usuario = Auth::user();
         $ejers = $this->getEjercicios();
         $ejers->where('e.user_id', $usuario->id);
         $paginado = $ejers->paginate(10);
-        $lenguajes = DB::table('lenguajes')->get();
+        $lenguajes = Lenguaje::all();
 
         return view('ejercicios.ejercicios', [
             'ejercicios' => $paginado,
@@ -113,21 +121,13 @@ class EjercicioController extends Controller
      */
     public function rate(Ejercicio $ejercicio)
     {
-        $usuario = DB::table('users')->where('email', session('usuario'))->first();
+        $usuario = Auth::user();
         $validado = request()->validate([
             'rating' => 'integer|required|in:1,2,3,4,5'
         ]);
 
-        $solucionado = DB::table('respuestas')
-        ->where('user_id', $usuario->id)
-        ->where('ejer_id', $ejercicio->id);
-
-        if (!$solucionado->exists()) {
-            return redirect()->back()->with('error', 'termina el ejercicio antes, y entrega una solucion');
-        }
-
         DB::table('rating_ejer')->upsert([
-            'ejer_id' => $ejercicio->id,
+            'ejercicio_id' => $ejercicio->id,
             'user_id' => $usuario->id,
             'rating' => $validado['rating'],
         ],['ejer_id', 'user_id'], ['rating']);
@@ -137,7 +137,7 @@ class EjercicioController extends Controller
 
     public function rate_respuesta($id){
 
-        $usuario = DB::table('users')->where('email', session('usuario'))->first();
+        $usuario = Auth::user();
         $validado = request()->validate([
             'rating' => 'integer|required|in:1,2,3,4,5'
         ]);
@@ -151,21 +151,21 @@ class EjercicioController extends Controller
         return redirect()->back()->with('success', 'respuesta evaluada');
     }
 
-    public function store_solucion($id)
+    public function store_solucion(Ejercicio $ejercicio)
     {
 
-        $usuario = DB::table('users')->where('email', session('usuario'))->first();
+        $usuario = Auth::user();
         $validado = request()->validate([
             'code' => 'string|required',
         ]);
 
         DB::table('respuestas')->upsert([
-            'ejer_id' => $id,
+            'ejercicio_id' => $ejercicio->id,
             'user_id' => $usuario->id,
             'respuesta' => $validado['code'],
-        ],['ejer_id', 'user_id'], ['respuesta']);
+        ],['ejercicio_id', 'user_id'], ['respuesta']);
 
-        return redirect()->back()->with('success', 'solucion guardada');
+        return redirect(route('mostrar-ejer', $ejercicio))->with('success', 'solucion guardada');
     }
 
     /**
@@ -175,21 +175,17 @@ class EjercicioController extends Controller
      * @param  int $id
      * @return void
      */
-    public function show_soluciones($id)
+    public function show_soluciones(Ejercicio $ejercicio)
     {
-        $ejer = DB::table('ejercicios')
-        ->where('id', $id)
-        ->first();
-
         $respuestas = DB::table('respuestas', 'r')
-        ->where('ejer_id', $id)
+        ->where('ejercicio_id', $ejercicio->id)
         ->leftJoin('rating_respuestas', 'r.id', '=', 'respuesta_id')
         ->select('r.respuesta', 'r.id', DB::raw('round(avg(rating), 1) AS avgrating'), DB::raw('count(rating) AS numrating'))
         ->groupBy('r.id', 'r.respuesta')
         ->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc')
         ->paginate(10);
         return view('ejercicios.soluciones', [
-            'ejercicio' => $ejer,
+            'ejercicio' => $ejercicio,
             'respuestas' => $respuestas
         ]);
     }

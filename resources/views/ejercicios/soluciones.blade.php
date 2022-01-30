@@ -1,4 +1,12 @@
-<x-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Estas en las soluciones del ejercicio
+            <span class="font-bold underline">{{$ejercicio->titulo}}</span>
+             de
+            <span class="font-bold underline">{{$ejercicio->user->name}}</span>
+        </h2>
+    </x-slot>
     <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
         <div class="flex justify-between ">
             <h2 class="text-lg text-gray-900 block mb-2 dark:text-gray-300">
@@ -45,4 +53,4 @@
         {{$respuestas->links()}}
     </div>
 
-</x-layout>
+</x-app-layout>

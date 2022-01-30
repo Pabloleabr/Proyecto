@@ -1,15 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{$ejercicio->titulo}}
+            Estas en el ejercicio
+            <span class="font-bold underline">{{$ejercicio->titulo}}</span>
+             de
+            <span class="font-bold underline">{{$ejercicio->user->name}}</span>
         </h2>
     </x-slot>
     <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
-        <div class="flex justify-between ">
-
-            <form action="{{route('rate-ejer', $ejercicio)}}" method="post">
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{$ejercicio->titulo}}
+            </h2>
+            <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2">
             @csrf
-                <select name="rating" id="">
+                <select name="rating" id="" class=" h-10">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -25,8 +30,8 @@
             <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full ml-4 mr-2">
                 @csrf
                 <textarea name="code" id="code" cols="50" rows="10" style="resize:none" class="h-80 whitespace-pre-line bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5"
-                placeholder="code here..."></textarea>
-                <input type="submit" value="Subir" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg hover:bg-green-300 p-1">
+                placeholder="codigo aqui...">{{$respuesta}}</textarea>
+                <input type="submit" value="Subir" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg hover:bg-green-300 p-1 mt-2">
             </form>
         </div>
         <div class="flex justify-between" >

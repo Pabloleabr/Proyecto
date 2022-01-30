@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard'); */
 
 Route::get('ejercicio/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');
@@ -34,8 +34,8 @@ Route::middleware(['auth'])->group(function () {
     ->name('crear-ejer');
     Route::post('store_ejer', [EjercicioController::class, 'store'])
     ->name('guardar-ejer');
-    Route::get('mis_ejer', [EjercicioController::class, 'mis_ejer'])
-    ->name('mis-ejer');
+    Route::get('dashboard', [EjercicioController::class, 'mis_ejer'])
+    ->name('dashboard');
     Route::delete('delete/ejer/{ejercicio}', [EjercicioController::class, 'delete_ejer'])
     ->name('borrar-ejer');
     Route::post('ejercicio/rate/{ejercicio}', [EjercicioController::class, 'rate'])
