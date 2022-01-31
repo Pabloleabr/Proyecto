@@ -16,8 +16,9 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div class="font-sans text-gray-900 antialiased">
+    <body class="antialiased">
+        @include('layouts.navigation-guest')
+        <div class="bg-gray-100">
             {{ $slot }}
         </div>
     </body>

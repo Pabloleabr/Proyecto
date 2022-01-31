@@ -14,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EjercicioController::class, 'ejercicios'])
+->name('ver-ejercicios');
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');
@@ -24,10 +23,10 @@ Route::get('/', function () {
 
 Route::get('ejercicio/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');
-Route::get('ejercicios', [EjercicioController::class, 'ejercicios'])
-->name('ver-ejercicios');
 Route::get('soluciones/{ejercicio}', [EjercicioController::class, 'show_soluciones'])
 ->name('ver-soluciones');
+Route::get('ejercicios', [EjercicioController::class, 'ejercicios'])
+->name('ver-ejercicios');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('create_ejer', [EjercicioController::class, 'create'])
