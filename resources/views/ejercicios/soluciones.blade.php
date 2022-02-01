@@ -35,16 +35,16 @@
                     >{{$res->respuesta}}</p>
                 </div>
                 @if (!empty(Auth::user()))
-                <form action="/respuesta/rate/{{$res->id}}" method="post" class="p-2 bg-green-200 rounded-lg">
+                <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg">
                     @csrf
-                        <select name="rating" id="">
+                        <select name="rating" id="" class="rounded-lg">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <input type="submit" value="Rate">
+                        <input class="bg-slate-300 rounded-lg p-2 hover:bg-gray-600 hover:text-white" type="submit" value="Rate">
                     </form>
 
                 @endif

@@ -2,11 +2,13 @@
     <div class="p-4">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Ejercicios
+            Mis Ejercicios
         </h2>
     </x-slot>
 
-    <form action="{{route('ver-ejercicios')}}" method="get" class="rounded-lg bg-gray-300 p-2 ">
+
+    <form action="{{route('dashboard')}}" method="get" class="rounded-lg bg-gray-300 p-2 ">
+        <!--La busqueda por alguna razon lo hace de todos los usuarios-->
         <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="bg-gray-200 border border-gray-800 text-gray-900 rounded-lg hover:bg-gray-100">
         <select name="lenguaje" id="lenguaje" class="hover:bg-gray-100 rounded-lg">
             <option value=""></option>
@@ -58,24 +60,21 @@
                         </ul>
                         {{$ejercicio->avgrating}}
                         </h3>
-                        <div class="flex ">
-                            @foreach ($leng[$ejercicio->id] as $l)
-                                <p class="p-1 ml-1 border-2 border-green-400 bg-gray-300 rounded-lg">{{$l}}</p>
-                            @endforeach
-                                </div>
+                            <div class="flex ">
+                        @foreach ($leng[$ejercicio->id] as $l)
+                            <p class="p-1 ml-1 border-2 border-green-400 bg-gray-300 rounded-lg">{{$l}}</p>
+                        @endforeach
+                            </div>
                 </div>
                 <hr class="bg-gray-600 border-0 h-px">
                     <p class="whitespace-pre-line max-h-24 truncate">{{$ejercicio->descripcion}}</p>
                 </div>
+            </a>
             </a>
             @endif
 
         @endforeach
     </div>
     {{$ejercicios->links()}}
-
-
-
-
     </div>
 </x-app-layout>

@@ -18,14 +18,14 @@
             @if (!empty(Auth::user()))
             <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2">
             @csrf
-                <select name="rating" id="" class=" h-10">
+                <select name="rating" id="" class="rounded-lg h-10">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input type="submit" value="Rate">
+                <input class="bg-slate-300 rounded-lg p-2 hover:bg-gray-600 hover:text-white" type="submit" value="Rate">
             </form>
             @endif
         </div>
