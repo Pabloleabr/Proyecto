@@ -65,7 +65,6 @@ class EjercicioController extends Controller
     public function show(Ejercicio $ejercicio)
     {
         $respuesta1 = '';
-        $ruta = 'ejercicios.ejercicio-g';
         if(!empty(Auth::user())){
             $userId = Auth::user()->id;
             foreach ($ejercicio->respuestas as $respuesta){
@@ -73,9 +72,8 @@ class EjercicioController extends Controller
                     $respuesta1 = $respuesta->respuesta;
                 }
             }
-            $ruta = 'ejercicios.ejercicio';
         }
-        return view($ruta, [
+        return view('ejercicios.ejercicio', [
             'ejercicio' => $ejercicio,
             'respuesta' => $respuesta1
         ]);
@@ -88,13 +86,7 @@ class EjercicioController extends Controller
         $paginado = $ejer->paginate(10);
         $lenguajes = Lenguaje::all();
 
-        $ruta = 'ejercicios.ejercicios-guest';
-
-
-        if(!empty(Auth::User())){
-            $ruta = 'ejercicios.ejercicios';
-        }
-        return view($ruta, [
+        return view('ejercicios.ejercicios', [
             'ejercicios' => $paginado,
             'lenguajes' => $lenguajes,
         ]);

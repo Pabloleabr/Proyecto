@@ -34,6 +34,7 @@
                     <p class="p-2 whitespace-pre-line text-gray-900 sm:text-sm "
                     >{{$res->respuesta}}</p>
                 </div>
+                @if (!empty(Auth::user()))
                 <form action="/respuesta/rate/{{$res->id}}" method="post" class="p-2 bg-green-200 rounded-lg">
                     @csrf
                         <select name="rating" id="">
@@ -45,6 +46,8 @@
                         </select>
                         <input type="submit" value="Rate">
                     </form>
+
+                @endif
             </div>
 
             @endforeach
