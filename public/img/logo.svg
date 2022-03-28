@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="210mm"
+   viewBox="0 0 210 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="C:\Users\pablo\Documents\TFG\logomini.png"
+   inkscape:export-xdpi="3.4056699"
+   inkscape:export-ydpi="3.4056699"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74118967"
+     inkscape:cx="530.90324"
+     inkscape:cy="528.20488"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient9715"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#c30000;stop-opacity:1;"
+         offset="0"
+         id="stop9713" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:#ffffff;stroke-width:0.264583"
+       id="path846"
+       cx="46.584736"
+       cy="40.873196"
+       rx="15.885216"
+       ry="13.386418" />
+    <path
+       style="fill:#000000"
+       id="path894"
+       sodipodi:type="arc"
+       sodipodi:cx="105.18771"
+       sodipodi:cy="105.74282"
+       sodipodi:rx="104.41401"
+       sodipodi:ry="104.77109"
+       sodipodi:start="0"
+       sodipodi:end="6.2694377"
+       sodipodi:arc-type="arc"
+       d="M 209.60172,105.74282 A 104.41401,104.77109 0 0 1 105.54657,210.51329 104.41401,104.77109 0 0 1 0.77617126,106.46299 104.41401,104.77109 0 0 1 104.11115,0.97730218 104.41401,104.77109 0 0 1 209.59186,104.30251"
+       sodipodi:open="true"
+       transform="matrix(0.99999701,-0.00244727,0.00281424,0.99999604,0,0)"
+       inkscape:export-filename="C:\Users\pablo\Documents\TFG\logo.png"
+       inkscape:export-xdpi="92.160004"
+       inkscape:export-ydpi="92.160004" />
+    <rect
+       style="fill:#c20000;fill-opacity:0;stroke:#bc0000;stroke-width:2.92553;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1368"
+       width="142.86293"
+       height="145.36171"
+       x="33.518051"
+       y="33.161083"
+       ry="0" />
+    <rect
+       style="fill:#c20000;fill-opacity:0;stroke:#bc0000;stroke-width:2.47263;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1368-6"
+       width="120.45864"
+       height="123.15125"
+       x="58.832973"
+       y="28.211346"
+       ry="0"
+       transform="matrix(0.98965059,0.14349811,-0.14210763,0.98985121,0,0)" />
+    <rect
+       style="fill:#c20000;fill-opacity:0;stroke:#bc0000;stroke-width:2.04095;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1368-6-1"
+       width="100.37618"
+       height="100.69119"
+       x="82.19207"
+       y="16.532068"
+       ry="0"
+       transform="matrix(0.94646263,0.32281339,-0.30492351,0.95237684,0,0)" />
+    <rect
+       style="fill:#c20000;fill-opacity:0;stroke:#bc0000;stroke-width:1.60813;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1368-6-1-2"
+       width="79.111336"
+       height="79.315155"
+       x="105.86478"
+       y="-6.6797223"
+       ry="0"
+       transform="matrix(0.84185975,0.53969636,-0.52473083,0.85126821,0,0)" />
+    <rect
+       style="fill:#c20000;fill-opacity:0;stroke:#bc0000;stroke-width:1.26803;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1368-6-1-2-8"
+       width="62.385471"
+       height="62.53648"
+       x="118.5816"
+       y="-34.768112"
+       ry="0"
+       transform="matrix(0.68469456,0.72883013,-0.71396463,0.70018177,0,0)" />
+  </g>
+</svg>
