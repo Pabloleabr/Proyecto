@@ -1,28 +1,28 @@
 <x-app-layout>
-    <div class="p-4">
+    <div class="">
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="">
             Ejercicios
         </h2>
     </x-slot>
 
-    <form action="{{route('ver-ejercicios')}}" method="get" class="rounded-lg bg-gray-300 p-2 ">
-        <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="bg-gray-200 border border-gray-800 text-gray-900 rounded-lg hover:bg-gray-100">
-        <select name="lenguaje" id="lenguaje" class="hover:bg-gray-100 rounded-lg">
+    <form action="{{route('ver-ejercicios')}}" method="get" class="">
+        <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="">
+        <select name="lenguaje" id="lenguaje" class="">
             <option value=""></option>
             @foreach ($lenguajes as $lenguaje)
             <option value="{{$lenguaje->id}}">{{$lenguaje->lenguaje}}</option>
 
             @endforeach
         </select>
-        <select name="dificultad" id="dificultad" class="hover:bg-gray-100 rounded-lg">
+        <select name="dificultad" id="dificultad" class="">
             <option value=""></option>
             <option value="facil">facil</option>
             <option value="normal">normal</option>
             <option value="dificil">dificil</option>
             <option value="extremo">extremo</option>
 
-        <input type="submit" value="buscar" class="border bg-gray-100 rounded-lg ml-2 p-1 hover:bg-gray-500 hover:text-white">
+        <input type="submit" value="buscar" class="">
     </form>
     <div class="mt-2">
         @php
@@ -43,10 +43,10 @@
                 $vistos[] = $ejercicio->id;
             @endphp
             <a href="{{route('mostrar-ejer', $ejercicio->id)}}" >
-            <div class="p-2 mb-2 border-gray-800 text-gray-900 rounded-lg border bg-gray-200 hover:bg-green-200">
+            <div class="">
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$ejercicio->titulo}}
-                        <span class="text-sm text-gray-500 ml-2 mb-2 border border-gray-900 p-1">{{$ejercicio->dificultad}}</span>
+                        <span class="">{{$ejercicio->dificultad}}</span>
                         <ul class="flex justify-center ml-2">
                         @for ($i = 0.5; $i < $ejercicio->avgrating; $i++)
                             <li>
@@ -60,11 +60,11 @@
                         </h3>
                         <div class="flex ">
                             @foreach ($leng[$ejercicio->id] as $l)
-                                <p class="p-1 ml-1 border-2 border-green-400 bg-gray-300 rounded-lg">{{$l}}</p>
+                                <p class="">{{$l}}</p>
                             @endforeach
                                 </div>
                 </div>
-                <hr class="bg-gray-600 border-0 h-px">
+                <hr class="codigo">
                     <p class="whitespace-pre-line max-h-24 truncate">{{$ejercicio->descripcion}}</p>
                 </div>
             </a>

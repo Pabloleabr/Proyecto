@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap');
+
+$rojo:#860000;
+$codigo:#1D1D1D;
+$gray:#3F3F3F;
+$d-gray:#2E2E2E;
+$f-color:white;
+
+html{
+    font-family: 'Fredoka', 'Open Sans', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: $d-gray;
+    color: $f-color;
+}
+
+div{
+    background-color: $gray;
+}
+.codigo{
+    background-color: #1D1D1D;
+}
+/*antiguo*/
+.dropdown{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
+}
+.dropdown:hover .drop-content{ display: block;}
+
+.drop-content{
+    display: none;
+    width:auto;
+    position: absolute;
+    box-shadow: 0 8px 16px 0 #00000000;
+    padding: 0.5rem;
+}
+.drop-content a{display: inline-block;}

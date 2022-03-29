@@ -1,16 +1,43 @@
-.dropdown{
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap");
+html {
+  font-family: "Fredoka", "Open Sans", sans-serif;
 }
-.dropdown:hover .drop-content{ display: block;}
 
-.drop-content{
-    display: none;
-    width:auto;
-    position: absolute;
-    box-shadow: 0 8px 16px 0 #00000080;
-    padding: 0.5rem;
+body {
+  margin: 0;
+  background-color: #2E2E2E;
+  color: white;
 }
-.drop-content a{display: inline-block;}
+
+div {
+  background-color: #3F3F3F;
+}
+
+.codigo {
+  background-color: #1D1D1D;
+}
+
+/*antiguo*/
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
+
+.drop-content {
+  display: none;
+  width: auto;
+  position: absolute;
+  box-shadow: 0 8px 16px 0 #00000000;
+  padding: 0.5rem;
+}
+
+.drop-content a {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=mycss.css.map */
