@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="">
+<nav style="position:fixed; width:100vw" class="">
     <!-- Primary Navigation Menu -->
     <div class="">
         <div class="">
@@ -75,7 +75,7 @@
 
             </div>
             <!--navbar-->
-            <div id="nav">
+            <div id="nav" class="">
 
                     <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
                         Ejercicios
