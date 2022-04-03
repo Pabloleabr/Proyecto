@@ -1,30 +1,33 @@
 <x-app-layout>
-    <div class="">
-    <x-slot name="header">
-        <h2 class="">
-            Ejercicios
-        </h2>
-    </x-slot>
+    <div class="flex " style="margin-top: 75px; ">
+        <x-slot name="header">
+            <h2 class="">
+                Ejercicios
+            </h2>
+        </x-slot>
 
-    <form action="{{route('ver-ejercicios')}}" method="get" class="">
-        <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="">
-        <select name="lenguaje" id="lenguaje" class="">
-            <option value=""></option>
-            @foreach ($lenguajes as $lenguaje)
-            <option value="{{$lenguaje->id}}">{{$lenguaje->lenguaje}}</option>
+        <form action="{{route('ver-ejercicios')}}" method="get" class="flex flex-col mr-4" style="width:15vw">
+            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
+            style="position: absolute; left:18vw; top:70px; width:80vw">
+            <label for="lenguaje"><h2>Lenguaje:</h2></label>
+            <select name="lenguaje" id="lenguaje" class="m-2 custom-select">
+                <option value=""></option>
+                @foreach ($lenguajes as $lenguaje)
+                <option value="{{$lenguaje->id}}">{{$lenguaje->lenguaje}}</option>
 
-            @endforeach
-        </select>
-        <select name="dificultad" id="dificultad" class="">
-            <option value=""></option>
-            <option value="facil">facil</option>
-            <option value="normal">normal</option>
-            <option value="dificil">dificil</option>
-            <option value="extremo">extremo</option>
+                @endforeach
+            </select>
+            <label for="dificultad"><h2>Dificultad:</h2></label>
+            <select name="dificultad" id="dificultad" class="m-2 custom-select">
+                <option value=""></option>
+                <option value="facil">facil</option>
+                <option value="normal">normal</option>
+                <option value="dificil">dificil</option>
+                <option value="extremo">extremo</option>
 
-        <input type="submit" value="buscar" class="">
-    </form>
-    <div class="mt-2">
+            <input type="submit" value="buscar" class="">
+        </form>
+        <div class="mt-2">
         @php
             $leng = [];
         foreach ($ejercicios as $key => $ejer) {
@@ -37,13 +40,15 @@
         }
         $vistos = [];
         @endphp
+        <div class="barra p-2"><h2>Ejercicios</h2></div>
         @foreach ($ejercicios as $ejercicio)
-            @if (!in_array($ejercicio->id, $vistos ))
-            @php
-                $vistos[] = $ejercicio->id;
-            @endphp
-            <a href="{{route('mostrar-ejer', $ejercicio->id)}}" >
-            <div class="">
+        @if (!in_array($ejercicio->id, $vistos ))
+        @php
+
+        @endphp
+
+            <a href="{{route('mostrar-ejer', $ejercicio->id)}}" class="flex p-2 codigo mt-4" style="width: 65vw">
+            <div style="width: 65vw" >
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$ejercicio->titulo}}
                         <span class="">{{$ejercicio->dificultad}}</span>
@@ -71,11 +76,10 @@
             @endif
 
         @endforeach
+        <div  class="mt-4" style="color: white">
+            {{$ejercicios->links()}}
+        </div>
     </div>
-    {{$ejercicios->links()}}
-
-
-
-
     </div>
+    <script src="" defer></script>
 </x-app-layout>

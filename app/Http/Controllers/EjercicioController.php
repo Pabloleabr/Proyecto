@@ -83,7 +83,7 @@ class EjercicioController extends Controller
     public function ejercicios()
     {
         $ejer = $this->getEjercicios();
-        $paginado = $ejer->paginate(10);
+        $paginado = $ejer->paginate(2);
         $lenguajes = Lenguaje::all();
 
         return view('ejercicios.ejercicios', [
@@ -201,6 +201,7 @@ class EjercicioController extends Controller
     }
 
     private function getEjercicios(){
+        //arreglar por que no funciona del todo bien
         $ejer = DB::table('ejercicios', 'e')
         ->join('ejercicios_lenguajes AS el', 'e.id', '=', 'el.ejercicio_id')
         ->join('lenguajes AS l', 'el.lenguaje_id', '=', 'l.id')
