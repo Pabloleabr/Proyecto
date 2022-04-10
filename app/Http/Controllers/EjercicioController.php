@@ -107,7 +107,7 @@ class EjercicioController extends Controller
         $paginado = $ejers->paginate(10);
         $lenguajes = Lenguaje::all();
 
-        return view('ejercicios.mis-ejercicios', [
+        return view('ejercicios.dashboard', [
             'ejercicios' => $paginado,
             'lenguajes' => $lenguajes,
         ]);

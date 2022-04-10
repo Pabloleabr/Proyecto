@@ -13,6 +13,16 @@ body {
   font-weight: 800;
 }
 
+.barraroja {
+  background-color: #860000;
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  height: 2.5rem;
+  width: 65vw;
+  transform: translate(-0.2%, -66%);
+}
+
 h2 {
   font-size: large;
   font-weight: 800;
@@ -26,6 +36,11 @@ h2 {
   background-color: #3F3F3F;
   border: 1px solid white;
   height: 40px;
+}
+
+select > option {
+  background-color: #3F3F3F;
+  color: white;
 }
 
 .buscador {
@@ -47,6 +62,7 @@ h2 {
   width: 15vw;
   height: 100vh;
   left: 0;
+  z-index: 1;
 }
 
 .navlink {

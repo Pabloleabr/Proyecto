@@ -19,13 +19,13 @@
             </select>
             <label for="dificultad"><h2>Dificultad:</h2></label>
             <select name="dificultad" id="dificultad" class="m-2 custom-select">
-                <option value=""></option>
+                <option value="" style="background: #3F3F3F"></option>
                 <option value="facil">facil</option>
                 <option value="normal">normal</option>
                 <option value="dificil">dificil</option>
                 <option value="extremo">extremo</option>
 
-            <input type="submit" value="buscar" class="">
+            <input type="submit" value="buscar" class="boton">
         </form>
         <div class="mt-2">
         @php
@@ -40,7 +40,7 @@
         }
         $vistos = [];
         @endphp
-        <div class="barra p-2"><h2>Ejercicios</h2></div>
+        <div class="barra p-2"><h2>Ejercicios</h2><div class="barraroja"></div></div>
         @foreach ($ejercicios as $ejercicio)
         @if (!in_array($ejercicio->id, $vistos ))
         @php

@@ -3,7 +3,7 @@
     <div class="">
         <div class="">
             <!-- header -->
-            <div class="flex pt-2 w-max barra pl-2 pb-1 justify-between">
+            <div class="flex pt-2 w-max barra pl-2 pb-1 justify-between" style="width: 100vw">
                 <!-- Logo -->
                 <div class="flex">
                     <a class="w-10" href="{{ route('ver-ejercicios') }}">
@@ -86,7 +86,7 @@
                 <!--Navigation Links for users-->
 
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Mis Ejercicios') }}
+                        {{ __('Dashboard') }}
                     </x-nav-link>
 
 
