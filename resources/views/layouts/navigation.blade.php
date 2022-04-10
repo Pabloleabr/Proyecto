@@ -76,6 +76,9 @@
             </div>
             <!--navbar-->
             <div id="nav" class="">
+                <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
+                    Inicio
+                </x-nav-link>
 
                     <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
                         Ejercicios

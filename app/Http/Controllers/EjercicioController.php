@@ -104,7 +104,7 @@ class EjercicioController extends Controller
         $usuario = Auth::user();
         $ejers = $this->getEjercicios();
         $ejers->where('e.user_id', $usuario->id);
-        $paginado = $ejers->paginate(10);
+        $paginado = $ejers->paginate(4);
         $lenguajes = Lenguaje::all();
 
         return view('ejercicios.dashboard', [

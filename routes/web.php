@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
 
-/* Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard'); */
+Route::get('/inicio', function () {
+    return view('inicio');
+})->middleware(['auth'])->name('inicio');
 
 Route::get('ejercicio/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');

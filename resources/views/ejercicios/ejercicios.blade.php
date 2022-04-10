@@ -7,8 +7,11 @@
         </x-slot>
 
         <form action="{{route('ver-ejercicios')}}" method="get" class="flex flex-col mr-4" style="width:15vw">
+            <!--barra busqueda-->
             <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
             style="position: absolute; left:18vw; top:70px; width:80vw">
+
+
             <label for="lenguaje"><h2>Lenguaje:</h2></label>
             <select name="lenguaje" id="lenguaje" class="m-2 custom-select">
                 <option value=""></option>
@@ -25,7 +28,7 @@
                 <option value="dificil">dificil</option>
                 <option value="extremo">extremo</option>
 
-            <input type="submit" value="buscar" class="boton">
+            <input type="submit" value="Buscar" class="boton m-2" >
         </form>
         <div class="mt-2">
         @php

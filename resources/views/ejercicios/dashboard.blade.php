@@ -6,24 +6,31 @@
         </h2>
     </x-slot>
 
-    <div style="width:35vw">
-
-        <form action="{{route('dashboard')}}" method="get" class="mb-10">
+    <div style="width:35vw" class="flex flex-col">
+        <div class="barra p-2 mb-4">
+            <h2>Tus Ejercicios</h2>
+            <div class="barraroja" style="width: 35vw"></div>
+        </div>
+        <form action="{{route('dashboard')}}" method="get" class="mb-2">
             <!--La busqueda por alguna razon lo hace de todos los usuarios-->
             <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
-            style="position: absolute; left:17.5vw; top:70px; width:35vw">
+            style="width:35vw; z-index: -1;
+            position: relative;">
 
-            <button type="submit" class="boton"
-            style="transform: translate(-25px,-50px);
+            <button type="submit" class=""
+            style="transform: translate(-18px,-4px);
             position: absolute;
             left: 50vw;
             z-index:-1;
             ">
-                buscar
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="50" height="50"
+                viewBox="0 0 50 50"
+                style=" fill:white; transform:scale(0.5)"><path d="M 21 4 C 11.082241 4 3 12.082241 3 22 C 3 31.917759 11.082241 40 21 40 C 24.62177 40 27.99231 38.91393 30.820312 37.0625 L 43.378906 49.621094 L 47.621094 45.378906 L 35.224609 32.982422 C 37.581469 29.938384 39 26.13473 39 22 C 39 12.082241 30.917759 4 21 4 z M 21 8 C 28.756241 8 35 14.243759 35 22 C 35 29.756241 28.756241 36 21 36 C 13.243759 36 7 29.756241 7 22 C 7 14.243759 13.243759 8 21 8 z"></path></svg>
             </button>
 
         </form>
-    <div class="mt-2">
+    <div class="">
         @php
             $leng = [];
         foreach ($ejercicios as $key => $ejer) {

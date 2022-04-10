@@ -71,6 +71,20 @@ select > option{
     left: 0;
     z-index: 1;
 }
+.boton{
+    background-color: $gray;
+    color: white;
+    transition: 1s;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.45);
+    padding: 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.boton:hover{
+    background-color: #3F3F3F80;
+    box-shadow: none;
+
+}
 .navlink{
     transition: 1s;
 }
@@ -82,6 +96,7 @@ select > option{
     background-color: $codigo;
     color: white;
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border: none;
 
 }
 /*antiguo*/
