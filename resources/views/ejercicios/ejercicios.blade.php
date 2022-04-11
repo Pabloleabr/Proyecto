@@ -1,30 +1,35 @@
 <x-app-layout>
-    <div class="p-4">
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Ejercicios
-        </h2>
-    </x-slot>
+    <div class="flex " style="margin-top: 75px; ">
+        <x-slot name="header">
+            <h2 class="">
+                Ejercicios
+            </h2>
+        </x-slot>
 
-    <form action="{{route('ver-ejercicios')}}" method="get" class="rounded-lg bg-gray-300 p-2 ">
-        <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="bg-gray-200 border border-gray-800 text-gray-900 rounded-lg hover:bg-gray-100">
-        <select name="lenguaje" id="lenguaje" class="hover:bg-gray-100 rounded-lg">
-            <option value=""></option>
-            @foreach ($lenguajes as $lenguaje)
-            <option value="{{$lenguaje->id}}">{{$lenguaje->lenguaje}}</option>
+        <form action="{{route('ver-ejercicios')}}" method="get" class="flex flex-col mr-4" style="width:15vw">
+            <!--barra busqueda-->
+            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
+            style="position: absolute; left:18vw; top:70px; width:80vw">
 
-            @endforeach
-        </select>
-        <select name="dificultad" id="dificultad" class="hover:bg-gray-100 rounded-lg">
-            <option value=""></option>
-            <option value="facil">facil</option>
-            <option value="normal">normal</option>
-            <option value="dificil">dificil</option>
-            <option value="extremo">extremo</option>
 
-        <input type="submit" value="buscar" class="border bg-gray-100 rounded-lg ml-2 p-1 hover:bg-gray-500 hover:text-white">
-    </form>
-    <div class="mt-2">
+            <label for="lenguaje"><h2>Lenguaje:</h2></label>
+            <select name="lenguaje" id="lenguaje" class="m-2 custom-select">
+                <option value=""></option>
+                @foreach ($lenguajes as $lenguaje)
+                <option value="{{$lenguaje->id}}">{{$lenguaje->lenguaje}}</option>
+
+                @endforeach
+            </select>
+            <label for="dificultad"><h2>Dificultad:</h2></label>
+            <select name="dificultad" id="dificultad" class="m-2 custom-select">
+                <option value="" style="background: #3F3F3F"></option>
+                <option value="facil">facil</option>
+                <option value="normal">normal</option>
+                <option value="dificil">dificil</option>
+                <option value="extremo">extremo</option>
+
+            <input type="submit" value="Buscar" class="boton m-2" >
+        </form>
         @php
             $leng = [];
         foreach ($ejercicios as $key => $ejer) {
@@ -37,16 +42,17 @@
         }
         $vistos = [];
         @endphp
+
+    <div class="mt-2">
+        <div class="barra p-2"><h2>Ejercicios</h2><div class="barraroja"></div></div>
         @foreach ($ejercicios as $ejercicio)
-            @if (!in_array($ejercicio->id, $vistos ))
-            @php
-                $vistos[] = $ejercicio->id;
-            @endphp
-            <a href="{{route('mostrar-ejer', $ejercicio->id)}}" >
-            <div class="p-2 mb-2 border-gray-800 text-gray-900 rounded-lg border bg-gray-200 hover:bg-green-200">
+        @if (!in_array($ejercicio->id, $vistos ))
+
+            <a href="{{route('mostrar-ejer', $ejercicio->id)}}" class="flex p-2 codigo mt-4" style="width: 65vw">
+            <div style="width: 65vw" >
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$ejercicio->titulo}}
-                        <span class="text-sm text-gray-500 ml-2 mb-2 border border-gray-900 p-1">{{$ejercicio->dificultad}}</span>
+                        <span class="">{{$ejercicio->dificultad}}</span>
                         <ul class="flex justify-center ml-2">
                         @for ($i = 0.5; $i < $ejercicio->avgrating; $i++)
                             <li>
@@ -60,22 +66,21 @@
                         </h3>
                         <div class="flex ">
                             @foreach ($leng[$ejercicio->id] as $l)
-                                <p class="p-1 ml-1 border-2 border-green-400 bg-gray-300 rounded-lg">{{$l}}</p>
+                                <p class="">{{$l}}</p>
                             @endforeach
                                 </div>
                 </div>
-                <hr class="bg-gray-600 border-0 h-px">
+                <hr class="bg-white">
                     <p class="whitespace-pre-line max-h-24 truncate">{{$ejercicio->descripcion}}</p>
                 </div>
             </a>
             @endif
 
         @endforeach
+        <div  class="mt-4" style="color: white">
+            {{$ejercicios->links()}}
+        </div>
     </div>
-    {{$ejercicios->links()}}
-
-
-
-
     </div>
+    <script src="" defer></script>
 </x-app-layout>

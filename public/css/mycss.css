@@ -1,16 +1,141 @@
-.dropdown{
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap");
+body {
+  margin: 0;
+  background-color: #2E2E2E;
+  color: white;
+  font-family: "Fredoka", "Open Sans", sans-serif;
 }
-.dropdown:hover .drop-content{ display: block;}
 
-.drop-content{
-    display: none;
-    width:auto;
-    position: absolute;
-    box-shadow: 0 8px 16px 0 #00000080;
-    padding: 0.5rem;
+.barra {
+  background-color: #3F3F3F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: large;
+  font-weight: 800;
 }
-.drop-content a{display: inline-block;}
+
+.barraroja {
+  background-color: #860000;
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  height: 2.5rem;
+  width: 65vw;
+  transform: translate(-0.2%, -66%);
+}
+
+h2 {
+  font-size: large;
+  font-weight: 800;
+}
+
+.separador {
+  background-color: #860000;
+  height: 5px;
+  border-radius: 10px;
+  width: 13vw;
+  margin: 8px 0px;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  font-family: "Fredoka";
+  border-radius: 10px;
+  color: white;
+  background-color: #3F3F3F;
+  border: 1px solid white;
+  height: 40px;
+}
+
+select > option {
+  background-color: #3F3F3F;
+  color: white;
+}
+
+.buscador {
+  background-color: #1D1D1D;
+  color: white;
+  border: 1px solid white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  z-index: -1;
+}
+
+#nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  padding-left: 12px;
+  background-color: #1D1D1D;
+  width: 15vw;
+  height: 100vh;
+  left: 0;
+  z-index: 1;
+}
+
+.boton {
+  background-color: #3F3F3F;
+  color: white;
+  transition: 1s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+  padding: 0.7rem;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid white;
+}
+
+input:focus, textarea:focus {
+  outline: none !important;
+}
+
+.boton:hover {
+  filter: brightness(80%);
+  box-shadow: none;
+}
+
+.navlink {
+  transition: 1s;
+  max-width: 15vw;
+}
+
+.navlink:hover {
+  text-decoration: underline;
+  text-shadow: 3px 3px #2E2E2E;
+}
+
+.codigo {
+  background-color: #1D1D1D;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+.codigo2 {
+  background-color: #1D1D1D;
+  color: white;
+}
+
+/*antiguo*/
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
+
+.drop-content {
+  display: none;
+  width: auto;
+  position: absolute;
+  box-shadow: 0 8px 16px 0 #00000000;
+  padding: 0.5rem;
+}
+
+.drop-content a {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=mycss.css.map */

@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap');
+
+$rojo:#860000;
+$codigo:#1D1D1D;
+$gray:#3F3F3F;
+$d-gray:#2E2E2E;
+$f-color:white;
+$font: 'Fredoka';
+$nav-width: 15vw;
+html{
+
+}
+
+body{
+    margin: 0;
+    background-color: $d-gray;
+    color: $f-color;
+    font-family: $font, 'Open Sans', sans-serif;
+}
+
+.barra{
+    background-color: $gray;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    font-size: large;
+    font-weight: 800;
+}
+.barraroja{
+    background-color: $rojo;
+    position: absolute;
+    display: flex;
+    z-index: -1;
+    height: 2.5rem;
+    width: 65vw;
+    transform: translate(-0.2%,-66%);
+}
+h2{
+    font-size: large;
+    font-weight: 800;
+}
+.separador{
+    background-color: $rojo;
+    height: 5px;
+    border-radius: 10px;
+    width: 13vw;
+    margin: 8px 0px;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+    font-family: $font;
+    border-radius: 10px;
+    color: white;
+    background-color: $gray;
+    border: 1px solid white;
+    height: 40px;
+  }
+
+select > option{
+    background-color: $gray;
+    color: white;
+}
+.buscador{
+    background-color: $codigo;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border-radius: 25px;
+    z-index: -1;
+}
+#nav{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    padding-left: 12px;
+    background-color: $codigo;
+    width: $nav-width;
+    height: 100vh;
+    left: 0;
+    z-index: 1;
+}
+.boton{
+    background-color: $gray;
+    color: white;
+    transition: 1s;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.45);
+    padding: 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid white;
+}
+input:focus, textarea:focus{//no se quita la linea azul
+    outline: none !important;
+}
+.boton:hover{
+    filter: brightness(80%);
+    box-shadow: none;
+
+}
+.navlink{
+    transition: 1s;
+    max-width: $nav-width;
+}
+.navlink:hover{
+    text-decoration: underline;
+    text-shadow: 3px 3px $d-gray;
+}
+.codigo{
+    background-color: $codigo;
+    color: white;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border: none;
+
+}
+.codigo2{
+    background-color: $codigo;
+    color: white;
+}
+/*antiguo*/
+.dropdown{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+
+}
+.dropdown:hover .drop-content{ display: block;}
+
+.drop-content{
+    display: none;
+    width:auto;
+    position: absolute;
+    box-shadow: 0 8px 16px 0 #00000000;
+    padding: 0.5rem;
+}
+.drop-content a{display: inline-block;}
