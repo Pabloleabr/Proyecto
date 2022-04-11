@@ -10,42 +10,47 @@
     </x-slot>
 
 
-    <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
+    <div class="m-8 p-2.5 barra rounded-md">
         <div class="flex justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{$ejercicio->titulo}}
+            <h2 class="font-semibold text-xl leading-tight underline">
+                {{$ejercicio->titulo}} <span class="text-xs">by {{$ejercicio->user->name}}</span>
             </h2>
             @if (!empty(Auth::user()))
             <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2">
             @csrf
-                <select name="rating" id="" class="rounded-lg h-10">
+                <select name="rating" id="" class="rounded-lg h-10 barra border border-white focus:outline-none">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input class="bg-slate-300 rounded-lg p-2 hover:bg-gray-600 hover:text-white" type="submit" value="Rate">
+                <input class="boton" style="padding: 7px" type="submit" value="Rate">
             </form>
             @endif
         </div>
         <div class="flex ml-2 mb-2 ">
-            <p class="whitespace-pre-line max-w-md bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5 "
-            >{{$ejercicio->descripcion}}</p>
+            <div class="border border-white border-collapse rounded-sm max-w-md w-full  ">
+                <p class="whitespace-pre-line max-w-md rounded-sm sm:text-sm  w-full p-2.5  h-full codigo opacity-80"
+                >{{$ejercicio->descripcion}}</p>
+
+            </div>
             <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full ml-4 mr-2">
                 @csrf
-                <textarea name="code" id="code" cols="50" rows="10" style="resize:none" class="h-80 whitespace-pre-line bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5"
+                <textarea name="code" id="code" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-80 whitespace-pre-line  sm:text-sm  w-full p-2.5"
                 placeholder="codigo aqui...">{{$respuesta}}</textarea>
-                @if (!empty(Auth::user()))
-                <input type="submit" value="Subir" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg hover:bg-green-300 p-1 mt-2">
-                @else
-                <p>logueate para subir tu respuesta</p>
-                @endif
+                <div class="flex">
+                    @if (!empty(Auth::user()))
+                    <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4">
+                    @else
+                    <p>logueate para subir tu respuesta</p>
+                    @endif
+                    <a href="{{route('ver-soluciones', $ejercicio)}}" class=" boton p-1 mt-2">Soluciones</a>
+                </div>
             </form>
 
         </div>
         <div class="flex justify-between" >
-            <a href="{{route('ver-soluciones', $ejercicio)}}" class="hover:text-blue-400">Soluciones</a>
 
 {{--Ponerlo en una página que sea solo para mis ejercicios
                  @if (App\Http\Controllers\UserController::logueado())

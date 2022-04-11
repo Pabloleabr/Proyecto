@@ -6,6 +6,7 @@ $gray:#3F3F3F;
 $d-gray:#2E2E2E;
 $f-color:white;
 $font: 'Fredoka';
+$nav-width: 15vw;
 html{
 
 }
@@ -35,6 +36,13 @@ body{
 h2{
     font-size: large;
     font-weight: 800;
+}
+.separador{
+    background-color: $rojo;
+    height: 5px;
+    border-radius: 10px;
+    width: 13vw;
+    margin: 8px 0px;
 }
 
 /*the container must be positioned relative:*/
@@ -66,7 +74,7 @@ select > option{
     padding: 16px;
     padding-left: 12px;
     background-color: $codigo;
-    width: 15vw;
+    width: $nav-width;
     height: 100vh;
     left: 0;
     z-index: 1;
@@ -79,14 +87,19 @@ select > option{
     padding: 0.7rem;
     border-radius: 5px;
     font-weight: 600;
+    border: 1px solid white;
+}
+input:focus, textarea:focus{//no se quita la linea azul
+    outline: none !important;
 }
 .boton:hover{
-    background-color: #3F3F3F80;
+    filter: brightness(80%);
     box-shadow: none;
 
 }
 .navlink{
     transition: 1s;
+    max-width: $nav-width;
 }
 .navlink:hover{
     text-decoration: underline;
@@ -98,6 +111,10 @@ select > option{
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     border: none;
 
+}
+.codigo2{
+    background-color: $codigo;
+    color: white;
 }
 /*antiguo*/
 .dropdown{

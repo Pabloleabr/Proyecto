@@ -7,19 +7,20 @@
             <span class="font-bold underline">{{$ejercicio->user->name}}</span>
         </h2>
     </x-slot>
-    <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
+
+    <div class="m-8 barra rounded-lg p-2.5 ">
         <div class="flex justify-between ">
-            <h2 class="text-lg text-gray-900 block mb-2 dark:text-gray-300">
+            <h2 class="text-lg  block mb-2">
                 {{$ejercicio->titulo}}
             </h2>
 
         </div>
-        <div class="grid ml-2 mb-2 ">
-            <p class="whitespace-pre-line bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5 "
+        <div class="grid ml-2 mb-2 mr-2">
+            <p class="whitespace-pre-line  sm:text-sm rounded-lg w-full p-2.5 codigo2"
             >{{$ejercicio->descripcion}}</p>
             <h3 class="mt-2">Respuestas</h3>
             @foreach ($respuestas as $res)
-            <div class="flex justify-between mt-2 bg-gray-200 border border-gray-300 rounded-lg  ">
+            <div class="flex justify-between mt-2  rounded-lg codigo2 ">
                 <div class="block">
                     <ul class="flex pl-2 pt-2">
                         @for ($i = 0.5; $i < $res->avgrating; $i++)
@@ -31,20 +32,20 @@
                         @endfor
                         <p class="">{{$res->avgrating}}</p>
                     </ul>
-                    <p class="p-2 whitespace-pre-line text-gray-900 sm:text-sm "
+                    <p class="p-2 whitespace-pre-line sm:text-sm "
                     >{{$res->respuesta}}</p>
                 </div>
                 @if (!empty(Auth::user()))
                 <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg">
                     @csrf
-                        <select name="rating" id="" class="rounded-lg">
+                        <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <input class="bg-slate-300 rounded-lg p-2 hover:bg-gray-600 hover:text-white" type="submit" value="Rate">
+                        <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
                     </form>
 
                 @endif

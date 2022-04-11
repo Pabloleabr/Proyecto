@@ -30,7 +30,6 @@
 
             <input type="submit" value="Buscar" class="boton m-2" >
         </form>
-        <div class="mt-2">
         @php
             $leng = [];
         foreach ($ejercicios as $key => $ejer) {
@@ -43,12 +42,11 @@
         }
         $vistos = [];
         @endphp
+
+    <div class="mt-2">
         <div class="barra p-2"><h2>Ejercicios</h2><div class="barraroja"></div></div>
         @foreach ($ejercicios as $ejercicio)
         @if (!in_array($ejercicio->id, $vistos ))
-        @php
-
-        @endphp
 
             <a href="{{route('mostrar-ejer', $ejercicio->id)}}" class="flex p-2 codigo mt-4" style="width: 65vw">
             <div style="width: 65vw" >
@@ -72,7 +70,7 @@
                             @endforeach
                                 </div>
                 </div>
-                <hr class="codigo">
+                <hr class="bg-white">
                     <p class="whitespace-pre-line max-h-24 truncate">{{$ejercicio->descripcion}}</p>
                 </div>
             </a>
