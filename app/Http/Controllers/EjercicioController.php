@@ -128,11 +128,11 @@ class EjercicioController extends Controller
             'rating' => 'integer|required|in:1,2,3,4,5'
         ]);
 
-        DB::table('rating_ejer')->upsert([
+        DB::table('rating_ejercicios')->upsert([
             'ejercicio_id' => $ejercicio->id,
             'user_id' => $usuario->id,
             'rating' => $validado['rating'],
-        ],['ejer_id', 'user_id'], ['rating']);
+        ],['ejercicio_id', 'user_id'], ['rating']);
 
         return redirect()->back()->with('success', 'Ejercicio evaluado');
     }

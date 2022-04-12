@@ -3,7 +3,7 @@
     <div class="">
         <div class="">
             <!-- header -->
-            <div class="flex pt-2 w-max barra pl-2 pb-1 justify-between" style="width: 100vw">
+            <div class="flex pt-2 w-max barra pl-2 pb-1 justify-between" style="width: 100vw; z-index:2">
                 <!-- Logo -->
                 <div class="flex">
                     <a class="w-10" href="{{ route('ver-ejercicios') }}">
@@ -82,7 +82,7 @@
 
             </div>
             <!--navbar-->
-            <div id="nav" class="">
+            <nav id="nav" class="">
                 <x-nav-link :href="route('inicio')" :active="request()->routeIs('inicio')">
                     Inicio
                 </x-nav-link>
@@ -119,7 +119,7 @@
                 @endif
 
 
-            </div>
+                </nav>
 
             <!-- Settings Dropdown -->
         </div>

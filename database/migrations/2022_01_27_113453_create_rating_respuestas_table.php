@@ -17,7 +17,7 @@ class CreateRatingRespuestasTable extends Migration
         Schema::create('rating_respuestas', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('respuesta_id')->constrained();
-            $table->integer('rating');
+            $table->smallInteger('rating');
             $table->timestamps();
             $table->primary(['user_id', 'respuesta_id']);
         });
