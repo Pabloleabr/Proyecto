@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             PreguntaSeeder::class,
             EjercicioSeeder::class,
             EjercicioLenguajeSeeder::class,
+            RespuestaSeeder::class,
+            RatingRespuestaSeeder::class,
+            RatingEjercicioSeeder::class,
+            RatingPreguntaSeeder::class,
         ]);
     }
 }
