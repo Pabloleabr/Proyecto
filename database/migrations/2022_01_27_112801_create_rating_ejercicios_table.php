@@ -17,7 +17,7 @@ class CreateRatingEjerciciosTable extends Migration
         Schema::create('rating_ejercicios', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('ejercicio_id')->constrained();
-            $table->integer('rating');
+            $table->smallInteger('rating');
             $table->timestamps();
             $table->primary(['user_id', 'ejercicio_id']);
         });

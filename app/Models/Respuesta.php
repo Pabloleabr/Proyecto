@@ -21,4 +21,8 @@ class Respuesta extends Model
     {
         $this->belongsTo(Ejercicio::class);
     }
+    public function pregunta()
+    {
+        $this->belongsTo(Pregunta::class);
+    }
 }

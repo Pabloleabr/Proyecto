@@ -52,7 +52,7 @@
             <div style="width: 65vw" >
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$ejercicio->titulo}}
-                        <span class="">{{$ejercicio->dificultad}}</span>
+                        <span class="text-sm ml-4 text-red-800">{{$ejercicio->dificultad}}</span>
                         <ul class="flex justify-center ml-2">
                         @for ($i = 0.5; $i < $ejercicio->avgrating; $i++)
                             <li>
@@ -66,7 +66,7 @@
                         </h3>
                         <div class="flex ">
                             @foreach ($leng[$ejercicio->id] as $l)
-                                <p class="">{{$l}}</p>
+                                <p class="ml-2">{{$l}}</p>
                             @endforeach
                                 </div>
                 </div>

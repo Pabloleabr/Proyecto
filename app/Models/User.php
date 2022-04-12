@@ -46,6 +46,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Ejercicio::class);
     }
+    public function preguntas()
+    {
+        return $this->hasMany(Pregunta::class);
+    }
     public function respuestas()
     {
         return $this->hasMany(Respuesta::class);
@@ -57,5 +61,9 @@ class User extends Authenticatable
     public function rating_respuestas()
     {
         return $this->hasMany(Rating_respuesta::class);
+    }
+    public function rating_preguntas()
+    {
+        return $this->hasMany(Rating_pregunta::class);
     }
 }

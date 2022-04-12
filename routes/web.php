@@ -14,18 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EjercicioController::class, 'ejercicios'])
-->name('ver-ejercicios');
+
 
 Route::get('/inicio', function () {
     return view('inicio');
 })->middleware(['auth'])->name('inicio');
 
-Route::get('ejercicio/{ejercicio}', [EjercicioController::class, 'show'])
+Route::get('/ejercicios/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');
-Route::get('soluciones/{ejercicio}', [EjercicioController::class, 'show_soluciones'])
+Route::get('/soluciones/{ejercicio}', [EjercicioController::class, 'show_soluciones'])
 ->name('ver-soluciones');
-Route::get('ejercicios', [EjercicioController::class, 'ejercicios'])
+Route::get('/ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
 
 Route::middleware(['auth'])->group(function () {
