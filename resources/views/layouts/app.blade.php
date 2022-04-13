@@ -16,6 +16,8 @@
         <!-- mi cosas css -->
         <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
 
+        @livewireStyles
+
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
@@ -45,5 +47,7 @@
                 </main>
             </div>
         </div>
+
+        @livewireScripts
     </body>
 </html>

@@ -24,7 +24,7 @@ class PreguntaController extends Controller
         }
         $preguntas = $preg;
         return view('preguntas.preguntas',[
-            'preguntas' => $preguntas,
+            'preguntas' => compact(app(Pregunta::class)),
         ]);
     }
 
