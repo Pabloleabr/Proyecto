@@ -14,8 +14,10 @@ class Preguntas extends Component
     public function render()
     {
         return view('livewire.preguntas',[
-            'preguntas' => Pregunta::where('titulo', 'ilike', "%$this->busca%")
-            ->orWhere('descripcion', 'ilike', "%$this->busca%")->paginate(5),
+            'preguntas' => Pregunta::withAvg('ratings as avg_rating','rating')
+            ->where('titulo', 'ilike', "%$this->busca%")
+            ->orWhere('descripcion', 'ilike', "%$this->busca%")
+            ->paginate(5),
         ]);
     }
 

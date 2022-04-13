@@ -109,7 +109,7 @@
                     Preguntas
                 </x-nav-link>
                 @if (!empty(Auth::user()))
-                    <x-nav-link :href="route('crear-ejer')" :active="request()->routeIs('crear-ejer')">
+                    <x-nav-link :href="route('crear-pregunta')" :active="request()->routeIs('crear-pregunta')">
                         Hacer Preguntas
                     </x-nav-link>
                     <div class="separador"></div>

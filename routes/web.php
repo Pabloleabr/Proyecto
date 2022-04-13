@@ -21,16 +21,26 @@ Route::get('/inicio', function () {
     return view('inicio');
 })->middleware(['auth'])->name('inicio');
 
+//Rutas para todos de ejericios
 Route::get('/ejercicios/{ejercicio}', [EjercicioController::class, 'show'])
 ->name('mostrar-ejer');
 Route::get('/soluciones/{ejercicio}', [EjercicioController::class, 'show_soluciones'])
 ->name('ver-soluciones');
 Route::get('/ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
+//Rutas para todos de preguntas
 Route::get('/preguntas', [PreguntaController::class, 'index'])
 ->name('ver-preguntas');
+Route::get('/pregunta/{pregunta}', [PreguntaController::class, 'show'])
+->name('mostrar-pregunta');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {//rutas para usuarios
+    //preguntas
+    Route::get('/create_pregunta', [PreguntaController::class, 'create'])
+    ->name('crear-pregunta');
+    Route::post('/store_pregunta', [PreguntaController::class, 'store'])
+    ->name('store-pregunta');
+    //ejercicios
     Route::get('create_ejer', [EjercicioController::class, 'create'])
     ->name('crear-ejer');
     Route::post('store_ejer', [EjercicioController::class, 'store'])

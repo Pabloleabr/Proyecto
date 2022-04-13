@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePreguntaRequest;
 use App\Http\Requests\UpdatePreguntaRequest;
 use App\Models\Pregunta;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PreguntaController extends Controller
 {
@@ -15,17 +17,7 @@ class PreguntaController extends Controller
      */
     public function index()
     {
-        if(($var = request()->query('busqueda')) != null){
-            $preg = Pregunta::where('titulo', 'ilike', "%$var%")
-            ->orWhere('descripcion', 'ilike', "%$var%")
-            ->paginate(5);
-        }else{
-            $preg = Pregunta::paginate(5);
-        }
-        $preguntas = $preg;
-        return view('preguntas.preguntas',[
-            'preguntas' => compact(app(Pregunta::class)),
-        ]);
+        return view('preguntas.preguntas');
     }
 
     /**
@@ -35,7 +27,7 @@ class PreguntaController extends Controller
      */
     public function create()
     {
-        //
+        return view('preguntas.create');
     }
 
     /**
@@ -44,9 +36,28 @@ class PreguntaController extends Controller
      * @param  \App\Http\Requests\StorePreguntaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePreguntaRequest $request)
+    public function store()
     {
-        //
+        $validado = request()->validate([
+            'titulo' => 'required|string',
+            'descripcion' => 'required|string',
+        ]);
+
+        //cojo el usuario actual
+        $user = Auth::user();
+
+        //volver si a existe una pregunta con el mismo id usario y titulo por que son unique
+        if(empty( $this->getPregunta($validado['titulo'], $user->id))){
+            return redirect()->back()->with('error', 'Ya has creado una Pregunta con ese titulo');
+        }
+
+        $pregunta = Pregunta::create([
+            'titulo' => $validado['titulo'],
+            'descripcion' => $validado['descripcion'],
+            'user_id' => $user->id,
+        ]);
+
+        return redirect(route("mostrar-pregunta", $pregunta));
     }
 
     /**
@@ -57,7 +68,9 @@ class PreguntaController extends Controller
      */
     public function show(Pregunta $pregunta)
     {
-        //
+        return view('preguntas.pregunta',[
+            'pregunta' => $pregunta,
+        ]);
     }
 
     /**
@@ -92,5 +105,11 @@ class PreguntaController extends Controller
     public function destroy(Pregunta $pregunta)
     {
         //
+    }
+
+    private function getPregunta($titulo, $user_id){
+        return Pregunta::where('titulo',$titulo)
+        ->where('user_id', $user_id)
+        ->get();
     }
 }
