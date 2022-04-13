@@ -15,7 +15,17 @@ class PreguntaController extends Controller
      */
     public function index()
     {
-        //
+        if(($var = request()->query('busqueda')) != null){
+            $preg = Pregunta::where('titulo', 'ilike', "%$var%")
+            ->orWhere('descripcion', 'ilike', "%$var%")
+            ->paginate(5);
+        }else{
+            $preg = Pregunta::paginate(5);
+        }
+        $preguntas = $preg;
+        return view('preguntas.preguntas',[
+            'preguntas' => $preguntas,
+        ]);
     }
 
     /**

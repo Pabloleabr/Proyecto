@@ -105,7 +105,7 @@
                 @endif
                 <div class="separador"></div>
 
-                <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
+                <x-nav-link :href="route('ver-preguntas')" :active="request()->routeIs('ver-preguntas')">
                     Preguntas
                 </x-nav-link>
                 @if (!empty(Auth::user()))

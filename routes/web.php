@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EjercicioController;
+use App\Http\Controllers\PreguntaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/soluciones/{ejercicio}', [EjercicioController::class, 'show_solucio
 ->name('ver-soluciones');
 Route::get('/ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
+Route::get('/preguntas', [PreguntaController::class, 'index'])
+->name('ver-preguntas');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('create_ejer', [EjercicioController::class, 'create'])
