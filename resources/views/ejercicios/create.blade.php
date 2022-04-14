@@ -55,7 +55,7 @@
 
         <button type="submit"
             class=" boton ">
-            Subit Ejercicio</button>
+            Subir Ejercicio</button>
     </form>
 
 </x-app-layout>

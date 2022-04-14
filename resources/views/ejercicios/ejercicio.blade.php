@@ -12,7 +12,7 @@
 
     <div class="m-8 p-2.5 barra rounded-md">
         <div class="flex justify-between">
-            <h2 class="font-semibold text-xl leading-tight underline">
+            <h2 class="font-semibold text-xl leading-tight underline mb-2">
                 {{$ejercicio->titulo}} <span class="text-xs">by {{$ejercicio->user->name}}</span>
             </h2>
             @if (!empty(Auth::user()))
@@ -43,7 +43,7 @@
                     @if (!empty(Auth::user()))
                     <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4">
                     @else
-                    <p>logueate para subir tu respuesta</p>
+                    <p class="m-2">logueate para subir tu respuesta</p>
                     @endif
                     <a href="{{route('ver-soluciones', $ejercicio)}}" class=" boton p-1 mt-2">Soluciones</a>
                 </div>
