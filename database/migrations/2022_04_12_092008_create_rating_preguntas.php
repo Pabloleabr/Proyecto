@@ -14,10 +14,11 @@ class CreateRatingPreguntas extends Migration
     public function up()
     {
         Schema::create('rating_preguntas', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('pregunta_id')->constrained();
             $table->smallInteger('rating');
-            $table->primary(['user_id', 'pregunta_id']);
+            $table->unique(['user_id', 'pregunta_id']);
             $table->timestamps();
         });
     }

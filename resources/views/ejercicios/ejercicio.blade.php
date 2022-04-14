@@ -12,7 +12,7 @@
 
     <div class="m-8 p-2.5 barra rounded-md">
         <div class="flex justify-between">
-            <h2 class="font-semibold text-xl leading-tight underline mb-2">
+            <h2 class="font-semibold text-2xl leading-tight underline mb-2">
                 {{$ejercicio->titulo}} <span class="text-xs">by {{$ejercicio->user->name}}</span>
             </h2>
             @if (!empty(Auth::user()))
@@ -41,28 +41,26 @@
                 placeholder="codigo aqui...">{{$respuesta}}</textarea>
                 <div class="flex">
                     @if (!empty(Auth::user()))
-                    <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4">
+                    <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
                     @else
                     <p class="m-2">logueate para subir tu respuesta</p>
                     @endif
                     <a href="{{route('ver-soluciones', $ejercicio)}}" class=" boton p-1 mt-2">Soluciones</a>
+
                 </div>
             </form>
 
-        </div>
-        <div class="flex justify-between" >
 
-{{--Ponerlo en una página que sea solo para mis ejercicios
-                 @if (App\Http\Controllers\UserController::logueado())
-                @if (Illuminate\Support\Facades\DB::table('users')->where('email', session('usuario'))->first()->id === $ejercicio->user_id)
-                    <form action="/delete/ejer/{{$ejercicio->id}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                        <input type="submit" value="Borrar" class="bg-gray-300 hover:bg-red-500 p-2 rounded-lg" onclick="return confirm('Seguro que quieres borrarlo?')">
-                    </form>
-                @endif
-            @endif --}}
         </div>
+        <!--Borrar-->
+        @if (!empty(Auth::user()) && Auth::user()->id === $ejercicio->user_id)
+            <form action="/delete/ejer/{{$ejercicio->id}}" method="post" class="">
+            @csrf
+            @method('DELETE')
+                <input type="submit" value="Borrar" class="boton hover:bg-red-500 m-2" onclick="return confirm('Seguro que quieres borrarlo?')">
+            </form>
+        @endif
+
 
     </div>
 

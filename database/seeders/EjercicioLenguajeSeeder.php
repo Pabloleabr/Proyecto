@@ -14,7 +14,7 @@ class EjercicioLenguajeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ejercicios_lenguajes')->insert([
+        DB::table('ejercicio_lenguaje')->insert([
             ['lenguaje_id' => 1, 'ejercicio_id' => 2],
             ['lenguaje_id' => 2, 'ejercicio_id' => 2],
             ['lenguaje_id' => 3, 'ejercicio_id' => 1],
