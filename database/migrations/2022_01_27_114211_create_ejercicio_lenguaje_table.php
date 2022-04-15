@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEjerciciosLenguajesTable extends Migration
+class CreateEjercicioLenguajeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateEjerciciosLenguajesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ejercicios_lenguajes', function (Blueprint $table) {
+        Schema::create('ejercicio_lenguaje', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('ejercicio_id')->constrained();
             $table->foreignId('lenguaje_id')->constrained();
-            $table->primary(['ejercicio_id', 'lenguaje_id']);
+            $table->unique(['ejercicio_id', 'lenguaje_id']);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateEjerciciosLenguajesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ejercicios_lenguajes');
+        Schema::dropIfExists('ejercicio_lenguaje');
     }
 }

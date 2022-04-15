@@ -53,13 +53,13 @@ class EjercicioController extends Controller
 
         //inserto en la tabla de la relacion ejer_lenguajes sus relaciones
         foreach ($validado['lenguajes'] as $lenguaje) {
-            DB::table('ejercicios_lenguajes')->insert([
+            DB::table('ejercicio_lenguaje')->insert([
                 'ejercicio_id' => $ejercicio->id,
                 'lenguaje_id' => $lenguaje,
             ]);
         }
 
-        return redirect(route("mostrar-ejer", $ejercicio));
+        return redirect(route("mostrar-ejer", $ejercicio))->with('success', 'Ejericico creado correctamente');
     }
 
     public function show(Ejercicio $ejercicio)
@@ -83,7 +83,7 @@ class EjercicioController extends Controller
     public function ejercicios()
     {
         $ejer = $this->getEjercicios();
-        $paginado = $ejer->paginate(2);
+        $paginado = $ejer->paginate(5);
         $lenguajes = Lenguaje::all();
 
         return view('ejercicios.ejercicios', [
@@ -92,11 +92,24 @@ class EjercicioController extends Controller
         ]);
     }
 
-    public function delete_ejer($id)
+    public function delete_ejer(Ejercicio $ejercicio)
     {
-        //hace falta hacer un on delete cascade, esperar a ver elocuent a ver si es mas facil
-        //DB::table('ejercicios')->delete($id);
-        return redirect('/mis_ejer');
+        //borro todas sus relaciones
+
+        foreach($ejercicio->ratings as $rating){
+            $rating->delete();
+        }
+        foreach($ejercicio->lenguajes as $lenguaje){
+            $lenguaje->pivot->delete();//borrar pivotes no lenguajes
+        }
+        foreach($ejercicio->respuestas as $res){
+            foreach($res->ratings as $rating){
+                $rating->delete();
+            }
+            $res->delete();
+        }
+        $ejercicio->delete();
+        return redirect('/dashboard')->with('success', 'Ejercicio Borrado');
     }
     public function mis_ejer()
     {
@@ -203,7 +216,7 @@ class EjercicioController extends Controller
     private function getEjercicios(){
         //arreglar por que no funciona del todo bien
         $ejer = DB::table('ejercicios', 'e')
-        ->join('ejercicios_lenguajes AS el', 'e.id', '=', 'el.ejercicio_id')
+        ->join('ejercicio_lenguaje AS el', 'e.id', '=', 'el.ejercicio_id')
         ->join('lenguajes AS l', 'el.lenguaje_id', '=', 'l.id')
         ->leftJoin('rating_ejercicios AS r', 'e.id', '=', 'r.ejercicio_id')
         ->select('e.id AS id', 'titulo' ,'descripcion', 'lenguaje',

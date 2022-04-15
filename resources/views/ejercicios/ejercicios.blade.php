@@ -62,7 +62,7 @@
                             </li>
                         @endfor
                         </ul>
-                        {{$ejercicio->avgrating}}
+                        {{$ejercicio->avgrating > 0 ? round($ejercicio->avgrating, 3) : ""}}
                         </h3>
                         <div class="flex ">
                             @foreach ($leng[$ejercicio->id] as $l)

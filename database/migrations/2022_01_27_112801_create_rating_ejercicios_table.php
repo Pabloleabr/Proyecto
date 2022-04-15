@@ -15,11 +15,14 @@ class CreateRatingEjerciciosTable extends Migration
     public function up()
     {
         Schema::create('rating_ejercicios', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('ejercicio_id')->constrained();
             $table->smallInteger('rating');
             $table->timestamps();
-            $table->primary(['user_id', 'ejercicio_id']);
+            $table->unique(['user_id', 'ejercicio_id']);
+            //$table->primary(['user_id', 'ejercicio_id']); laravel models no soportan doble clave
+
         });
         DB::statement('ALTER TABLE rating_ejercicios ADD CONSTRAINT CK_MAX_RATING CHECK (rating <= 5)');
         DB::statement('ALTER TABLE rating_ejercicios ADD CONSTRAINT CK_MIN_RATING CHECK (rating >= 0)');
