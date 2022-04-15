@@ -59,7 +59,7 @@ class EjercicioController extends Controller
             ]);
         }
 
-        return redirect(route("mostrar-ejer", $ejercicio));
+        return redirect(route("mostrar-ejer", $ejercicio))->with('success', 'Ejericico creado correctamente');
     }
 
     public function show(Ejercicio $ejercicio)
@@ -100,7 +100,7 @@ class EjercicioController extends Controller
             $rating->delete();
         }
         foreach($ejercicio->lenguajes as $lenguaje){
-            $lenguaje->delete();//borrar pivotes no lenguajes
+            $lenguaje->pivot->delete();//borrar pivotes no lenguajes
         }
         foreach($ejercicio->respuestas as $res){
             foreach($res->ratings as $rating){
