@@ -4,12 +4,19 @@
         <input type="text" wire:model="busca" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
         style="position: absolute; left:18vw; top:70px; width:80vw">
 
-        <!--por implementar-->
-        <label for="lenguje">Ordenar Por:</label>
-        <select name="lenguaje" id="lenguaje" class="m-2 custom-select">
-            <option value=""></option>
+        <!--Orden-->
+        <label for="orden" ><h2> Ordenar Por:</h2></label>
+        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select">
+            <option value="created_at">Recientes</option>
+            <option value="avg_rating">Rating</option>
+            <option value="titulo">Titulo</option>
+            <option value="num_rating">Numero Ratings</option>
         </select>
-        <button wire:click="buscar" value="Buscar" class="boton m-2" >Buscar</button>
+        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select">
+            <option value="asc">Ascendiente</option>
+            <option value="desc">Descendendiente</option>
+
+        </select>
     </form>
 
 
@@ -33,6 +40,8 @@
                         @endfor
                         </ul>
                         {{$pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 3 ) : ""}}
+                        <span class="text-xs ml-1 mt-2">(votado por {{$pregunta->num_rating}} personas)</span>
+
                         </h3>
 
                 </div>
@@ -43,9 +52,11 @@
 
 
         @endforeach
-        <div  class="mt-4" style="color: white">
-            {{$preguntas->links()}}
-        </div>
+            <!--pagination-->
+            <div class="mt-4 text-white"  style="color: white">
+                {{$preguntas->links('vendor.pagination.tailwind')}}
+            </div>
+
     </div>
 </div>
 

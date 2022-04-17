@@ -14,6 +14,11 @@ class PreguntaShow extends Component
     public $pregunta;
     public $mi_respuesta = "";
 
+    /**
+     * Hace la consulta inicial y las busquedas necesarias para las preguntas
+     *
+     * @return void
+     */
     public function render()
     {
         $tus_respuestas = [];
@@ -24,6 +29,7 @@ class PreguntaShow extends Component
             ->where('user_id', $user->id)
             ->get();
         };
+        //hay que validar los campos de busqueda!!!
         return view('livewire.pregunta-show',[
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
@@ -36,10 +42,11 @@ class PreguntaShow extends Component
         ]);
     }
 
-    public function buscar(){
-        $this->resetPage();
-    }
-
+    /**
+     * crea una respuesta cuando se intro un string no vacio
+     *
+     * @return void
+     */
     public function create(){
         if(gettype($this->mi_respuesta) == "string"){
             if(trim($this->mi_respuesta) != "" ){
@@ -56,8 +63,17 @@ class PreguntaShow extends Component
             }
         }
     }
-
+    /**
+     * borra la respuesta con todos sus ratings
+     *
+     * @param [int] $id
+     * @return void
+     */
     public function borrar($id){
-        Respuesta::where('id', $id)->delete();
+        $res = Respuesta::where('id', $id);
+        foreach($res->get()[0]->ratings as $rating){
+            $rating->delete();
+        }
+        $res->delete();
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ejercicio;
 use App\Models\Lenguaje;
+use App\Models\Respuesta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,14 +83,7 @@ class EjercicioController extends Controller
 
     public function ejercicios()
     {
-        $ejer = $this->getEjercicios();
-        $paginado = $ejer->paginate(5);
-        $lenguajes = Lenguaje::all();
-
-        return view('ejercicios.ejercicios', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        return view('ejercicios.ejercicios');
     }
 
     public function delete_ejer(Ejercicio $ejercicio)
@@ -111,19 +105,10 @@ class EjercicioController extends Controller
         $ejercicio->delete();
         return redirect('/dashboard')->with('success', 'Ejercicio Borrado');
     }
+
     public function mis_ejer()
     {
-
-        $usuario = Auth::user();
-        $ejers = $this->getEjercicios();
-        $ejers->where('e.user_id', $usuario->id);
-        $paginado = $ejers->paginate(4);
-        $lenguajes = Lenguaje::all();
-
-        return view('dashboard', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        return view('dashboard');
     }
 
     /**
@@ -174,11 +159,11 @@ class EjercicioController extends Controller
             'code' => 'string|required',
         ]);
 
-        DB::table('respuestas')->upsert([
+        Respuesta::updateOrCreate([
             'ejercicio_id' => $ejercicio->id,
+            'pregunta_id' => null,
             'user_id' => $usuario->id,
-            'respuesta' => $validado['code'],
-        ],['ejercicio_id', 'user_id'], ['respuesta']);
+        ],['respuesta' => $validado['code']]);
 
         return redirect(route('mostrar-ejer', $ejercicio))->with('success', 'solucion guardada');
     }
@@ -213,29 +198,5 @@ class EjercicioController extends Controller
         ->get();
     }
 
-    private function getEjercicios(){
-        //arreglar por que no funciona del todo bien
-        $ejer = DB::table('ejercicios', 'e')
-        ->join('ejercicio_lenguaje AS el', 'e.id', '=', 'el.ejercicio_id')
-        ->join('lenguajes AS l', 'el.lenguaje_id', '=', 'l.id')
-        ->leftJoin('rating_ejercicios AS r', 'e.id', '=', 'r.ejercicio_id')
-        ->select('e.id AS id', 'titulo' ,'descripcion', 'lenguaje',
-        'dificultad', DB::raw('ROUND(AVG(rating), 1) AS avgrating'), DB::raw('count(rating) as numrating'))
-        ->groupBy('e.id','titulo','descripcion', 'lenguaje', 'dificultad');
 
-        if(($var = request()->query('lenguaje')) != null){
-            $ejer->where('l.id', $var);
-        }
-
-        if(($var = request()->query('dificultad')) != null){
-            $ejer->where('dificultad', $var);
-        }
-
-        if(($var = request()->query('busqueda')) != null){
-            $ejer->where('titulo', 'ilike', "%$var%")
-            ->orWhere('descripcion', 'ilike', "%$var%");
-        }
-        $ejer->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc');
-        return $ejer;
-    }
 }
