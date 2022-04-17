@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ejercicio;
 use App\Models\Lenguaje;
+use App\Models\Respuesta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,14 +83,7 @@ class EjercicioController extends Controller
 
     public function ejercicios()
     {
-        $ejer = $this->getEjercicios();
-        $paginado = $ejer->paginate(5);
-        $lenguajes = Lenguaje::all();
-
-        return view('ejercicios.ejercicios', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        return view('ejercicios.ejercicios');
     }
 
     public function delete_ejer(Ejercicio $ejercicio)
@@ -174,11 +168,11 @@ class EjercicioController extends Controller
             'code' => 'string|required',
         ]);
 
-        DB::table('respuestas')->upsert([
+        Respuesta::updateOrCreate([
             'ejercicio_id' => $ejercicio->id,
+            'pregunta_id' => null,
             'user_id' => $usuario->id,
-            'respuesta' => $validado['code'],
-        ],['ejercicio_id', 'user_id'], ['respuesta']);
+        ],['respuesta' => $validado['code']]);
 
         return redirect(route('mostrar-ejer', $ejercicio))->with('success', 'solucion guardada');
     }

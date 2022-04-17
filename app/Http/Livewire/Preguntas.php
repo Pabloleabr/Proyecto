@@ -15,8 +15,11 @@ class Preguntas extends Component
     {
         return view('livewire.preguntas',[
             'preguntas' => Pregunta::withAvg('ratings as avg_rating','rating')
+            ->withCount('ratings as num_rating')
             ->where('titulo', 'ilike', "%$this->busca%")
             ->orWhere('descripcion', 'ilike', "%$this->busca%")
+            ->orderByRaw('num_rating desc NULLS LAST')
+            ->orderBy('avg_rating', 'DESC')
             ->paginate(5),
         ]);
     }
