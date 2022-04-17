@@ -10,6 +10,8 @@ class Preguntas extends Component
 {
     use WithPagination;
     public $busca = "";
+    public $orden = "created_at";
+    public $sentido = "asc";
 
     public function render()
     {
@@ -18,8 +20,7 @@ class Preguntas extends Component
             ->withCount('ratings as num_rating')
             ->where('titulo', 'ilike', "%$this->busca%")
             ->orWhere('descripcion', 'ilike', "%$this->busca%")
-            ->orderByRaw('num_rating desc NULLS LAST')
-            ->orderBy('avg_rating', 'DESC')
+            ->orderBy($this->orden, $this->sentido)
             ->paginate(5),
         ]);
     }

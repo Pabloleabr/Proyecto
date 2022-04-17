@@ -105,19 +105,10 @@ class EjercicioController extends Controller
         $ejercicio->delete();
         return redirect('/dashboard')->with('success', 'Ejercicio Borrado');
     }
+
     public function mis_ejer()
     {
-
-        $usuario = Auth::user();
-        $ejers = $this->getEjercicios();
-        $ejers->where('e.user_id', $usuario->id);
-        $paginado = $ejers->paginate(4);
-        $lenguajes = Lenguaje::all();
-
-        return view('dashboard', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        return view('dashboard');
     }
 
     /**

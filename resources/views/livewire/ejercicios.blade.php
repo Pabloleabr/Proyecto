@@ -21,7 +21,19 @@
         <option value="dificil">dificil</option>
         <option value="extremo">extremo</option>
 
-    <input  wire:click="buscar" type="submit" value="Buscar" class="boton m-2">
+    </select>
+        <label for="orden" ><h2> Ordenar Por:</h2></label>
+        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select">
+            <option value="created_at">Recientes</option>
+            <option value="avg_rating">Rating</option>
+            <option value="titulo">Titulo</option>
+            <option value="num_rating">Numero Ratings</option>
+        </select>
+        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select">
+            <option value="asc">Ascendiente</option>
+            <option value="desc">Descendendiente</option>
+
+        </select>
 </form>
 
 <div class="mt-2">
@@ -43,6 +55,7 @@
                 @endfor
                 </ul>
                 {{$ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 3) : ""}}
+                <span class="text-xs ml-1 mt-2">(votado por {{$ejercicio->num_rating}} personas)</span>
                 </h3>
                 <div class="flex ">
                     @foreach ($ejercicio->lenguajes as $l)
@@ -57,7 +70,9 @@
 
 
 @endforeach
-<div  class="mt-4" style="color: white">
-    {{$ejercicios->links()}}
-</div>
+    <!--pagination-->
+    <div class="mt-4 text-white"  style="color: white">
+        {{$ejercicios->links('vendor.pagination.tailwind')}}
+    </div>
+
 </div>

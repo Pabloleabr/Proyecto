@@ -5,7 +5,7 @@
             Crea tu ejercicio
         </h2>
     </x-slot>
-    <div class="font-semibold text-xl text-white barra p-2 m-6">
+    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: 77.8vw;">
         <h2 >
             Crea tu ejercicio
         </h2>
