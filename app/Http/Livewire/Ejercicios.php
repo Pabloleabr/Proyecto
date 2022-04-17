@@ -19,6 +19,8 @@ class Ejercicios extends Component
 
     public function render()
     {
+        //hay que validar los campos de busqueda!!!
+
         return view('livewire.ejercicios',[
             'ejercicios' => Ejercicio::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')

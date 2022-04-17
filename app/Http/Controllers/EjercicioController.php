@@ -198,29 +198,5 @@ class EjercicioController extends Controller
         ->get();
     }
 
-    private function getEjercicios(){
-        //arreglar por que no funciona del todo bien
-        $ejer = DB::table('ejercicios', 'e')
-        ->join('ejercicio_lenguaje AS el', 'e.id', '=', 'el.ejercicio_id')
-        ->join('lenguajes AS l', 'el.lenguaje_id', '=', 'l.id')
-        ->leftJoin('rating_ejercicios AS r', 'e.id', '=', 'r.ejercicio_id')
-        ->select('e.id AS id', 'titulo' ,'descripcion', 'lenguaje',
-        'dificultad', DB::raw('ROUND(AVG(rating), 1) AS avgrating'), DB::raw('count(rating) as numrating'))
-        ->groupBy('e.id','titulo','descripcion', 'lenguaje', 'dificultad');
 
-        if(($var = request()->query('lenguaje')) != null){
-            $ejer->where('l.id', $var);
-        }
-
-        if(($var = request()->query('dificultad')) != null){
-            $ejer->where('dificultad', $var);
-        }
-
-        if(($var = request()->query('busqueda')) != null){
-            $ejer->where('titulo', 'ilike', "%$var%")
-            ->orWhere('descripcion', 'ilike', "%$var%");
-        }
-        $ejer->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc');
-        return $ejer;
-    }
 }

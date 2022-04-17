@@ -21,6 +21,9 @@ class Dashboard extends Component
     public function render()
     {
         $user =  Auth::user();
+
+        //hay que validar los campos de busqueda!!!
+
         return view('livewire.dashboard',[
             //Consulta ejericcios
             'ejercicios' => Ejercicio::withAvg('ratings as avg_rating','rating')

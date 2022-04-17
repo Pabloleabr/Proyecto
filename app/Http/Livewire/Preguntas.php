@@ -15,6 +15,8 @@ class Preguntas extends Component
 
     public function render()
     {
+        //hay que validar los campos de busqueda!!!
+
         return view('livewire.preguntas',[
             'preguntas' => Pregunta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')

@@ -29,6 +29,7 @@ class PreguntaShow extends Component
             ->where('user_id', $user->id)
             ->get();
         };
+        //hay que validar los campos de busqueda!!!
         return view('livewire.pregunta-show',[
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
