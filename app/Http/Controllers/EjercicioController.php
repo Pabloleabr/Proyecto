@@ -10,8 +10,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Controlador de ejercicios
+ * hay una mezcla de eloquent, livewire , querbuilder especialmente en este controlodor
+ * devido a que este controlador se empezo antes de saber de eloquent, se ha actualizado lo necesario
+ * y si hace falta se actualizara lo demas
+ */
 class EjercicioController extends Controller
 {
+    /**
+     * create
+     * Returns create view
+     *
+     * @return void
+     */
     public function create()
     {
         return view('ejercicios.create',[
@@ -19,6 +31,12 @@ class EjercicioController extends Controller
         ]);
     }
 
+    /**
+     * store
+     * Stores the created exercise
+     *
+     * @return void
+     */
     public function store()
     {
 
@@ -63,6 +81,13 @@ class EjercicioController extends Controller
         return redirect(route("mostrar-ejer", $ejercicio))->with('success', 'Ejericico creado correctamente');
     }
 
+    /**
+     * show
+     * Shows the selected exercise
+     *
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
     public function show(Ejercicio $ejercicio)
     {
         $respuesta1 = '';
@@ -81,11 +106,23 @@ class EjercicioController extends Controller
 
     }
 
+    /**
+     * ejercicios(index)
+     * Returns main view to be used with livewire
+     * @return void
+     */
     public function ejercicios()
     {
         return view('ejercicios.ejercicios');
     }
 
+    /**
+     * delete_ejer
+     * Deletes the exercise with all its relations
+     *
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
     public function delete_ejer(Ejercicio $ejercicio)
     {
         //borro todas sus relaciones
@@ -106,6 +143,12 @@ class EjercicioController extends Controller
         return redirect('/dashboard')->with('success', 'Ejercicio Borrado');
     }
 
+    /**
+     * mis_ejer
+     * returns the exercise view so it can be manipulated with livewire
+     *
+     * @return void
+     */
     public function mis_ejer()
     {
         return view('dashboard');
@@ -135,6 +178,13 @@ class EjercicioController extends Controller
         return redirect()->back()->with('success', 'Ejercicio evaluado');
     }
 
+    /**
+     * rate_respuesta
+     * Stores the rating given to the exercise
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function rate_respuesta($id){
 
         $usuario = Auth::user();
@@ -150,7 +200,12 @@ class EjercicioController extends Controller
 
         return redirect()->back()->with('success', 'respuesta evaluada');
     }
-
+    /**
+     * store_solution
+     * Validaetes and stores the sent solution
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
     public function store_solucion(Ejercicio $ejercicio)
     {
 
@@ -190,7 +245,13 @@ class EjercicioController extends Controller
         ]);
     }
 
-
+    /**
+     * Busca el ejercicio con use titulo e id
+     *
+     * @param [string] $titulo
+     * @param [int] $user_id
+     * @return Collection
+     */
     private function getEjercicio($titulo, $user_id){
         return DB::table('ejercicios')
         ->where('titulo',$titulo)

@@ -17,6 +17,11 @@ class Ejercicios extends Component
     public $orden = "created_at";
     public $sentido = "asc";
 
+    /**
+     * Rederiza la vista con la busqueda y orden de los ejercicios solicitados
+     *
+     * @return void
+     */
     public function render()
     {
         //hay que validar los campos de busqueda!!!
@@ -33,8 +38,5 @@ class Ejercicios extends Component
             ->paginate(5),
             'lenguajes' => Lenguaje::all()
         ]);
-    }
-    public function buscar(){
-        $this->resetPage();
     }
 }

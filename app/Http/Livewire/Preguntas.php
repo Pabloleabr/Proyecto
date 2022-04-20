@@ -13,6 +13,11 @@ class Preguntas extends Component
     public $orden = "created_at";
     public $sentido = "asc";
 
+    /**
+     * Rederiza la vista con la busqueda y orden solicitados
+     *
+     * @return void
+     */
     public function render()
     {
         //hay que validar los campos de busqueda!!!
@@ -27,7 +32,4 @@ class Preguntas extends Component
         ]);
     }
 
-    public function buscar(){
-        $this->resetPage();
-    }
 }
