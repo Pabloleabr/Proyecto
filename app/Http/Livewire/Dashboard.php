@@ -18,6 +18,11 @@ class Dashboard extends Component
     public $sentido = "asc";
     public $buscaPre = "";
 
+    /**
+     * Renderiza el dashboard con los ejercicios y preguntas del usuario
+     *
+     * @return void
+     */
     public function render()
     {
         $user =  Auth::user();

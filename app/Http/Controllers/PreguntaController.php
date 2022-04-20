@@ -107,6 +107,13 @@ class PreguntaController extends Controller
         //
     }
 
+    /**
+     * Devuelve la pregunta que corresponda con ese usuario y titulo
+     *
+     * @param [string] $titulo
+     * @param [int] $user_id
+     * @return Collection
+     */
     private function getPregunta($titulo, $user_id){
         return Pregunta::where('titulo',$titulo)
         ->where('user_id', $user_id)
