@@ -23,8 +23,17 @@ body {
   transform: translate(-0.2%, -66%);
 }
 
+.fondo {
+  background-color: #2E2E2E;
+}
+
 h2 {
   font-size: large;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: x-large;
   font-weight: 800;
 }
 

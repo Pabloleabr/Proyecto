@@ -33,8 +33,15 @@ body{
     width: 65vw;
     transform: translate(-0.2%,-66%);
 }
+.fondo{
+    background-color: $d-gray;
+}
 h2{
     font-size: large;
+    font-weight: 800;
+}
+h1{
+    font-size: x-large;
     font-weight: 800;
 }
 .separador{
