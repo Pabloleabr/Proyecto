@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex p-4">
 
     <div style="width:38vw" class="flex flex-col">
         <div class="barra p-2 mb-4">
@@ -6,13 +6,13 @@
             <div class="barraroja" style="width: 37vw"></div>
         </div>
         <form action="{{route('dashboard')}}" method="get" class="mb-2">
-            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
+            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador mt-1 mb-1"
             style="width:36vw; z-index: 0; position: relative;" wire:model="busca">
 
             <button type="submit" class=""
-            style="transform: translate(-18px,-4px);
+            style="transform: translate(-18px,-2px);
             position: absolute;
-            left: 50vw;
+            left: 51vw;
             z-index:0;
             ">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -66,20 +66,20 @@
 
 
 <!--Tus Preguntas-->
-<div style="width:38vw; margin-left:9vw;" class="flex flex-col ">
+<div style="width:38vw; margin-left:5vw;" class="flex flex-col ">
     <div class="barra p-2 mb-4">
         <h2>Tus Preguntas</h2>
         <div class="barraroja" style="width: 37vw"></div>
     </div>
     <form action="{{route('dashboard')}}" method="get" class="mb-2">
 
-        <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="buscador"
+        <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="buscador mt-1 mb-1"
         style="width:36vw; z-index: 0; position: relative;" wire:model="buscaPre">
 
         <button type="submit" class=""
-        style="transform: translate(-18px,-4px);
+        style="transform: translate(-18px,-2px);
         position: absolute;
-        right: 0vw;
+        right: 2vw;
         z-index:0;
         ">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
