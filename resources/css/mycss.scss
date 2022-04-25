@@ -7,44 +7,48 @@ $d-gray:#2E2E2E;
 $f-color:white;
 $font: 'Fredoka';
 $nav-width: 15vw;
-html{
 
-}
+html {}
 
-body{
+body {
     margin: 0;
     background-color: $d-gray;
     color: $f-color;
     font-family: $font, 'Open Sans', sans-serif;
 }
 
-.barra{
+.barra {
     background-color: $gray;
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     font-size: large;
     font-weight: 800;
 }
-.barraroja{
+
+.barraroja {
     background-color: $rojo;
     position: absolute;
     display: flex;
     z-index: -1;
     height: 2.5rem;
     width: 65vw;
-    transform: translate(-0.2%,-66%);
+    transform: translate(-0.2%, -66%);
 }
-.fondo{
+
+.fondo {
     background-color: $d-gray;
 }
-h2{
+
+h2 {
     font-size: large;
     font-weight: 800;
 }
-h1{
+
+h1 {
     font-size: x-large;
     font-weight: 800;
 }
-.separador{
+
+.separador {
     background-color: $rojo;
     height: 5px;
     border-radius: 10px;
@@ -60,13 +64,14 @@ h1{
     background-color: $gray;
     border: 1px solid white;
     height: 40px;
-  }
+}
 
-select > option{
+select>option {
     background-color: $gray;
     color: white;
 }
-.buscador{
+
+.buscador {
     background-color: $codigo;
     color: white;
     border: 1px solid white;
@@ -75,7 +80,8 @@ select > option{
     z-index: 0;
     cursor: pointer;
 }
-#nav{
+
+#nav {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -86,8 +92,20 @@ select > option{
     height: 100vh;
     left: 0;
     z-index: 1;
+    transition: 1s ;
 }
-.boton{
+#nav.is-active {
+    /*posiciona el menu navegacion*/
+    transform: translateX(-20vw);
+  }
+#main{
+    margin-left: 15vw;
+    transition: 1s ;
+}
+#main.is-active {
+    margin-left: 0vw;
+}
+.boton {
     background-color: $gray;
     color: white;
     transition: 1s;
@@ -99,44 +117,98 @@ select > option{
     cursor: pointer;
 }
 
-.boton:hover{
+.boton:hover {
     filter: brightness(80%);
     box-shadow: none;
 
 }
-.navlink{
+
+.navlink {
     transition: 1s;
     max-width: $nav-width;
 }
-.navlink:hover{
+
+.navlink:hover {
     text-decoration: underline;
     text-shadow: 3px 3px $d-gray;
 }
-.codigo{
+
+.codigo {
     background-color: $codigo;
     color: white;
     box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
     border: none;
 
 }
-.codigo2{
+
+.codigo2 {
     background-color: $codigo;
     color: white;
 }
-/*antiguo*/
-.dropdown{
-    display: inline-block;
+
+/*burguermenu*/
+#hamburguesa {
     position: relative;
-    z-index: 1;
-
+    background-color: transparent;
+    margin-right: 20px;
+    left: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    padding: 10px 10px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    z-index: 1002;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-.dropdown:hover .drop-content{ display: block;}
 
-.drop-content{
-    display: none;
-    width:auto;
-    position: absolute;
-    box-shadow: 0 8px 16px 0 #00000000;
-    padding: 0.5rem;
+#hamburguesa.is-active {
+    background-color: transparent;
 }
-.drop-content a{display: inline-block;}
+
+._layer {
+    background: #ffffff;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    width: 28px;
+    height: 4px;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+
+#hamburguesa:hover .-top {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+#hamburguesa:hover .-bottom {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+#hamburguesa.is-active .-top {
+    -webkit-transform: translateY(200%) rotate(45deg) !important;
+    -ms-transform: translateY(200%) rotate(45deg) !important;
+    transform: translateY(200%) rotate(45deg) !important;
+}
+
+#hamburguesa.is-active .-mid {
+    opacity: 0;
+}
+
+#hamburguesa.is-active .-bottom {
+    -webkit-transform: translateY(-200%) rotate(135deg) !important;
+    -ms-transform: translateY(-200%) rotate(135deg) !important;
+    transform: translateY(-200%) rotate(135deg) !important;
+}

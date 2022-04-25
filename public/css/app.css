@@ -708,6 +708,12 @@ select {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
+.ml-8 {
+  margin-left: 2rem;
+}
+.ml-9 {
+  margin-left: 2.25rem;
+}
 .block {
   display: block;
 }
@@ -1127,6 +1133,9 @@ select {
 }
 .pt-1 {
   padding-top: 0.25rem;
+}
+.pl-4 {
+  padding-left: 1rem;
 }
 .text-center {
   text-align: center;

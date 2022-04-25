@@ -81,6 +81,21 @@ select > option {
   height: 100vh;
   left: 0;
   z-index: 1;
+  transition: 1s;
+}
+
+#nav.is-active {
+  /*posiciona el menu navegacion*/
+  transform: translateX(-20vw);
+}
+
+#main {
+  margin-left: 15vw;
+  transition: 1s;
+}
+
+#main.is-active {
+  margin-left: 0vw;
 }
 
 .boton {
@@ -122,27 +137,71 @@ select > option {
   color: white;
 }
 
-/*antiguo*/
-.dropdown {
-  display: inline-block;
+/*burguermenu*/
+#hamburguesa {
   position: relative;
-  z-index: 1;
+  background-color: transparent;
+  margin-right: 20px;
+  left: 0;
+  top: 0;
+  height: 30px;
+  width: 30px;
+  padding: 10px 10px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  z-index: 1002;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.dropdown:hover .drop-content {
-  display: block;
+#hamburguesa.is-active {
+  background-color: transparent;
 }
 
-.drop-content {
-  display: none;
-  width: auto;
-  position: absolute;
-  box-shadow: 0 8px 16px 0 #00000000;
-  padding: 0.5rem;
+._layer {
+  background: #ffffff;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  width: 28px;
+  height: 4px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
 }
 
-.drop-content a {
-  display: inline-block;
+#hamburguesa:hover .-top {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+#hamburguesa:hover .-bottom {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+#hamburguesa.is-active .-top {
+  -webkit-transform: translateY(200%) rotate(45deg) !important;
+  -ms-transform: translateY(200%) rotate(45deg) !important;
+  transform: translateY(200%) rotate(45deg) !important;
+}
+
+#hamburguesa.is-active .-mid {
+  opacity: 0;
+}
+
+#hamburguesa.is-active .-bottom {
+  -webkit-transform: translateY(-200%) rotate(135deg) !important;
+  -ms-transform: translateY(-200%) rotate(135deg) !important;
+  transform: translateY(-200%) rotate(135deg) !important;
 }
 
 /*# sourceMappingURL=mycss.css.map */

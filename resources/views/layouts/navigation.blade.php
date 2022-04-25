@@ -6,7 +6,12 @@
             <div class="flex pt-2 w-max barra pl-2 pb-1 justify-between" style="width: 100vw; z-index:2">
                 <!-- Logo -->
                 <div class="flex">
-                    <a class="w-10" href="{{ route('ver-ejercicios') }}">
+                    <div id="hamburguesa" >
+                        <div class="_layer -top"></div>
+                        <div class="_layer -mid"></div>
+                        <div class="_layer -bottom"></div>
+                    </div>
+                    <a class="w-10" href="{{ route('ver-ejercicios') }}" >
                         <img width="100%" src="{{ URL::to('/') }}/img/logo.png" alt="logo del sitio web">
                     </a>
                     <h2 class="p-2">
