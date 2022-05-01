@@ -37,6 +37,7 @@ body {
     transform: translate(4px, -108%);
     margin-bottom: -35px;
 }
+
 .mi-flex{
     display: flex;
 }
@@ -101,6 +102,7 @@ select>option {
     left: 0;
     z-index: 1;
     transition: 1s ;
+    box-shadow: 0px 8px 8px rgb(0, 0, 0, 0.25);
 }
 #nav.is-active {
     /*posiciona el menu navegacion*/
@@ -117,7 +119,7 @@ select>option {
     position: absolute;
     left:$nav-width + 16px;
     top:70px;
-    width: calc(95vw - $nav-width);
+    width: calc(95vw - $nav-width - 16px);
     transition: all 1s;
 }
 #busquedarara.is-active{
@@ -135,7 +137,7 @@ select>option {
     font-weight: 600;
     border: 1px solid white;
     cursor: pointer;
-    max-height: 42px;
+
 }
 
 .boton:hover {
@@ -241,7 +243,9 @@ select>option {
 .dashel{
     width: 50%;
 }
-
+.create{
+    width: 95%;
+}
 @media (max-width:640px) {
     .mi-flex{
         flex-direction: column;
@@ -255,11 +259,26 @@ select>option {
     .max-w-mi{
         max-width: 25vw;
     }
+    .create{
+        width: 89%;
+    }
 
 }
 
 @media (min-width:640px) and (max-width:860px) {
     .max-w-mi{
         max-width: 35vw;
+    }
+    .create{
+        width: 93%;
+    }
+}
+
+@media (max-width:450px) {
+    #main{
+        margin-left: 0px;
+    }
+    .create{
+        width: 85%;
     }
 }

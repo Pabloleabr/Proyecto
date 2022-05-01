@@ -58,10 +58,10 @@
                                 {{ $ejercicio->titulo }}
                             </h3>
 
-                                <span class="text-sm ml-4 text-red-800">{{ $ejercicio->dificultad }}</span>
+                                <span class="text-sm sm:ml-4 text-red-800">{{ $ejercicio->dificultad }}</span>
                                 <div class="flex">
 
-                                    <ul class="flex justify-center ml-2">
+                                    <ul class="flex justify-center sm:ml-2">
                                         @for ($i = 0.5; $i < $ejercicio->avg_rating; $i++)
                                         <li>
                                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star"
@@ -75,9 +75,9 @@
                                 @endfor
                             </ul>
                             {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 3) : '' }}
+                            <span class="text-xs ml-1 mt-2">(votado por {{ $ejercicio->num_rating }} personas)</span>
                         </div>
                         </div>
-                        <span class="text-xs ml-1 mt-2">(votado por {{ $ejercicio->num_rating }} personas)</span>
                         </div>
                         <div class="flex flex-wrap">
                             @foreach ($ejercicio->lenguajes as $l)

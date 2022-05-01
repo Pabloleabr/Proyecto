@@ -1632,6 +1632,10 @@ select {
 }
 @media (min-width: 640px) {
 
+  .sm\:m-8 {
+    margin: 2rem;
+  }
+
   .sm\:-my-px {
     margin-top: -1px;
     margin-bottom: -1px;
@@ -1665,6 +1669,10 @@ select {
     margin-right: 1rem;
   }
 
+  .sm\:mt-0 {
+    margin-top: 0px;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -1693,12 +1701,20 @@ select {
     width: 9rem;
   }
 
+  .sm\:w-4\/12 {
+    width: 33.333333%;
+  }
+
   .sm\:max-w-md {
     max-width: 28rem;
   }
 
   .sm\:flex-1 {
     flex: 1 1 0%;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
   }
 
   .sm\:items-center {

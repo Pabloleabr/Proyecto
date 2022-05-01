@@ -38,7 +38,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
+                        <input class=" rounded-lg p-2 boton " style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
                     </form>
 
                 @endif
@@ -73,14 +73,14 @@
                     </div>
                     <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg flex">
                         @csrf
-                            <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
+                            <select name="rating" id="" class="rounded-lg h-10 barra border border-white" style="max-height: 42px;">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
+                            <input class=" rounded-lg p-2 boton" style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
                             <span class="text-red-800 font-black text-2xl ml-2"
                             style="cursor: pointer" wire:click="borrar({{$res->id}})" onclick="confirm('Estas seguro de querer borrar tu respuesta?')">
                             X</span>

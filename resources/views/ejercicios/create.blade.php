@@ -5,13 +5,13 @@
             Crea tu ejercicio
         </h2>
     </x-slot>
-    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: 95%;">
+    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: auto;">
         <h2 >
             Crea tu ejercicio
         </h2>
     </div>
-    <div class="barraroja"
-    style="width: 95%; transform: translate(28px, -145%); margin-bottom:-55px;"></div>
+    <div class="barraroja create"
+    style="transform: translate(28px, -145%); margin-bottom:-55px;"></div>
     <form action="{{ route('guardar-ejer') }}" method="POST" class="m-8">
         @csrf
         <div class="mb-6">
@@ -45,17 +45,19 @@
         </div>
         <span class=" text-lg font-semibold">Lenguajes:</span>
         <div id='lenguajesdiv'
-            class="flex text-white codigo w-full p-2.5  mb-4">
+            class="flex text-white codigo w-full p-2.5  mb-4 flex-wrap">
 
             @foreach ($lenguajes as $lenguaje)
+            <div class="flex">
                 <input name='lenguajes[]' type="checkbox" value="{{ $lenguaje->id }}" class="mt-1">
                 <span class="ml-2 mr-6">{{ $lenguaje->lenguaje }}</span>
+            </div>
             @endforeach
 
         </div>
 
         <button type="submit"
-            class=" boton ">
+            class=" boton w-full sm:w-4/12">
             Subir Ejercicio</button>
     </form>
 
