@@ -35,7 +35,7 @@
                             </div>
                         @endif
                     @else
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <div class="flex sm:items-center sm:ml-6" style="border-style: none">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <button class="flex transition duration-150 ease-in-ouflex items-center ">
