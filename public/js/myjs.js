@@ -2,6 +2,8 @@ function toggleMenu() {
 
     document.getElementById("nav").classList.toggle("is-active");
     document.getElementById("main").classList.toggle("is-active");
+    document.getElementById("busquedarara").classList.toggle("is-active");
+
 
     this.classList.toggle('is-active');
 }

@@ -5,12 +5,13 @@
             Crea tu ejercicio
         </h2>
     </x-slot>
-    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: 77.8vw;">
+    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: 95%;">
         <h2 >
             Crea tu ejercicio
         </h2>
-        <div class="barraroja" style="width: 77.8vw;"></div>
     </div>
+    <div class="barraroja"
+    style="width: 95%; transform: translate(28px, -145%); margin-bottom:-55px;"></div>
     <form action="{{ route('guardar-ejer') }}" method="POST" class="m-8">
         @csrf
         <div class="mb-6">

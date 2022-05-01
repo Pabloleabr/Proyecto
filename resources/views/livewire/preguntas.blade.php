@@ -1,8 +1,8 @@
-<div class="flex">
+<div class="flex" style="width: 100%">
     <form action="{{route('ver-preguntas')}}" method="get" class="flex flex-col mr-4" style="width:15vw">
         <!--barra busqueda-->
-        <input type="text" wire:model="busca" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador"
-        style="position: absolute; left:18vw; top:70px; width:80vw">
+        <input type="text" wire:model="busca" name="busqueda" id="busquedarara" placeholder="Busca..." class="buscador"
+        style="">
 
         <!--Orden-->
         <label for="orden" ><h2> Ordenar Por:</h2></label>
@@ -20,13 +20,16 @@
     </form>
 
 
-    <div class="mt-2">
-        <div class="barra p-2"><h2>Preguntas</h2><div class="barraroja"></div></div>
+    <div class="mt-2" style="width: 100%">
+        <div class="barra p-2">
+            <h2>Preguntas</h2>
+        </div>
+        <div class="barraroja" style="transform: translate(4px, -90%)"></div>
         @foreach ($preguntas as $pregunta)
 
 
-            <a href="{{route('mostrar-pregunta', $pregunta->id)}}" class="flex p-2 codigo mt-4" style="width: 65vw">
-            <div style="width: 65vw" >
+            <a href="{{route('mostrar-pregunta', $pregunta->id)}}" class="flex p-2 codigo mt-4" style="width: 100%">
+            <div  style="width: 100%">
                 <div class="flex justify-between">
                     <h3 class="text-lg flex">{{$pregunta->titulo}}
 
@@ -41,8 +44,8 @@
                         </ul>
                         {{$pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 3 ) : ""}}
                         <span class="text-xs ml-1 mt-2">(votado por {{$pregunta->num_rating}} personas)</span>
+                    </h3>
 
-                        </h3>
 
                 </div>
                 <hr class="bg-white">
