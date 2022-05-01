@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <div class="m-8 barra rounded-lg p-2.5 ">
+    <div class="mt-6 barra rounded-lg p-2.5 ">
         <div class="flex justify-between ">
             <h2 class="text-lg  block mb-2">
                 {{$ejercicio->titulo}}
@@ -36,16 +36,16 @@
                     >{{$res->respuesta}}</p>
                 </div>
                 @if (!empty(Auth::user()))
-                <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg">
+                <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg flex ">
                     @csrf
-                        <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
+                        <select name="rating" id="" class="rounded-lg h-10 barra border border-white " style="max-height: 42px;">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
+                        <input class=" rounded-lg p-2 boton max-h-4" style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
                     </form>
 
                 @endif

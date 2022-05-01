@@ -10,13 +10,13 @@
     </x-slot>
 
 
-    <div class="m-8 p-2.5 barra rounded-md">
+    <div class="sm:m-8 p-2.5 barra rounded-md" style="width:auto">
         <div class="flex justify-between">
             <h2 class="font-semibold text-2xl leading-tight underline mb-2">
                 {{$ejercicio->titulo}} <span class="text-xs">by {{$ejercicio->user->name}}</span>
             </h2>
             @if (!empty(Auth::user()))
-            <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2">
+            <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2 flex">
             @csrf
                 <select name="rating" id="" class="rounded-lg h-10 barra border border-white focus:outline-none">
                     <option value="1">1</option>
@@ -29,13 +29,13 @@
             </form>
             @endif
         </div>
-        <div class="flex ml-2 mb-2 ">
+        <div class="sm:flex ml-2 mb-2 ">
             <div class="border border-white border-collapse rounded-sm max-w-md w-full  ">
-                <p class="whitespace-pre-line max-w-md rounded-sm sm:text-sm  w-full p-2.5  h-full codigo opacity-80"
+                <p class="whitespace-pre-line max-w-md rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
                 >{{$ejercicio->descripcion}}</p>
 
             </div>
-            <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full ml-4 mr-2">
+            <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full mt-4 sm:mt-0 sm:ml-4 mr-2">
                 @csrf
                 <textarea name="code" id="code" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-80 whitespace-pre-line  sm:text-sm  w-full p-2.5"
                 placeholder="codigo aqui...">{{$respuesta}}</textarea>

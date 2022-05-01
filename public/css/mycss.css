@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap");
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background-color: #2E2E2E;
@@ -11,20 +15,30 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: large;
   font-weight: 800;
+  width: 100%;
 }
 
 .barraroja {
   background-color: #860000;
-  position: absolute;
+  position: relative;
   display: flex;
   z-index: -1;
   height: 2.5rem;
-  width: 65vw;
-  transform: translate(-0.2%, -66%);
+  width: 100%;
+  transform: translate(4px, -108%);
+  margin-bottom: -35px;
+}
+
+.mi-flex {
+  display: flex;
 }
 
 .fondo {
   background-color: #2E2E2E;
+}
+
+.nav-space {
+  margin-left: 200px;
 }
 
 h2 {
@@ -41,7 +55,7 @@ h1 {
   background-color: #860000;
   height: 5px;
   border-radius: 10px;
-  width: 13vw;
+  width: 180px;
   margin: 8px 0px;
 }
 
@@ -77,10 +91,39 @@ select > option {
   padding: 16px;
   padding-left: 12px;
   background-color: #1D1D1D;
-  width: 15vw;
+  width: 200px;
   height: 100vh;
   left: 0;
   z-index: 1;
+  transition: 1s;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+#nav.is-active {
+  /*posiciona el menu navegacion*/
+  transform: translateX(-200px);
+}
+
+#main {
+  margin-left: 200px;
+  transition: 1s;
+}
+
+#main.is-active {
+  margin-left: 0vw;
+}
+
+#busquedarara {
+  position: absolute;
+  left: 216px;
+  top: 70px;
+  width: calc(95vw - 200px - 16px);
+  transition: all 1s;
+}
+
+#busquedarara.is-active {
+  left: 16px;
+  width: 97vw;
 }
 
 .boton {
@@ -102,7 +145,7 @@ select > option {
 
 .navlink {
   transition: 1s;
-  max-width: 15vw;
+  max-width: 200px;
 }
 
 .navlink:hover {
@@ -115,6 +158,7 @@ select > option {
   color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
+  width: 100%;
 }
 
 .codigo2 {
@@ -122,27 +166,124 @@ select > option {
   color: white;
 }
 
-/*antiguo*/
-.dropdown {
-  display: inline-block;
+.max-w-mi {
+  max-width: 70vw;
+  overflow-wrap: break-word;
+}
+
+/*burguermenu*/
+#hamburguesa {
   position: relative;
-  z-index: 1;
+  background-color: transparent;
+  margin-right: 20px;
+  left: 0;
+  top: 0;
+  height: 30px;
+  width: 30px;
+  padding: 10px 10px;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  z-index: 1002;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.dropdown:hover .drop-content {
-  display: block;
+#hamburguesa.is-active {
+  background-color: transparent;
 }
 
-.drop-content {
-  display: none;
-  width: auto;
-  position: absolute;
-  box-shadow: 0 8px 16px 0 #00000000;
-  padding: 0.5rem;
+._layer {
+  background: #ffffff;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  width: 28px;
+  height: 4px;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+  transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
 }
 
-.drop-content a {
-  display: inline-block;
+#hamburguesa:hover .-top {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+#hamburguesa:hover .-bottom {
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+#hamburguesa.is-active .-top {
+  -webkit-transform: translateY(200%) rotate(45deg) !important;
+  -ms-transform: translateY(200%) rotate(45deg) !important;
+  transform: translateY(200%) rotate(45deg) !important;
+}
+
+#hamburguesa.is-active .-mid {
+  opacity: 0;
+}
+
+#hamburguesa.is-active .-bottom {
+  -webkit-transform: translateY(-200%) rotate(135deg) !important;
+  -ms-transform: translateY(-200%) rotate(135deg) !important;
+  transform: translateY(-200%) rotate(135deg) !important;
+}
+
+.dashel {
+  width: 50%;
+}
+
+.create {
+  width: 95%;
+}
+
+@media (max-width: 640px) {
+  .mi-flex {
+    flex-direction: column;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .dashel {
+    width: 100%;
+  }
+
+  .max-w-mi {
+    max-width: 25vw;
+  }
+
+  .create {
+    width: 89%;
+  }
+}
+@media (min-width: 640px) and (max-width: 860px) {
+  .max-w-mi {
+    max-width: 35vw;
+  }
+
+  .create {
+    width: 93%;
+  }
+}
+@media (max-width: 450px) {
+  #main {
+    margin-left: 0px;
+  }
+
+  .create {
+    width: 85%;
+  }
 }
 
 /*# sourceMappingURL=mycss.css.map */

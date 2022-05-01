@@ -1,5 +1,5 @@
 <div>
-    <div class="m-8 barra rounded-lg p-2.5 ">
+    <div class="mt-6 barra rounded-lg p-2.5 ">
         <div class="flex justify-between ">
             <h2 class="text-lg  block mb-2">
                 {{$pregunta->titulo}}
@@ -25,11 +25,11 @@
                         @endfor
                         <p class="">{{round($res->avg_rating, 3)}}</p>
                     </ul>
-                    <p class="p-2 whitespace-pre-line sm:text-sm "
+                    <p class="p-2 whitespace-pre-line  sm:text-sm max-w-mi"
                     >{{$res->respuesta}}</p>
                 </div>
                 @if (!empty(Auth::user()))
-                <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg">
+                <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg flex">
                     @csrf
                         <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
                             <option value="1">1</option>
@@ -38,7 +38,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                        <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
+                        <input class=" rounded-lg p-2 boton " style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
                     </form>
 
                 @endif
@@ -68,19 +68,19 @@
                             @endfor
                             <p class="">{{round($res->avg_rating, 3)}}</p>
                         </ul>
-                        <p class="p-2 whitespace-pre-line sm:text-sm "
+                        <p class="p-2 whitespace-pre-line sm:text-sm max-w-mi"
                         >{{$res->respuesta}}</p>
                     </div>
-                    <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg">
+                    <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 rounded-lg flex">
                         @csrf
-                            <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
+                            <select name="rating" id="" class="rounded-lg h-10 barra border border-white" style="max-height: 42px;">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <input class=" rounded-lg p-2 boton" style="padding: 7px" type="submit" value="Rate">
+                            <input class=" rounded-lg p-2 boton" style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
                             <span class="text-red-800 font-black text-2xl ml-2"
                             style="cursor: pointer" wire:click="borrar({{$res->id}})" onclick="confirm('Estas seguro de querer borrar tu respuesta?')">
                             X</span>

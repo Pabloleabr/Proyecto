@@ -5,12 +5,12 @@
             Haz tu Pregunta
         </h2>
     </x-slot>
-    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: 77.8vw;">
+    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: auto">
         <h2 >
             Haz tu Pregunta
         </h2>
-        <div class="barraroja" style="width: 77.8vw;"></div>
     </div>
+    <div class="barraroja create" style="transform: translate(28px, -145%); margin-bottom:-55px;"></div>
     <form action="{{ route('store-pregunta') }}" method="POST" class="m-8">
         @csrf
         <div class="mb-6">
@@ -29,7 +29,7 @@
         </div>
 
         <button type="submit"
-            class=" boton ">
+            class=" boton w-full sm:w-4/12">
             Subir Pregunta</button>
     </form>
 
