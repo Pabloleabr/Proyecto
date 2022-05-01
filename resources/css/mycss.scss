@@ -6,9 +6,11 @@ $gray:#3F3F3F;
 $d-gray:#2E2E2E;
 $f-color:white;
 $font: 'Fredoka';
-$nav-width: 15vw;
+$nav-width: 200px;
 
-html {}
+html {
+    overflow-x: hidden;
+}
 
 body {
     margin: 0;
@@ -35,11 +37,15 @@ body {
     transform: translate(4px, -108%);
     margin-bottom: -35px;
 }
-
+.mi-flex{
+    display: flex;
+}
 .fondo {
     background-color: $d-gray;
 }
-
+.nav-space{
+    margin-left: $nav-width;
+}
 h2 {
     font-size: large;
     font-weight: 800;
@@ -54,7 +60,7 @@ h1 {
     background-color: $rojo;
     height: 5px;
     border-radius: 10px;
-    width: 13vw;
+    width: $nav-width - 20px;
     margin: 8px 0px;
 }
 
@@ -98,10 +104,10 @@ select>option {
 }
 #nav.is-active {
     /*posiciona el menu navegacion*/
-    transform: translateX(-20vw);
+    transform: translateX(-$nav-width);
   }
 #main{
-    margin-left: 15vw;
+    margin-left: $nav-width;
     transition: 1s ;
 }
 #main.is-active {
@@ -109,13 +115,13 @@ select>option {
 }
 #busquedarara{
     position: absolute;
-    left:16vw;
+    left:$nav-width + 16px;
     top:70px;
-    width:82vw;
+    width: calc(95vw - $nav-width);
     transition: all 1s;
 }
 #busquedarara.is-active{
-    left: 1vw;
+    left: 16px;
     width:97vw;
 
 }
@@ -129,6 +135,7 @@ select>option {
     font-weight: 600;
     border: 1px solid white;
     cursor: pointer;
+    max-height: 42px;
 }
 
 .boton:hover {
@@ -161,7 +168,10 @@ select>option {
     color: white;
 
 }
-
+.max-w-mi{
+    max-width: 70vw;
+    overflow-wrap: break-word;
+}
 /*burguermenu*/
 #hamburguesa {
     position: relative;
@@ -227,4 +237,29 @@ select>option {
     -webkit-transform: translateY(-200%) rotate(135deg) !important;
     -ms-transform: translateY(-200%) rotate(135deg) !important;
     transform: translateY(-200%) rotate(135deg) !important;
+}
+.dashel{
+    width: 50%;
+}
+
+@media (max-width:640px) {
+    .mi-flex{
+        flex-direction: column;
+    }
+    .hide{
+        display: none;
+    }
+    .dashel{
+        width: 100%;
+    }
+    .max-w-mi{
+        max-width: 25vw;
+    }
+
+}
+
+@media (min-width:640px) and (max-width:860px) {
+    .max-w-mi{
+        max-width: 35vw;
+    }
 }

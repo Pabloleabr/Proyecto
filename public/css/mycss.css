@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap");
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background-color: #2E2E2E;
@@ -25,8 +29,16 @@ body {
   margin-bottom: -35px;
 }
 
+.mi-flex {
+  display: flex;
+}
+
 .fondo {
   background-color: #2E2E2E;
+}
+
+.nav-space {
+  margin-left: 200px;
 }
 
 h2 {
@@ -43,7 +55,7 @@ h1 {
   background-color: #860000;
   height: 5px;
   border-radius: 10px;
-  width: 13vw;
+  width: 180px;
   margin: 8px 0px;
 }
 
@@ -79,7 +91,7 @@ select > option {
   padding: 16px;
   padding-left: 12px;
   background-color: #1D1D1D;
-  width: 15vw;
+  width: 200px;
   height: 100vh;
   left: 0;
   z-index: 1;
@@ -88,11 +100,11 @@ select > option {
 
 #nav.is-active {
   /*posiciona el menu navegacion*/
-  transform: translateX(-20vw);
+  transform: translateX(-200px);
 }
 
 #main {
-  margin-left: 15vw;
+  margin-left: 200px;
   transition: 1s;
 }
 
@@ -102,14 +114,14 @@ select > option {
 
 #busquedarara {
   position: absolute;
-  left: 16vw;
+  left: 216px;
   top: 70px;
-  width: 82vw;
+  width: calc(95vw - 200px);
   transition: all 1s;
 }
 
 #busquedarara.is-active {
-  left: 1vw;
+  left: 16px;
   width: 97vw;
 }
 
@@ -123,6 +135,7 @@ select > option {
   font-weight: 600;
   border: 1px solid white;
   cursor: pointer;
+  max-height: 42px;
 }
 
 .boton:hover {
@@ -132,7 +145,7 @@ select > option {
 
 .navlink {
   transition: 1s;
-  max-width: 15vw;
+  max-width: 200px;
 }
 
 .navlink:hover {
@@ -151,6 +164,11 @@ select > option {
 .codigo2 {
   background-color: #1D1D1D;
   color: white;
+}
+
+.max-w-mi {
+  max-width: 70vw;
+  overflow-wrap: break-word;
 }
 
 /*burguermenu*/
@@ -218,6 +236,33 @@ select > option {
   -webkit-transform: translateY(-200%) rotate(135deg) !important;
   -ms-transform: translateY(-200%) rotate(135deg) !important;
   transform: translateY(-200%) rotate(135deg) !important;
+}
+
+.dashel {
+  width: 50%;
+}
+
+@media (max-width: 640px) {
+  .mi-flex {
+    flex-direction: column;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .dashel {
+    width: 100%;
+  }
+
+  .max-w-mi {
+    max-width: 25vw;
+  }
+}
+@media (min-width: 640px) and (max-width: 860px) {
+  .max-w-mi {
+    max-width: 35vw;
+  }
 }
 
 /*# sourceMappingURL=mycss.css.map */

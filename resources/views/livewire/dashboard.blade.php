@@ -1,6 +1,6 @@
-<div class="flex p-4">
+<div class="mi-flex p-4">
     <!--Tus Ejercicios-->
-    <div style="width:50%" class="flex flex-col">
+    <div  class="flex flex-col dashel">
         <div class="barra p-2 mb-4">
             <h2>Tus Ejercicios</h2>
         </div>
@@ -63,7 +63,7 @@
 
 
     <!--Tus Preguntas-->
-    <div style="width:50%; margin-left:5vw;" class="flex flex-col ">
+    <div style="" class="flex flex-col dashel sm:ml-12">
         <div class="barra p-2 mb-4">
             <h2>Tus Preguntas</h2>
         </div>
