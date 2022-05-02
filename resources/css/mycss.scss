@@ -246,6 +246,18 @@ select>option {
 .create{
     width: 95%;
 }
+#quote{
+
+}
+.correct {
+    color: rgb(177, 255, 131);
+}
+.incorrect {
+    color:red;
+    text-decoration: underline;
+}
+
+
 @media (max-width:640px) {
     .mi-flex{
         flex-direction: column;

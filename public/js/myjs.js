@@ -1,3 +1,5 @@
+
+
 function toggleMenu() {
 
     document.getElementById("nav").classList.toggle("is-active");
@@ -31,15 +33,4 @@ window.addEventListener('scroll', function (e){
     }
 })
 
-//Test mecanografía
-const RANDOM_QUOTE_URL = "https://api.quotable.io/random?minLength=100"
 
-function getRandomQuote(){
-    return fetch(RANDOM_QUOTE_URL)
-    .then(response => response.json())
-    .then(data => data.content)
-}
-
-async function renderQuote(){
-    const quote = await getRandomQuote()
-}

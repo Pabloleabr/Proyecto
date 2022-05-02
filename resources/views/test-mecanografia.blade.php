@@ -18,20 +18,26 @@
 
         <div class="flex flex-col ml-2 mr-2 mb-2 ">
             <div id="quote" class="mb-2">prueba lajsldj awij asd jak</div>
-            <form action="{{route('guardar-solucion', 1)}}" method="POST" class="w-full mt-4 sm:mt-0  mr-2">
+            <form action="{{ route('guardar-solucion', 1) }}" method="POST" class="w-full mt-4 sm:mt-0  mr-2">
                 @csrf
-                <textarea name="mecanografia" id="mecanografia" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-40 whitespace-pre-line  sm:text-sm  w-full p-2.5"
-                ></textarea>
-                <div class="flex">
+                <textarea name="mecanografia" id="mecanografia" cols="50" rows="10" style="resize:none; border: none"
+                    class="codigo2 rounded-sm h-40 whitespace-pre-line  w-full p-2.5"></textarea>
+                <div class="flex justify-between">
                     @if (!empty(Auth::user()))
-                    <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
+                        <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
                     @else
-                    <p class="m-2">logueate para subir tu resultado</p>
+                        <p class="m-2">logueate para subir tu resultado</p>
                     @endif
+
+                    <div class="flex">
+                        <div id="timer">60</div>
+                        <div>s</div>
+                    </div>
 
 
                 </div>
             </form>
+
 
 
         </div>
@@ -39,7 +45,5 @@
 
 
     </div>
-
+    <script src="{{ asset('js/mecanografy.js') }}"></script>
 </x-app-layout>
-
-
