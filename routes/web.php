@@ -28,11 +28,18 @@ Route::get('/soluciones/{ejercicio}', [EjercicioController::class, 'show_solucio
 ->name('ver-soluciones');
 Route::get('/ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
+
 //Rutas para todos de preguntas
 Route::get('/preguntas', [PreguntaController::class, 'index'])
 ->name('ver-preguntas');
 Route::get('/pregunta/{pregunta}', [PreguntaController::class, 'show'])
 ->name('mostrar-pregunta');
+
+//Rutas para todos de mecanografía
+Route::get('/mecanografia', function (){
+    return view('test-mecanografia');
+})
+->name('test-mecano');
 
 Route::middleware(['auth'])->group(function () {//rutas para usuarios
     //preguntas

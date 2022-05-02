@@ -16,6 +16,8 @@
         <!-- mi cosas css -->
         <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
 
+        <link rel="shortcut icon" href="{{ asset('img/logomini.png') }}" type="image/x-icon">
+
         @livewireStyles
 
         <!-- Scripts -->

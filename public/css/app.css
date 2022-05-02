@@ -714,6 +714,9 @@ select {
 .ml-9 {
   margin-left: 2.25rem;
 }
+.mb-0 {
+  margin-bottom: 0px;
+}
 .block {
   display: block;
 }
@@ -758,6 +761,9 @@ select {
 }
 .h-px {
   height: 1px;
+}
+.h-40 {
+  height: 10rem;
 }
 .max-h-24 {
   max-height: 6rem;
