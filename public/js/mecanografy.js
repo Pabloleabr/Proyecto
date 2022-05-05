@@ -4,10 +4,10 @@ const RANDOM_QUOTE_URL = "https://api.quotable.io/random?minLength=100&maxLength
 const text = document.getElementById('quote');
 const input = document.getElementById('mecanografia');
 const timerDiv = document.getElementById('timer');
+const results = document.getElementById("resultados");
 
 let correctChars = 0;
 let incorrectChars = 0;
-
 let timer;
 let time = 60;
 
@@ -47,20 +47,20 @@ input.addEventListener('input', () =>{
         }
     })
     function countResult(){
-        if ('correct' in quoteArr[quoteArr.length-1].classList) {
-            quoteArr.forEach((span)=>{
-                if ('correct' in span.classList){
-                    correctChars++;
-                }
-                else{
-                    incorrectChars--;
-                }
-
-            })
-            renderQuote();
-        }
+        //cuanta los puntos  da una nueva frase
+        quoteArr.forEach((span)=>{
+            if (span.classList.contains('correct')){
+                correctChars++;
+            }
+            else if(span.classList.contains('incorrect')){
+                incorrectChars++;
+            }
+        })
+        renderQuote();
     }
-    countResult();
+    if ('correct' in quoteArr[quoteArr.length-1].classList) {
+        countResult();
+    }
     if(timer === undefined){
         timer = setInterval(() => {
             time--;
@@ -68,13 +68,26 @@ input.addEventListener('input', () =>{
             if (time === 0){
                 clearInterval(timer);
                 time=60;
-                countResult();
                 input.disabled = true;
-
+                countResult();
+                document.getElementById("bien").innerText = correctChars;
+                document.getElementById("mal").innerText = incorrectChars;
+                document.getElementById("total").innerText = correctChars + incorrectChars;
+                document.getElementById("aciertos").innerText = ((correctChars/(correctChars + incorrectChars))*100).toFixed(2);
+                results.showModal();
             }
-        },10)
+        },100)
     }
 })
 
+document.getElementById('cerrar').addEventListener('click', () =>{
+    results.close()
+    time = 60;
+    timer = undefined;
+    timerDiv.innerText = time;
+    input.disabled = false;
+    input.value = "";
 
+})
+results.showModal()
 renderQuote()

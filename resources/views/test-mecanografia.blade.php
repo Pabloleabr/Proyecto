@@ -37,7 +37,16 @@
 
                 </div>
             </form>
-
+            <dialog id="resultados" class="codigo " style="width: 40vw">
+                <div class="flex flex-col p-2">
+                    <p>Pulsaciones: (<span class="correcto" id="bien"></span>|<span class="incorrecto" id="mal"></span>)
+                        <span id="total"></span></p>
+                    <p>Aciertos: <span id="aciertos"></span>%</p>
+                    <div class="mt-2">
+                        <button class="boton" id="cerrar">Cerrar</button>
+                    </div>
+                </div>
+            </dialog>
 
 
         </div>
