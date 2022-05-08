@@ -17,16 +17,15 @@
 
 
         <div class="flex flex-col ml-2 mr-2 mb-2 ">
-            <div id="quote" class="mb-2">prueba lajsldj awij asd jak</div>
+            <div id="quote" class="mb-2"></div>
             <form action="{{ route('guardar-solucion', 1) }}" method="POST" class="w-full mt-4 sm:mt-0  mr-2">
                 @csrf
                 <textarea name="mecanografia" id="mecanografia" cols="50" rows="10" style="resize:none; border: none"
                     class="codigo2 rounded-sm h-40 whitespace-pre-line  w-full p-2.5"></textarea>
                 <div class="flex justify-between">
                     @if (!empty(Auth::user()))
-                        <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
                     @else
-                        <p class="m-2">logueate para subir tu resultado</p>
+                    <p class="m-2">logueate para guardar tus resultados</p>
                     @endif
 
                     <div class="flex">
@@ -37,14 +36,24 @@
 
                 </div>
             </form>
-            <dialog id="resultados" class="codigo " style="width: 40vw">
-                <div class="flex flex-col p-2">
+            <dialog id="resultados" class="codigo rounded" style="width: 40vw;  border:1px solid whitesmoke;">
+                <div class="flex flex-col p-2" >
                     <p>Pulsaciones: (<span class="correcto" id="bien"></span>|<span class="incorrecto" id="mal"></span>)
                         <span id="total"></span></p>
                     <p>Aciertos: <span id="aciertos"></span>%</p>
-                    <div class="mt-2">
-                        <button class="boton" id="cerrar">Cerrar</button>
-                    </div>
+
+                        <form action="{{ route('store-mecanotest') }}" method="post" id="form">
+                            @csrf
+                        @if (!empty(Auth::user()))
+                            <input type="hidden" name="pulsaciones" id="pulsaciones" style="display: none">
+                            <input type="hidden" name="correctas" id="correctas" style="display: none">
+
+                            <input type="submit" value="Guardar" id="guardar" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
+
+                        @endif
+                            <button class="boton p-1 mt-2 mr-4" id="cerrar">Cerrar</button>
+                        </form>
+
                 </div>
             </dialog>
 
@@ -54,5 +63,10 @@
 
 
     </div>
+
+    @if (!empty(Auth::user()))
+    @livewire('mecanotest')
+    @endif
     <script src="{{ asset('js/mecanografy.js') }}"></script>
+
 </x-app-layout>

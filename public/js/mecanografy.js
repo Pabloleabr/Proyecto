@@ -72,15 +72,35 @@ input.addEventListener('input', () =>{
                 countResult();
                 document.getElementById("bien").innerText = correctChars;
                 document.getElementById("mal").innerText = incorrectChars;
-                document.getElementById("total").innerText = correctChars + incorrectChars;
-                document.getElementById("aciertos").innerText = ((correctChars/(correctChars + incorrectChars))*100).toFixed(2);
+                const total = correctChars + incorrectChars
+                document.getElementById("total").innerText = total;
+                if(document.getElementById("pulsaciones") !== null){
+                    //if elementos que no estan cuando no estas logueado
+                    document.getElementById("pulsaciones").value = total;
+                }
+                if(document.getElementById("correctas") !== null){
+                    document.getElementById("correctas").value = correctChars;
+                }
+                const porcentaje = ((correctChars/total)*100).toFixed(2)
+                document.getElementById("aciertos").innerText = porcentaje;
                 results.showModal();
             }
         },100)
     }
 })
-
-document.getElementById('cerrar').addEventListener('click', () =>{
+document.getElementById('cerrar').addEventListener('click', (e) =>{
+    e.preventDefault()
+})
+if(document.getElementById('guardar') !== null){//por que no esta cuando estas deslogueado
+    document.getElementById('guardar').addEventListener('click', (e) =>{
+        e.preventDefault()
+    })
+    document.getElementById('guardar').addEventListener('mouseup', (e) =>{
+        document.getElementById('form').submit()
+    })
+}
+document.getElementById('cerrar').addEventListener('mouseup', (e) =>{
+    e.preventDefault()
     results.close()
     time = 60;
     timer = undefined;
@@ -89,5 +109,4 @@ document.getElementById('cerrar').addEventListener('click', () =>{
     input.value = "";
 
 })
-results.showModal()
 renderQuote()
