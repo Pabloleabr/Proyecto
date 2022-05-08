@@ -59,7 +59,6 @@ class PreguntaShow extends Component
                     'user_id' => $user->id,
                     'created_at' => now()
                 ]);
-                $this->resetPage();
             }
         }
     }

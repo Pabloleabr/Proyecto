@@ -66,4 +66,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rating_pregunta::class);
     }
+    public function Mecanotests()
+    {
+        return $this->hasMany(Mecanotest::class);
+    }
 }

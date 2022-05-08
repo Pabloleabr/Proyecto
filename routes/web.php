@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EjercicioController;
+use App\Http\Controllers\Mecanotest;
 use App\Http\Controllers\PreguntaController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,11 +29,16 @@ Route::get('/soluciones/{ejercicio}', [EjercicioController::class, 'show_solucio
 ->name('ver-soluciones');
 Route::get('/ejercicios', [EjercicioController::class, 'ejercicios'])
 ->name('ver-ejercicios');
+
 //Rutas para todos de preguntas
 Route::get('/preguntas', [PreguntaController::class, 'index'])
 ->name('ver-preguntas');
 Route::get('/pregunta/{pregunta}', [PreguntaController::class, 'show'])
 ->name('mostrar-pregunta');
+
+//Rutas para todos de mecanografía
+Route::get('/mecanografia', [Mecanotest::class, 'index'])
+->name('test-mecano');
 
 Route::middleware(['auth'])->group(function () {//rutas para usuarios
     //preguntas
@@ -55,6 +61,8 @@ Route::middleware(['auth'])->group(function () {//rutas para usuarios
     ->name('rate-respuesta');
     Route::post('solucion/{ejercicio}', [EjercicioController::class, 'store_solucion'])
     ->name('guardar-solucion');
+
+    Route::post('mecanografia',[Mecanotest::class,'store'])->name('store-mecanotest');
 
 });
 

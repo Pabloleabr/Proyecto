@@ -246,6 +246,15 @@ select > option {
   width: 95%;
 }
 
+.correct {
+  color: #b1ff83;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
+}
+
 @media (max-width: 640px) {
   .mi-flex {
     flex-direction: column;

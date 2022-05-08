@@ -105,11 +105,11 @@
                     <x-nav-link :href="route('crear-pregunta')" :active="request()->routeIs('crear-pregunta')">
                         Hacer Preguntas
                     </x-nav-link>
-                    <div class="separador"></div>
-                    <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
-                        Test Mecanografía
-                    </x-nav-link>
                 @endif
+                <div class="separador"></div>
+                <x-nav-link :href="route('test-mecano')" :active="request()->routeIs('test-mecano')">
+                    Test Mecanografía
+                </x-nav-link>
 
 
                 </nav>
