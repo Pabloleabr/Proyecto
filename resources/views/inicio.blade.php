@@ -12,7 +12,7 @@
                     <h2>Inicio</h2>
                 </div>
                 <div class="barraroja" style=""></div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consequatur illum, mollitia distinctio odio quis harum modi. Sapiente, minima omnis. Sint molestias cumque iusto veritatis esse vel, similique vero necessitatibus?</p>
+                <p>Bien venido a la página de PreguntasPro donde podras tanto preguntar sobre asuntos de programación como ejercitar tus habilidades de desarrollador</p>
             </div>
             <div class="codigo p-2 sm:ml-6" style=""></div>
         </div>
@@ -22,7 +22,7 @@
                 <h2>Pregunta a la comunidad</h2>
             </div>
             <div class="barraroja" style=""></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consequatur illum, mollitia distinctio odio quis harum modi. Sapiente, minima omnis. Sint molestias cumque iusto veritatis esse vel, similique vero necessitatibus?</p>
+            <p>En esta páginas puedes preguntar cualquier duda que tengas de programación o desarrollo de una aplicación web, además de poder observar las preguntas y respuestas de todos los otros usuarios.</p>
 
             <div class="flex mt-2">
                 <div class="flex flex-col justify-center align-middle hide" style="width:15vw">
@@ -38,7 +38,8 @@
                 <h2 >Compruba tus habilidades</h2>
             </div>
             <div class="barraroja" style=""></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore consequatur illum, mollitia distinctio odio quis harum modi. Sapiente, minima omnis. Sint molestias cumque iusto veritatis esse vel, similique vero necessitatibus?</p>
+            <p>En esta páginas tambien podras ejercitar tus habilidades de programación y desarrollor, haciendo ejercicios creados por otros usuarios y viendo las
+                repuestas de todos, mejorando poco a poco y aprendiendo todos juntos.</p>
 
             <div class="flex mt-2">
                 <div class="flex flex-col justify-center align-middle hide" style="width: 15vw">

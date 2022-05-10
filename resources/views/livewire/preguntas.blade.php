@@ -14,7 +14,7 @@
         </select>
         <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select">
             <option value="asc">Ascendiente</option>
-            <option value="desc">Descendendiente</option>
+            <option value="desc">Descendiente</option>
 
         </select>
     </form>

@@ -85,7 +85,7 @@ input.addEventListener('input', () =>{
                 document.getElementById("aciertos").innerText = porcentaje;
                 results.showModal();
             }
-        },100)
+        },1000)
     }
 })
 document.getElementById('cerrar').addEventListener('click', (e) =>{
