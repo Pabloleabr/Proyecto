@@ -143,7 +143,8 @@ document.getElementById('cerrar').addEventListener('mouseup', (e) =>{
     timerDiv.innerText = time;
     input.disabled = false;
     input.value = "";
-
+    correctChars = 0;
+    incorrectChars = 0;
 })
 renderQuote();
 renderLastResulst();
