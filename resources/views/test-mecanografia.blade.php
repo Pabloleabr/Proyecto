@@ -18,7 +18,7 @@
 
         <div class="flex flex-col ml-2 mr-2 mb-2 ">
             <div id="quote" class="mb-2"></div>
-            <form action="{{ route('guardar-solucion', 1) }}" method="POST" class="w-full mt-4 sm:mt-0  mr-2">
+            <form action="#" method="POST" class="w-full mt-4 sm:mt-0  mr-2">
                 @csrf
                 <textarea name="mecanografia" id="mecanografia" cols="50" rows="10" style="resize:none; border: none"
                     class="codigo2 rounded-sm h-40 whitespace-pre-line  w-full p-2.5"></textarea>
@@ -63,10 +63,17 @@
 
 
     </div>
+    <div class="sm:flex">
+        @if (!empty(Auth::user()))
+        @livewire('mecanotest')
+        @endif
+        <div class="sm:m-8 p-2.5 ">
+            <h2 class="underline">Tus ultimos 5:</h2>
+            <div id="lastresults">
 
-    @if (!empty(Auth::user()))
-    @livewire('mecanotest')
-    @endif
+            </div>
+        </div>
+    </div>
     <script src="{{ asset('js/mecanografy.js') }}"></script>
 
 </x-app-layout>
