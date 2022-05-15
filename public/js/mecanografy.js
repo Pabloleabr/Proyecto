@@ -10,6 +10,7 @@ let correctChars = 0;
 let incorrectChars = 0;
 let timer;
 let time = 60;
+let lastResults;
 
 function getRandomQuote(){
     return fetch(RANDOM_QUOTE_URL)
@@ -26,6 +27,29 @@ async function renderQuote(){
         text.appendChild(span)
     });
     input.value = null
+}
+
+//carga lo datos del local storge de los ultimos resultados y los muestra
+function renderLastResulst(){
+    lastResults = [];
+    //optenemos datos de localstorage si hay
+    if(localStorage.getItem('lastResults') !== null){
+        const local = localStorage.getItem('lastResults').split(',');
+        for (let dato of local) {
+            lastResults.push(dato.split(';'))
+        }
+    }
+    //creamos elementos para renderizar
+    const resElement = document.getElementById('lastresults');
+    resElement.innerHTML = '';
+    lastResults.forEach(res => {
+        const div = document.createElement('div');
+        div.className = "barra p-2 rounded-md mb-2.5";
+        const p = document.createElement('p');
+        p.innerText =`Pulsaciones: ${res[0]} | Correctas: ${res[1]} | Puntería: ${res[2]}%`;
+        div.appendChild(p);
+        resElement.appendChild(div);
+    })
 }
 
 input.addEventListener('input', () =>{
@@ -58,7 +82,8 @@ input.addEventListener('input', () =>{
         })
         renderQuote();
     }
-    if ('correct' in quoteArr[quoteArr.length-1].classList) {
+
+    if (quoteArr[quoteArr.length-1].classList.contains('correct') || quoteArr[quoteArr.length-1].classList.contains('incorrect')) {
         countResult();
     }
     if(timer === undefined){
@@ -83,6 +108,17 @@ input.addEventListener('input', () =>{
                 }
                 const porcentaje = ((correctChars/total)*100).toFixed(2)
                 document.getElementById("aciertos").innerText = porcentaje;
+                //guardado para ultimos resultados
+                if(lastResults.length > 5){
+                    lastResults.shift();
+                }
+                for(i in lastResults){
+                    //formate para guardar en local storage
+                    lastResults[i] = lastResults[i].join(';')
+                }
+                lastResults.push(`${total};${correctChars};${porcentaje}`)
+                localStorage.setItem('lastResults',lastResults)
+                renderLastResulst();
                 results.showModal();
             }
         },100)
@@ -93,10 +129,10 @@ document.getElementById('cerrar').addEventListener('click', (e) =>{
 })
 if(document.getElementById('guardar') !== null){//por que no esta cuando estas deslogueado
     document.getElementById('guardar').addEventListener('click', (e) =>{
-        e.preventDefault()
+        e.preventDefault();
     })
     document.getElementById('guardar').addEventListener('mouseup', (e) =>{
-        document.getElementById('form').submit()
+        document.getElementById('form').submit();
     })
 }
 document.getElementById('cerrar').addEventListener('mouseup', (e) =>{
@@ -109,4 +145,5 @@ document.getElementById('cerrar').addEventListener('mouseup', (e) =>{
     input.value = "";
 
 })
-renderQuote()
+renderQuote();
+renderLastResulst();

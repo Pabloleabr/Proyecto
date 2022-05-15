@@ -732,6 +732,9 @@ select {
 .mb-2\.5 {
   margin-bottom: 0.625rem;
 }
+.-mr-8 {
+  margin-right: -2rem;
+}
 .block {
   display: block;
 }
@@ -779,6 +782,9 @@ select {
 }
 .h-40 {
   height: 10rem;
+}
+.h-auto {
+  height: auto;
 }
 .max-h-24 {
   max-height: 6rem;
@@ -1234,6 +1240,10 @@ select {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
 }
 .font-medium {
   font-weight: 500;
