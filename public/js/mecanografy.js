@@ -121,7 +121,7 @@ input.addEventListener('input', () =>{
                 renderLastResulst();
                 results.showModal();
             }
-        },100)
+        },1000)
     }
 })
 document.getElementById('cerrar').addEventListener('click', (e) =>{
