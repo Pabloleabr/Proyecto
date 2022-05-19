@@ -546,63 +546,63 @@
 
 | **Requisito** | **Prioridad** | **Tipo** | **Complejidad** | **Entrega** | **Incidencia** |
 | :------------ | :-----------: | :------: | :-------------: | :---------: | :------------: |
-| (**R1**) Requisitos como incidencias | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [21](https://github.com/Pabloleabr/Proyecto/issues/21) |
-| (**R2**) Código fuente | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [22](https://github.com/Pabloleabr/Proyecto/issues/22) |
-| (**R3**) Estilo del código | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [23](https://github.com/Pabloleabr/Proyecto/issues/23) |
-| (**R4**) Tres lanzamientos | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [24](https://github.com/Pabloleabr/Proyecto/issues/24) |
-| (**R5**) README.md | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [25](https://github.com/Pabloleabr/Proyecto/issues/25) |
-| (**R6**) Documentación | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [26](https://github.com/Pabloleabr/Proyecto/issues/26) |
-| (**R7**) Incidencias en GitHub | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [27](https://github.com/Pabloleabr/Proyecto/issues/27) |
-| (**R8**) Etiquetas e hitos | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [28](https://github.com/Pabloleabr/Proyecto/issues/28) |
-| (**R9**) Rama master | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [29](https://github.com/Pabloleabr/Proyecto/issues/29) |
-| (**R10**) Gestión del proyecto | Mínimo | Información | Fácil | v1 | | **Incidencia**  | [30](https://github.com/Pabloleabr/Proyecto/issues/30) |
-| (**R11**) Final de cada iteración | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [31](https://github.com/Pabloleabr/Proyecto/issues/31) |
-| (**R12**) Validación de formularios | Mínimo | Técnico | Fácil | v3 | | **Incidencia**  | [32](https://github.com/Pabloleabr/Proyecto/issues/32) |
-| (**R13**) Gestión de ventanas | Opcional | Técnico | Media | v2 | | **Incidencia**  | [33](https://github.com/Pabloleabr/Proyecto/issues/33) |
-| (**R14**) Manejo de eventos | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [34](https://github.com/Pabloleabr/Proyecto/issues/34) |
-| (**R15**) DOM | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [35](https://github.com/Pabloleabr/Proyecto/issues/35) |
-| (**R16**) Almacenamiento en el lado del cliente | Mínimo | Técnico | Fácil | v2 | | **Incidencia**  | [36](https://github.com/Pabloleabr/Proyecto/issues/36) |
-| (**R17**) ALPINEJS | Mínimo | Técnico | Fácil | v2 | | **Incidencia**  | [37](https://github.com/Pabloleabr/Proyecto/issues/37) |
-| (**R18**) Plugin no trabajado en clase | Mínimo | Técnico | Fácil | v2 | | **Incidencia**  | [38](https://github.com/Pabloleabr/Proyecto/issues/38) |
-| (**R19**) Utilización de AJAX | Mínimo | Técnico | Media | v2 | | **Incidencia**  | [39](https://github.com/Pabloleabr/Proyecto/issues/39) |
-| (**R20**) ECMAScript2015 (ES6) | Mínimo | Técnico | Fácil | v2 | | **Incidencia**  | [40](https://github.com/Pabloleabr/Proyecto/issues/40) |
-| (**R21**) PHP | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [41](https://github.com/Pabloleabr/Proyecto/issues/41) |
-| (**R22**) Laravel Framework | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [42](https://github.com/Pabloleabr/Proyecto/issues/42) |
-| (**R23**) PostgreSQL | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [43](https://github.com/Pabloleabr/Proyecto/issues/43) |
-| (**R24**) Heroku | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [44](https://github.com/Pabloleabr/Proyecto/issues/44) |
-| (**R25**) Codeception | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [45](https://github.com/Pabloleabr/Proyecto/issues/45) |
-| (**R26**) Code Climate | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [46](https://github.com/Pabloleabr/Proyecto/issues/46) |
-| (**R27**) Aplicación escalable | Mínimo | Técnico | Media | v1 | | **Incidencia**  | [47](https://github.com/Pabloleabr/Proyecto/issues/47) |
-| (**R28**) Tecnología AJAX | Mínimo | Técnico | Media | v2 | | **Incidencia**  | [48](https://github.com/Pabloleabr/Proyecto/issues/48) |
-| (**R29**) Etiquetas semánticas de HTML5 | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [49](https://github.com/Pabloleabr/Proyecto/issues/49) |
-| (**R30**) Presentación mediante CSS | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [50](https://github.com/Pabloleabr/Proyecto/issues/50) |
-| (**R31**) Diseño flexible | Mínimo | Técnico | Media | v2 | | **Incidencia**  | [51](https://github.com/Pabloleabr/Proyecto/issues/51) |
-| (**R32**) Transiciones, transformaciones, animaciones y contenido multimedia | Mínimo | Técnico | Fácil | v2 | | **Incidencia**  | [52](https://github.com/Pabloleabr/Proyecto/issues/52) |
-| (**R33**) Wireframes, protoripos, mapa navegación y guía de estilos | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [53](https://github.com/Pabloleabr/Proyecto/issues/53) |
-| (**R34**) Validación HTML5, CSS3 y accesibilidad | Mínimo | Técnico | Difícil | v3 | | **Incidencia**  | [54](https://github.com/Pabloleabr/Proyecto/issues/54) |
-| (**R35**) Diseño para varias resoluciones | Mínimo | Técnico | Media | v2 | | **Incidencia**  | [55](https://github.com/Pabloleabr/Proyecto/issues/55) |
-| (**R36**) Varios navegadores | Mínimo | Técnico | Difícil | v3 | | **Incidencia**  | [56](https://github.com/Pabloleabr/Proyecto/issues/56) |
-| (**R37**) Despliegue en un Host | Mínimo | Técnico | Fácil | v1 | | **Incidencia**  | [57](https://github.com/Pabloleabr/Proyecto/issues/57) |
-| (**R38**) Despliegue en un servidor local | Mínimo | Técnico | Media | v3 | | **Incidencia**  | [58](https://github.com/Pabloleabr/Proyecto/issues/58) |
-| (**R39**) Creación de migraciones | Importante | Técnico | Fácil | v1 | | **Incidencia**  | [59](https://github.com/Pabloleabr/Proyecto/issues/59) |
-| (**R40**) Creación de los modelos y sus relaciones | Importante | Técnico | Fácil | v1 | | **Incidencia**  | [60](https://github.com/Pabloleabr/Proyecto/issues/60) |
-| (**R41**) Creación de seeders | Importante | Técnico | Fácil | v2 | | **Incidencia**  | [61](https://github.com/Pabloleabr/Proyecto/issues/61) |
-| (**R42**) Crear Ejercicios y preguntas | Importante | Funcional | Media | v1 | | **Incidencia**  | [62](https://github.com/Pabloleabr/Proyecto/issues/62) |
-| (**R43**) Votar ejercicios y comentarios | Importante | Funcional | Media | v1 | | **Incidencia**  | [63](https://github.com/Pabloleabr/Proyecto/issues/63) |
-| (**R44**) Test de mecanografía | Opcional | Funcional | Media | v3 | | **Incidencia**  | [64](https://github.com/Pabloleabr/Proyecto/issues/64) |
-| (**R45**) Tabla de puestos para test de mecanografía  | Importante | Funcional | Media | v3 | | **Incidencia**  | [65](https://github.com/Pabloleabr/Proyecto/issues/65) |
-| (**R46**) Sistema de progresión del usuario | Importante | Funcional | Media | v3 | | **Incidencia**  | [66](https://github.com/Pabloleabr/Proyecto/issues/66) |
-| (**R47**) Borrar ejercicios | Importante | Funcional | Media | v1 | | **Incidencia**  | [67](https://github.com/Pabloleabr/Proyecto/issues/67) |
-| (**R48**) API Interprete de código | Opcional | Técnico | Difícil | v3 | | **Incidencia**  | [68](https://github.com/Pabloleabr/Proyecto/issues/68) |
-| (**R49**) Buscar de ejercicios | Importante | Funcional | Media | v1 | | **Incidencia**  | [69](https://github.com/Pabloleabr/Proyecto/issues/69) |
-| (**R50**) Página para invitados | Importante | Funcional | Fácil | v1 | | **Incidencia**  | [70](https://github.com/Pabloleabr/Proyecto/issues/70) |
-| (**R51**) Crear Controladores | Importante | Técnico | Media | v1 | | **Incidencia**  | [71](https://github.com/Pabloleabr/Proyecto/issues/71) |
-| (**R52**) Dashboard | Importante | Funcional | Fácil | v1 | | **Incidencia**  | [72](https://github.com/Pabloleabr/Proyecto/issues/72) |
-| (**R53**) Rutas | Importante | Técnico | Fácil | v1 | | **Incidencia**  | [73](https://github.com/Pabloleabr/Proyecto/issues/73) |
-| (**R54**) Barra de navegación | Importante | Funcional | Fácil | v1 | | **Incidencia**  | [74](https://github.com/Pabloleabr/Proyecto/issues/74) |
-| (**R55**) Clasificación de ejercicios y preguntas por lenguaje y dificultad | Importante | Funcional | Media | v1 | | **Incidencia**  | [75](https://github.com/Pabloleabr/Proyecto/issues/75) |
-| (**R56**) Logo | Importante | Técnico | Fácil | v3 | | **Incidencia**  | [76](https://github.com/Pabloleabr/Proyecto/issues/76) |
-| (**R57**) Diseño de la base datos | Importante | Técnico | Fácil | v1 | | **Incidencia**  | [77](https://github.com/Pabloleabr/Proyecto/issues/77) |
-| (**R58**) Login y registrar | Importante | Funcional | Fácil | v1 | | **Incidencia**  | [78](https://github.com/Pabloleabr/Proyecto/issues/78) |
-| (**R59**) Consultas para la vista de ejercicios y pregunta | Importante | Técnico | Media | v1 | | **Incidencia**  | [79](https://github.com/Pabloleabr/Proyecto/issues/79) |
-| (**R60**) Consulta para las soluciones | Importante | Técnico | Media | v1 | | **Incidencia**  | [80](https://github.com/Pabloleabr/Proyecto/issues/80) |
+| (**R1**) Requisitos como incidencias | Mínimo | Información | Fácil | v1 | [21](https://github.com/Pabloleabr/Proyecto/issues/21) |
+| (**R2**) Código fuente | Mínimo | Técnico | Fácil | v1 | [22](https://github.com/Pabloleabr/Proyecto/issues/22) |
+| (**R3**) Estilo del código | Mínimo | Técnico | Fácil | v1 | [23](https://github.com/Pabloleabr/Proyecto/issues/23) |
+| (**R4**) Tres lanzamientos | Mínimo | Información | Fácil | v1 | [24](https://github.com/Pabloleabr/Proyecto/issues/24) |
+| (**R5**) README.md | Mínimo | Información | Fácil | v1 | [25](https://github.com/Pabloleabr/Proyecto/issues/25) |
+| (**R6**) Documentación | Mínimo | Información | Fácil | v1 | [26](https://github.com/Pabloleabr/Proyecto/issues/26) |
+| (**R7**) Incidencias en GitHub | Mínimo | Información | Fácil | v1 | [27](https://github.com/Pabloleabr/Proyecto/issues/27) |
+| (**R8**) Etiquetas e hitos | Mínimo | Información | Fácil | v1 | [28](https://github.com/Pabloleabr/Proyecto/issues/28) |
+| (**R9**) Rama master | Mínimo | Técnico | Fácil | v1 | [29](https://github.com/Pabloleabr/Proyecto/issues/29) |
+| (**R10**) Gestión del proyecto | Mínimo | Información | Fácil | v1 | [30](https://github.com/Pabloleabr/Proyecto/issues/30) |
+| (**R11**) Final de cada iteración | Mínimo | Técnico | Fácil | v1 | [31](https://github.com/Pabloleabr/Proyecto/issues/31) |
+| (**R12**) Validación de formularios | Mínimo | Técnico | Fácil | v3 | [32](https://github.com/Pabloleabr/Proyecto/issues/32) |
+| (**R13**) Gestión de ventanas | Opcional | Técnico | Media | v2 | [33](https://github.com/Pabloleabr/Proyecto/issues/33) |
+| (**R14**) Manejo de eventos | Mínimo | Técnico | Fácil | v1 | [34](https://github.com/Pabloleabr/Proyecto/issues/34) |
+| (**R15**) DOM | Mínimo | Técnico | Fácil | v1 | [35](https://github.com/Pabloleabr/Proyecto/issues/35) |
+| (**R16**) Almacenamiento en el lado del cliente | Mínimo | Técnico | Fácil | v2 | [36](https://github.com/Pabloleabr/Proyecto/issues/36) |
+| (**R17**) ALPINEJS | Mínimo | Técnico | Fácil | v2 | [37](https://github.com/Pabloleabr/Proyecto/issues/37) |
+| (**R18**) Plugin no trabajado en clase | Mínimo | Técnico | Fácil | v2 | [38](https://github.com/Pabloleabr/Proyecto/issues/38) |
+| (**R19**) Utilización de AJAX | Mínimo | Técnico | Media | v2 | [39](https://github.com/Pabloleabr/Proyecto/issues/39) |
+| (**R20**) ECMAScript2015 (ES6) | Mínimo | Técnico | Fácil | v2 | [40](https://github.com/Pabloleabr/Proyecto/issues/40) |
+| (**R21**) PHP | Mínimo | Técnico | Fácil | v1 | [41](https://github.com/Pabloleabr/Proyecto/issues/41) |
+| (**R22**) Laravel Framework | Mínimo | Técnico | Fácil | v1 | [42](https://github.com/Pabloleabr/Proyecto/issues/42) |
+| (**R23**) PostgreSQL | Mínimo | Técnico | Fácil | v1 | [43](https://github.com/Pabloleabr/Proyecto/issues/43) |
+| (**R24**) Heroku | Mínimo | Técnico | Fácil | v1 | [44](https://github.com/Pabloleabr/Proyecto/issues/44) |
+| (**R25**) Codeception | Mínimo | Técnico | Fácil | v1 | [45](https://github.com/Pabloleabr/Proyecto/issues/45) |
+| (**R26**) Code Climate | Mínimo | Técnico | Fácil | v1 | [46](https://github.com/Pabloleabr/Proyecto/issues/46) |
+| (**R27**) Aplicación escalable | Mínimo | Técnico | Media | v1 | [47](https://github.com/Pabloleabr/Proyecto/issues/47) |
+| (**R28**) Tecnología AJAX | Mínimo | Técnico | Media | v2 | [48](https://github.com/Pabloleabr/Proyecto/issues/48) |
+| (**R29**) Etiquetas semánticas de HTML5 | Mínimo | Técnico | Fácil | v1 | [49](https://github.com/Pabloleabr/Proyecto/issues/49) |
+| (**R30**) Presentación mediante CSS | Mínimo | Técnico | Fácil | v1 | [50](https://github.com/Pabloleabr/Proyecto/issues/50) |
+| (**R31**) Diseño flexible | Mínimo | Técnico | Media | v2 | [51](https://github.com/Pabloleabr/Proyecto/issues/51) |
+| (**R32**) Transiciones, transformaciones, animaciones y contenido multimedia | Mínimo | Técnico | Fácil | v2 | [52](https://github.com/Pabloleabr/Proyecto/issues/52) |
+| (**R33**) Wireframes, protoripos, mapa navegación y guía de estilos | Mínimo | Técnico | Fácil | v1 | [53](https://github.com/Pabloleabr/Proyecto/issues/53) |
+| (**R34**) Validación HTML5, CSS3 y accesibilidad | Mínimo | Técnico | Difícil | v3 | [54](https://github.com/Pabloleabr/Proyecto/issues/54) |
+| (**R35**) Diseño para varias resoluciones | Mínimo | Técnico | Media | v2 | [55](https://github.com/Pabloleabr/Proyecto/issues/55) |
+| (**R36**) Varios navegadores | Mínimo | Técnico | Difícil | v3 | [56](https://github.com/Pabloleabr/Proyecto/issues/56) |
+| (**R37**) Despliegue en un Host | Mínimo | Técnico | Fácil | v1 | [57](https://github.com/Pabloleabr/Proyecto/issues/57) |
+| (**R38**) Despliegue en un servidor local | Mínimo | Técnico | Media | v3 | [58](https://github.com/Pabloleabr/Proyecto/issues/58) |
+| (**R39**) Creación de migraciones | Importante | Técnico | Fácil | v1 | [59](https://github.com/Pabloleabr/Proyecto/issues/59) |
+| (**R40**) Creación de los modelos y sus relaciones | Importante | Técnico | Fácil | v1 | [60](https://github.com/Pabloleabr/Proyecto/issues/60) |
+| (**R41**) Creación de seeders | Importante | Técnico | Fácil | v2 | [61](https://github.com/Pabloleabr/Proyecto/issues/61) |
+| (**R42**) Crear Ejercicios y preguntas | Importante | Funcional | Media | v1 | [62](https://github.com/Pabloleabr/Proyecto/issues/62) |
+| (**R43**) Votar ejercicios y comentarios | Importante | Funcional | Media | v1 | [63](https://github.com/Pabloleabr/Proyecto/issues/63) |
+| (**R44**) Test de mecanografía | Opcional | Funcional | Media | v3 | [64](https://github.com/Pabloleabr/Proyecto/issues/64) |
+| (**R45**) Tabla de puestos para test de mecanografía  | Importante | Funcional | Media | v3 | [65](https://github.com/Pabloleabr/Proyecto/issues/65) |
+| (**R46**) Sistema de progresión del usuario | Importante | Funcional | Media | v3 | [66](https://github.com/Pabloleabr/Proyecto/issues/66) |
+| (**R47**) Borrar ejercicios | Importante | Funcional | Media | v1 | [67](https://github.com/Pabloleabr/Proyecto/issues/67) |
+| (**R48**) API Interprete de código | Opcional | Técnico | Difícil | v3 | [68](https://github.com/Pabloleabr/Proyecto/issues/68) |
+| (**R49**) Buscar de ejercicios | Importante | Funcional | Media | v1 | [69](https://github.com/Pabloleabr/Proyecto/issues/69) |
+| (**R50**) Página para invitados | Importante | Funcional | Fácil | v1 | [70](https://github.com/Pabloleabr/Proyecto/issues/70) |
+| (**R51**) Crear Controladores | Importante | Técnico | Media | v1 | [71](https://github.com/Pabloleabr/Proyecto/issues/71) |
+| (**R52**) Dashboard | Importante | Funcional | Fácil | v1 | [72](https://github.com/Pabloleabr/Proyecto/issues/72) |
+| (**R53**) Rutas | Importante | Técnico | Fácil | v1 | [73](https://github.com/Pabloleabr/Proyecto/issues/73) |
+| (**R54**) Barra de navegación | Importante | Funcional | Fácil | v1 | [74](https://github.com/Pabloleabr/Proyecto/issues/74) |
+| (**R55**) Clasificación de ejercicios y preguntas por lenguaje y dificultad | Importante | Funcional | Media | v1 | [75](https://github.com/Pabloleabr/Proyecto/issues/75) |
+| (**R56**) Logo | Importante | Técnico | Fácil | v3 | [76](https://github.com/Pabloleabr/Proyecto/issues/76) |
+| (**R57**) Diseño de la base datos | Importante | Técnico | Fácil | v1 | [77](https://github.com/Pabloleabr/Proyecto/issues/77) |
+| (**R58**) Login y registrar | Importante | Funcional | Fácil | v1 | [78](https://github.com/Pabloleabr/Proyecto/issues/78) |
+| (**R59**) Consultas para la vista de ejercicios y pregunta | Importante | Técnico | Media | v1 | [79](https://github.com/Pabloleabr/Proyecto/issues/79) |
+| (**R60**) Consulta para las soluciones | Importante | Técnico | Media | v1 | [80](https://github.com/Pabloleabr/Proyecto/issues/80) |
