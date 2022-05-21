@@ -164,6 +164,7 @@ select > option {
 .codigo2 {
   background-color: #1D1D1D;
   color: white;
+  font-weight: 400;
 }
 
 .max-w-mi {
