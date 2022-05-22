@@ -28,7 +28,7 @@
         @foreach ($preguntas as $pregunta)
 
 
-            <a href="{{route('mostrar-pregunta', $pregunta->id)}}" class="flex p-2 codigo mt-4" style="width: 100%">
+            <a href="{{route('mostrar-pregunta', $pregunta->id)}}" class="flex p-2 codigo mt-4 selecAnim" style="width: 100%">
             <div  style="width: 100%">
                 <div class="flex justify-between">
                     <div class="mi-flex">

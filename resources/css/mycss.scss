@@ -259,6 +259,38 @@ select>option {
     text-decoration: underline;
 }
 
+.selecAnim{
+    transition: all 1s;
+}
+.selecAnim:hover{
+    transform: translateX(-10px);
+}
+
+.backSquare{
+    position: absolute;
+    user-select: none;
+    z-index: -1;
+    border-radius: 5%;
+    opacity: 0.3;
+    background-color:$rojo;
+}
+
+@for $i from 1 to 21 {
+    $rotation: random(360);
+    @keyframes appearSq-#{$i} {
+        0%{
+            transform:scale(0) ;
+        }
+        100%{
+            transform:scale(1) rotate(#{$rotation}deg);
+
+        }
+    }
+    .sqAnim--#{$i}{
+        animation: appearSq-#{$i} 2s ease-in-out 0s 3 alternate;
+        animation-fill-mode: both;
+    }
+}
 
 @media (max-width:640px) {
     .mi-flex{

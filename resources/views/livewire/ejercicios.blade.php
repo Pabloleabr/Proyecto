@@ -49,7 +49,7 @@
         </div>
         <div class="barraroja p-2" style="transform: translate(4px, -90%)"></div>
         @foreach ($ejercicios as $ejercicio)
-            <a href="{{ route('mostrar-ejer', $ejercicio->id) }}" class="flex p-2 codigo mt-4" style="">
+            <a href="{{ route('mostrar-ejer', $ejercicio->id) }}" class="flex p-2 codigo mt-4 selecAnim" style="">
                 <div style="width:100%">
                     <div class="flex justify-between">
                         <div class="text-lg flex">
