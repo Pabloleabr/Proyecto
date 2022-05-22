@@ -22,7 +22,7 @@
 
             @foreach ($ejercicios as $ejercicio)
                 <a href="{{ route('mostrar-ejer', $ejercicio->id) }}">
-                    <div class="p-2 mb-4 codigo">
+                    <div class="p-2 mb-4 codigo selecAnim">
                         <div class="flex justify-between">
                             <h3 class="text-lg flex">{{ $ejercicio->titulo }}
                                 <span class="text-sm text-white ml-2 mb-2  p-1">{{ $ejercicio->dificultad }}</span>
@@ -86,7 +86,7 @@
 
             @foreach ($preguntas as $pregunta)
                 <a href="{{ route('mostrar-pregunta', $pregunta->id) }}">
-                    <div class="p-2 mb-4 codigo">
+                    <div class="p-2 mb-4 codigo selecAnim">
                         <div class="flex justify-between">
                             <h3 class="text-lg flex">{{ $pregunta->titulo }}
                                 <ul class="flex justify-center ml-2">

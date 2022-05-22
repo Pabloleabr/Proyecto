@@ -84,9 +84,31 @@ if(form !== undefined){
 
     //asignao de mensaje para cada input
     var validar = crearValidador("Valor no valido para patron permitido");
-    if(titulo !== undefined){//por que con haber titulo hay descripcion
+    if(titulo != undefined){//por que con haber titulo hay descripcion
         titulo.addEventListener('focusout', validar);
         descripcion.addEventListener('focusout', validar);
     }
 
 }
+
+//animacion creadaditos al iniciar
+let currentSqNum = 1;
+function createSquare(){
+    let div = document.createElement("div");
+    let dimesiones = Math.random().toFixed(2) * 50;
+    div.className = `backSquare sqAnim--${currentSqNum}`
+    div.style = `
+                width: ${dimesiones}px;
+                height: ${dimesiones}px;
+                top: ${Math.random().toFixed(3) * document.documentElement.scrollHeight}px;
+                left: ${Math.random().toFixed(3) * document.documentElement.scrollWidth}px;
+                `
+    document.getElementById("main").appendChild(div);
+}
+sqTimer = setInterval(()=>{
+    createSquare();
+    currentSqNum++;
+    if(currentSqNum == 21){
+        clearInterval(sqTimer);
+    }
+}, 200);
