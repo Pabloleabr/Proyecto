@@ -74,6 +74,11 @@
             </div>
         </div>
     </div>
+    <div class="flex">
+        @if (!empty(Auth::user()))
+            @livewire('mecano-place')
+        @endif
+    </div>
     <script src="{{ asset('js/mecanografy.js') }}"></script>
 
 </x-app-layout>
