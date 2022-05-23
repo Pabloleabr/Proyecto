@@ -34,7 +34,7 @@ class Ejercicios extends Component
                 $query->where('lenguajes.id', 'ilike', "%$this->lenguaje%");
             })
             ->where('titulo', 'ilike', "%$this->busca%")
-            ->orderBy($this->orden, $this->sentido)
+            ->orderByRaw("$this->orden $this->sentido NULLS LAST")//para los ratings por si no hay votos
             ->paginate(5),
             'lenguajes' => Lenguaje::all()
         ]);
