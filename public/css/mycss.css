@@ -198,6 +198,10 @@ select > option {
   background-color: transparent;
 }
 
+.z-1 {
+  z-index: -1;
+}
+
 ._layer {
   background: #ffffff;
   margin-bottom: 4px;
@@ -278,7 +282,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(47deg);
+    transform: scale(1) rotate(80deg);
   }
 }
 .sqAnim--1 {
@@ -291,7 +295,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(198deg);
+    transform: scale(1) rotate(55deg);
   }
 }
 .sqAnim--2 {
@@ -304,7 +308,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(351deg);
+    transform: scale(1) rotate(271deg);
   }
 }
 .sqAnim--3 {
@@ -317,7 +321,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(151deg);
+    transform: scale(1) rotate(136deg);
   }
 }
 .sqAnim--4 {
@@ -330,7 +334,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(52deg);
+    transform: scale(1) rotate(128deg);
   }
 }
 .sqAnim--5 {
@@ -343,7 +347,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(231deg);
+    transform: scale(1) rotate(180deg);
   }
 }
 .sqAnim--6 {
@@ -356,7 +360,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(246deg);
+    transform: scale(1) rotate(236deg);
   }
 }
 .sqAnim--7 {
@@ -369,7 +373,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(329deg);
+    transform: scale(1) rotate(70deg);
   }
 }
 .sqAnim--8 {
@@ -382,7 +386,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(143deg);
+    transform: scale(1) rotate(176deg);
   }
 }
 .sqAnim--9 {
@@ -395,7 +399,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(173deg);
+    transform: scale(1) rotate(252deg);
   }
 }
 .sqAnim--10 {
@@ -408,7 +412,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(79deg);
+    transform: scale(1) rotate(90deg);
   }
 }
 .sqAnim--11 {
@@ -421,7 +425,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(266deg);
+    transform: scale(1) rotate(107deg);
   }
 }
 .sqAnim--12 {
@@ -434,7 +438,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(288deg);
+    transform: scale(1) rotate(315deg);
   }
 }
 .sqAnim--13 {
@@ -447,7 +451,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(68deg);
+    transform: scale(1) rotate(10deg);
   }
 }
 .sqAnim--14 {
@@ -460,7 +464,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(280deg);
+    transform: scale(1) rotate(291deg);
   }
 }
 .sqAnim--15 {
@@ -473,7 +477,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(167deg);
+    transform: scale(1) rotate(271deg);
   }
 }
 .sqAnim--16 {
@@ -486,7 +490,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(192deg);
+    transform: scale(1) rotate(327deg);
   }
 }
 .sqAnim--17 {
@@ -499,7 +503,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(61deg);
+    transform: scale(1) rotate(338deg);
   }
 }
 .sqAnim--18 {
@@ -512,7 +516,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(29deg);
+    transform: scale(1) rotate(202deg);
   }
 }
 .sqAnim--19 {
@@ -525,7 +529,7 @@ select > option {
     transform: scale(0);
   }
   100% {
-    transform: scale(1) rotate(1deg);
+    transform: scale(1) rotate(132deg);
   }
 }
 .sqAnim--20 {

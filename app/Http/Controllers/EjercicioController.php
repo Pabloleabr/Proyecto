@@ -151,7 +151,15 @@ class EjercicioController extends Controller
      */
     public function mis_ejer()
     {
-        return view('dashboard');
+        $usuario = Auth::user();
+        $points = 0;
+        $respuestas = Respuesta::where('user_id', $usuario->id)->get();
+
+        foreach($respuestas as $res){
+            $points += $res->ratings->sum('rating');
+        }
+
+        return view('dashboard',['points' => $points]);
     }
 
     /**

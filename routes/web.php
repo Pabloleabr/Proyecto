@@ -51,8 +51,6 @@ Route::middleware(['auth'])->group(function () {//rutas para usuarios
     ->name('crear-ejer');
     Route::post('store_ejer', [EjercicioController::class, 'store'])
     ->name('guardar-ejer');
-    Route::get('dashboard', [EjercicioController::class, 'mis_ejer'])
-    ->name('dashboard');
     Route::delete('delete/ejer/{ejercicio}', [EjercicioController::class, 'delete_ejer'])
     ->name('borrar-ejer');
     Route::post('ejercicio/rate/{ejercicio}', [EjercicioController::class, 'rate'])
@@ -61,6 +59,9 @@ Route::middleware(['auth'])->group(function () {//rutas para usuarios
     ->name('rate-respuesta');
     Route::post('solucion/{ejercicio}', [EjercicioController::class, 'store_solucion'])
     ->name('guardar-solucion');
+
+    Route::get('dashboard', [EjercicioController::class, 'mis_ejer'])
+    ->name('dashboard');
 
     Route::post('mecanografia',[Mecanotest::class,'store'])->name('store-mecanotest');
 

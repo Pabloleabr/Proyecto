@@ -29,15 +29,20 @@ window.addEventListener('scroll', function (e){
     const scroll_pos = window.scrollY
     const br =this.document.getElementById('busquedarara')
     const b =this.document.getElementById('busqueda')
+    const bp =this.document.getElementById('busquedaPre')
+
 
     if ( scroll_pos > 15){//una vez pasa esta posicion se camia el z-index para que no este por encima
-        if(b != null) {b.style = "z-index: -1;"}
-        if(br != null) {br.style = "z-index: -1;"}
+        if(b != null) {b.style.zIndex = "-1"}
+        if(br != null) {br.style.zIndex ="-1"}
+        if(bp != null) {bp.style.zIndex = "-1"}
+
 
     }
     else{
-        if(b != null) {b.style = "z-index: 0;"}
-        if(br != null) {br.style = "z-index: 0;"}
+        if(b != null) {b.style.zIndex = "0"}
+        if(br != null) {br.style.zIndex ="0"}
+        if(bp != null) {bp.style.zIndex = "0"}
 
     }
 })
@@ -112,3 +117,33 @@ sqTimer = setInterval(()=>{
         clearInterval(sqTimer);
     }
 }, 200);
+
+
+//sistema de puntuación
+const levels = [
+    "Begginer",
+    "Expirienced",
+    "Master",
+    "Pro",
+]
+const puntos = document.getElementById('points').innerText;
+const next = document.getElementById('next');
+const current = document.getElementById('current');
+let level;
+if(puntos != null){
+    const calc = Math.min(Math.floor(puntos/100),levels.length);
+    level = levels[calc];
+
+    localStorage.setItem('level',level);
+    next.innerHTML = `${levels[Math.min(calc+1,levels.length)]}`
+    current.innerHTML = `${level}`
+}
+const localNi = localStorage.getItem('level');
+if(localNi != null){
+    level = localNi;
+}else{
+    level = levels[0]
+}
+
+
+
