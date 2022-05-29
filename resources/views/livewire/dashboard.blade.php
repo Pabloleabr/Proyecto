@@ -25,7 +25,7 @@
                     <div class="p-2 mb-4 codigo selecAnim">
                         <div class="flex justify-between">
                             <h3 class="text-lg flex">{{ $ejercicio->titulo }}
-                                <span class="text-sm text-white ml-2 mb-2  p-1">{{ $ejercicio->dificultad }}</span>
+                                <span class="text-sm text-red-800 ml-2 mb-2  p-1">{{ $ejercicio->dificultad }}</span>
                                 <ul class="flex justify-center ml-2">
                                     @for ($i = 0.5; $i < $ejercicio->avg_rating; $i++)
                                         <li>

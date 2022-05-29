@@ -129,14 +129,15 @@ const levels = [
 const puntos = document.getElementById('points').innerText;
 const next = document.getElementById('next');
 const current = document.getElementById('current');
+const pointBar = document.getElementById('pointsBar')
 let level;
-if(puntos != null){
+if(puntos != null){//si no esta uno no esta ninguno de los otros ya que son de la misma pagina
     const calc = Math.min(Math.floor(puntos/100),levels.length);
     level = levels[calc];
-
     localStorage.setItem('level',level);
     next.innerHTML = `${levels[Math.min(calc+1,levels.length)]}`
     current.innerHTML = `${level}`
+    pointBar.style.width = level == levels[3] ? "100%" : `${puntos%100}%`;
 }
 const localNi = localStorage.getItem('level');
 if(localNi != null){
