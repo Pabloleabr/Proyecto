@@ -94,5 +94,4 @@
         <div class="mt-4 text-white" style="color: white">
             {{ $ejercicios->links('vendor.pagination.tailwind') }}
         </div>
-
     </div>

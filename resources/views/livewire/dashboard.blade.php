@@ -6,8 +6,8 @@
         </div>
         <div class="barraroja" style="transform: translate(4px, -124%);"></div>
         <form action="{{ route('dashboard') }}" method="get" class="mb-2">
-            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador mt-1 mb-1"
-                style="width:100%; z-index: 0; position: relative;" wire:model="busca">
+            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="is-active dashb buscador mt-1 mb-1"
+                style="width:100%;  position: relative;" wire:model="busca">
 
             <button type="submit" class="" style="transform: translate(-18px,-2px);
             position: absolute;
@@ -25,7 +25,7 @@
                     <div class="p-2 mb-4 codigo selecAnim">
                         <div class="flex justify-between">
                             <h3 class="text-lg flex">{{ $ejercicio->titulo }}
-                                <span class="text-sm text-white ml-2 mb-2  p-1">{{ $ejercicio->dificultad }}</span>
+                                <span class="text-sm text-red-800 ml-2 mb-2  p-1">{{ $ejercicio->dificultad }}</span>
                                 <ul class="flex justify-center ml-2">
                                     @for ($i = 0.5; $i < $ejercicio->avg_rating; $i++)
                                         <li>
@@ -70,8 +70,8 @@
         <div class="barraroja" style="transform: translate(4px, -124%);"></div>
         <form action="{{ route('dashboard') }}" method="get" class="mb-2">
 
-            <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="buscador mt-1 mb-1"
-                style="width:100%; z-index: 0; position: relative;" wire:model="buscaPre">
+            <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="is-active buscador dashb mt-1 mb-1"
+                style="width:100%;  position: relative;" wire:model="buscaPre">
 
             <button type="submit" class="" style="transform: translate(-18px,-2px);
         position: absolute;
