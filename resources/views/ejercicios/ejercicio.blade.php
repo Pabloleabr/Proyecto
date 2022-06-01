@@ -30,8 +30,8 @@
             @endif
         </div>
         <div class="sm:flex ml-2 mb-2 ">
-            <div class="border border-white border-collapse rounded-sm max-w-md w-full  ">
-                <p class="whitespace-pre-line max-w-md rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
+            <div class="border border-white border-collapse rounded-sm w-full  ">
+                <p class="whitespace-pre-line  rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
                 >{{$ejercicio->descripcion}}</p>
 
             </div>

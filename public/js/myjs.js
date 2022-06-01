@@ -1,20 +1,30 @@
-const brara =document.getElementById("busquedarara");
+
 const nav = document.getElementById("nav");
+const br = document.getElementById('busquedarara')
+const b = document.getElementById('busqueda')
+const bp = document.getElementById('busquedaPre')
 
 function toggleMenu() {
 
     nav.classList.toggle("is-active");
     document.getElementById("main").classList.toggle("is-active");
-    if(brara !== null){
-        brara.classList.toggle("is-active");
+    if(br !== null){
+        br.classList.toggle("is-active");
     }
+    if(b !== null){
+        b.classList.toggle("is-active");
+    }
+    if(bp !== null){
+        bp.classList.toggle("is-active");
+    }
+
 
 }
 //para arreglar bug raro que pasa que se le uita la clase al escribir
-if(brara !== null){
-    brara.addEventListener('keyup',()=>{
+if(br !== null){
+    br.addEventListener('keyup',()=>{
         if (nav.classList.contains("is-active")) {
-            setTimeout(()=>brara.classList.add("is-active"),300);
+            setTimeout(()=>br.classList.add("is-active"),300);
         }
     })
 }
@@ -27,9 +37,7 @@ menu.addEventListener('click', toggleMenu);
 //apaño crudo para arreglar z-index de buscadores
 window.addEventListener('scroll', function (e){
     const scroll_pos = window.scrollY
-    const br =this.document.getElementById('busquedarara')
-    const b =this.document.getElementById('busqueda')
-    const bp =this.document.getElementById('busquedaPre')
+
 
 
     if ( scroll_pos > 15){//una vez pasa esta posicion se camia el z-index para que no este por encima
@@ -126,17 +134,31 @@ const levels = [
     "Master",
     "Pro",
 ]
-const puntos = document.getElementById('points').innerText;
+const medals = [
+    `<div class="border-2 rounded-3xl p-2 border-green-500 text-xs text-green-300 font-semibold" style="background-color: rgba(143, 250, 143, 0.301); border-color: rgb(34 197 94);">
+            Begginer
+        </div>`,
+        `<div class="border-2 rounded-3xl p-2 border-blue-500 text-xs text-blue-400 font-semibold" style="background-color: rgba(143, 202, 250, 0.301); border-color: rgb(59 130 246);">
+        Expirienced
+        </div>`,
+        `<div class="border-2 rounded-3xl p-2 border-violet-500 text-xs text-violet-400 font-semibold" style="background-color: rgba(180, 143, 250, 0.301); border-color: rgb(139 92 246);">
+        Master
+        </div>`,
+        `<div class="border-2 rounded-3xl p-2 border-red-500 text-xs text-red-400 font-semibold" style="background-color: rgba(250, 143, 143, 0.301); border-color: rgb(239 68 68);">
+            Pro
+        </div>`
+    ]
+const puntos = document.getElementById('points') != null ? document.getElementById('points').innerText : null;
 const next = document.getElementById('next');
 const current = document.getElementById('current');
-const pointBar = document.getElementById('pointsBar')
+const pointBar = document.getElementById('pointsBar');
 let level;
 if(puntos != null){//si no esta uno no esta ninguno de los otros ya que son de la misma pagina
-    const calc = Math.min(Math.floor(puntos/100),levels.length);
+    const calc = Math.min(Math.floor(puntos/100),levels.length);const next = document.getElementById('next');
     level = levels[calc];
     localStorage.setItem('level',level);
-    next.innerHTML = `${levels[Math.min(calc+1,levels.length)]}`
-    current.innerHTML = `${level}`
+    current.innerHTML += medals[calc];
+    current.innerHTML += `${medals[Math.min(calc+1,levels.length)]}`;
     pointBar.style.width = level == levels[3] ? "100%" : `${puntos%100}%`;
 }
 const localNi = localStorage.getItem('level');
@@ -145,6 +167,5 @@ if(localNi != null){
 }else{
     level = levels[0]
 }
-
 
 

@@ -272,10 +272,19 @@ select>option {
 .backSquare{
     position: absolute;
     user-select: none;
-    z-index: -1;
+    z-index: -2;
     border-radius: 5%;
     opacity: 0.3;
     background-color:$rojo;
+}
+
+#pointsBarE, #pointsBar{
+    position: relative;
+    z-index: -1;
+}
+
+.rounded-3xl{
+    border-radius: 1.5rem;
 }
 
 @for $i from 1 to 21 {
@@ -329,5 +338,8 @@ select>option {
     }
     .create{
         width: 85%;
+    }
+    .dashb.is-active{
+        z-index: -1;
     }
 }

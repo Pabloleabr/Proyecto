@@ -6,7 +6,7 @@
         </div>
         <div class="barraroja" style="transform: translate(4px, -124%);"></div>
         <form action="{{ route('dashboard') }}" method="get" class="mb-2">
-            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="buscador mt-1 mb-1"
+            <input type="text" name="busqueda" id="busqueda" placeholder="Busca..." class="is-active dashb buscador mt-1 mb-1"
                 style="width:100%;  position: relative;" wire:model="busca">
 
             <button type="submit" class="" style="transform: translate(-18px,-2px);
@@ -70,7 +70,7 @@
         <div class="barraroja" style="transform: translate(4px, -124%);"></div>
         <form action="{{ route('dashboard') }}" method="get" class="mb-2">
 
-            <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="buscador mt-1 mb-1"
+            <input type="text" name="busquedaPre" id="busquedaPre" placeholder="Busca..." class="is-active buscador dashb mt-1 mb-1"
                 style="width:100%;  position: relative;" wire:model="buscaPre">
 
             <button type="submit" class="" style="transform: translate(-18px,-2px);
