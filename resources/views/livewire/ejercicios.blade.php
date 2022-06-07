@@ -21,9 +21,9 @@
         </label>
         <select name="dificultad" id="dificultad" class="m-2 custom-select" wire:model="dificultad">
             <option value="" style="background: #3F3F3F"></option>
-            <option value="facil">facil</option>
+            <option value="facil">fácil</option>
             <option value="normal">normal</option>
-            <option value="dificil">dificil</option>
+            <option value="dificil">díficil</option>
             <option value="extremo">extremo</option>
 
         </select>

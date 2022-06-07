@@ -20,6 +20,8 @@ class EjercicioLenguajeSeeder extends Seeder
             ['lenguaje_id' => 3, 'ejercicio_id' => 1],
             ['lenguaje_id' => 4, 'ejercicio_id' => 3],
             ['lenguaje_id' => 1, 'ejercicio_id' => 1],
+            ['lenguaje_id' => 1, 'ejercicio_id' => 4],
+
         ]);
     }
 }

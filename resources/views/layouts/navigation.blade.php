@@ -83,32 +83,38 @@
                 <!--Dashboard-->
                 @if (!empty(Auth::user()))
                 <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    <i class="fa fa-home" aria-hidden="true" style="font-size: 20px"></i>
+                     {{ __('Dashboard') }}
                 </x-nav-link>
                 <div class="separador"></div>
                 @endif
 
                 <x-nav-link :href="route('ver-ejercicios')" :active="request()->routeIs('ver-ejercicios')">
-                    Ejercicios
+                    <i class="fa fa-code" aria-hidden="true" style="font-size: 20px"></i>
+                     Ejercicios
                 </x-nav-link>
                 @if (!empty(Auth::user()))
                     <x-nav-link :href="route('crear-ejer')" :active="request()->routeIs('crear-ejer')">
-                        Crear Ejercicio
+                    <i class="fa fa-plus-square" aria-hidden="true" style="font-size: 20px"></i>
+                         Crear Ejercicio
                     </x-nav-link>
                 @endif
                 <div class="separador"></div>
 
                 <x-nav-link :href="route('ver-preguntas')" :active="request()->routeIs('ver-preguntas')">
-                    Preguntas
+                    <i class="fa fa-question-circle" aria-hidden="true" style="font-size: 20px"></i>
+                     Preguntas
                 </x-nav-link>
                 @if (!empty(Auth::user()))
                     <x-nav-link :href="route('crear-pregunta')" :active="request()->routeIs('crear-pregunta')">
-                        Hacer Preguntas
+                        <i class="fa fa-question-circle-o" aria-hidden="true" style="font-size: 20px"></i>
+                         Hacer Preguntas
                     </x-nav-link>
                 @endif
                 <div class="separador"></div>
                 <x-nav-link :href="route('test-mecano')" :active="request()->routeIs('test-mecano')">
-                    Test Mecanografía
+                    <i class="fa fa-keyboard-o" aria-hidden="true" style="font-size: 20px"></i>
+                     Test Mecanografía
                 </x-nav-link>
 
 
