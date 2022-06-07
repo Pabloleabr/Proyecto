@@ -12,13 +12,13 @@
                         <h2>Inicio</h2>
                     </div>
                     <div class="barraroja" style=""></div>
-                    <p>Bien venido a la página de PreguntasPro donde podras tanto preguntar sobre asuntos de
-                        programación como ejercitar tus habilidades de desarrollador</p>
+                    <p>Bienvenido a la página de PreguntasPro, donde podrás tanto preguntar sobre asuntos de
+                        programación, como ejercitar tus habilidades de desarrollador.</p>
                 </div>
                 <div class="codigo p-4 sm:ml-6" style=" min-height:16vh">
                     <div class=" mx-auto" x-data='{
                     text: "",
-                    textArray: ["print(\"Hola\")<br>console.log(\"Bien venido\")<br>echo(\"a PreguntasPro\")<br>"],
+                    textArray: ["print(\"Hola\")<br>console.log(\"Bienvenido\")<br>echo(\"a PreguntasPro\")<br>"],
                     textIndex: 0,
                     charIndex: 0,
                     pauseEnd: 5000,
@@ -83,7 +83,7 @@
 
             <div class="flex mt-2">
                 <div class="flex flex-col justify-center align-middle hide" style="width:15vw">
-                    <h1 class="text-center">¡Hecha un vistazo!</h1>
+                    <h1 class="text-center"><a href="{{ route('ver-preguntas') }}">¡Echa un vistazo!</a></h1>
                 </div>
                 <div class="codigo p-4 sm:ml-6" style=" min-height:16vh">
                     <div class=" mx-auto" x-data='{
@@ -148,13 +148,13 @@
                 <h2>Compruba tus habilidades</h2>
             </div>
             <div class="barraroja" style=""></div>
-            <p>En esta páginas tambien podras ejercitar tus habilidades de programación y desarrollor, haciendo ejercicios
+            <p>En esta página tambien podrás ejercitar tus habilidades de programación y desarrollor, haciendo ejercicios
                 creados por otros usuarios y viendo las
                 repuestas de todos, mejorando poco a poco y aprendiendo todos juntos.</p>
 
             <div class="flex mt-2">
                 <div class="flex flex-col justify-center align-middle hide" style="width: 15vw">
-                    <h1 class="text-center">¡Unete!</h1>
+                    <h1 class="text-center"><a href="{{ route('ver-ejercicios') }}">¡Únete!</a></h1>
                 </div>
                 <div class="codigo p-4 sm:ml-6" style=" min-height:16vh">
                     <div class=" mx-auto" x-data='{
