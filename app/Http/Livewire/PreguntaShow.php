@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Respuesta;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -29,7 +30,6 @@ class PreguntaShow extends Component
             ->where('user_id', $user->id)
             ->get();
         };
-        //hay que validar los campos de busqueda!!!
         return view('livewire.pregunta-show',[
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
@@ -74,5 +74,21 @@ class PreguntaShow extends Component
             $rating->delete();
         }
         $res->delete();
+    }
+
+    public function rate($id, $rating){
+        $usuario = Auth::user();
+
+        //Para usar upsert hacia falta el DB creo y por eso se hizo asi
+        if(gettype($rating) == "integer"){
+            if($rating < 6 && $rating > 0){
+
+                DB::table('rating_respuestas')->upsert([
+                    'respuesta_id' => $id,
+                    'user_id' => $usuario->id,
+                    'rating' => $rating,
+                ],['respuesta_id', 'user_id'], ['rating']);
+            }
+        }
     }
 }
