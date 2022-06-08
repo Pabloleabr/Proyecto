@@ -3,8 +3,8 @@
     @foreach ($tests as $test)
         <div class="barra p-2 rounded-md mb-2.5">
             <p>
-            Pulsaciones: <span class="text-green-400">{{$test->pulsaciones}}</span>
-            | Correctas:<span class="text-green-400"> {{$test->correctas}}</span>
+            Palabras/min: <span class="text-green-400">{{round($test->correctas/4.7)}}</span>
+            | Pulsaciones: <span class="text-green-400">{{$test->correctas}}/{{$test->pulsaciones}}</span>
             | Puntería: <span class="text-green-400">{{round(($test->correctas/$test->pulsaciones)*100, 2)}}%</span></p>  </div>
     @endforeach
 </div>

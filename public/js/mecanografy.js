@@ -46,8 +46,8 @@ function renderLastResulst(){
         const div = document.createElement('div');
         div.className = "barra p-2 rounded-md mb-2.5";
         const p = document.createElement('p');
-        p.innerHTML =`Pulsaciones: <span class="text-green-400">${res[0]}</span>
-        | Correctas:<span class="text-green-400"> ${res[1]}</span>
+        p.innerHTML =`Palabras/min: <span class="text-green-400">${(res[1]/4.7).toFixed(0)}</span>
+        | Pulsaciones: <span class="text-green-400">${res[1]}/${res[0]}</span>
         | Puntería: <span class="text-green-400"> ${res[2]}%</span>`;
         div.appendChild(p);
         resElement.appendChild(div);

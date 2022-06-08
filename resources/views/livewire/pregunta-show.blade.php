@@ -28,17 +28,17 @@
                             <p class="">{{round($res->avg_rating, 3)}}</p>
                         </ul>
                         @if (!empty(Auth::user()))
-                        <form action="/respuesta/rate/{{$res->id}}" method="post" class="m-4 mb-1 rounded-lg flex">
-                            @csrf
-                                <select name="rating" id="" class="rounded-lg h-10 barra border border-white">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                                <input class=" rounded-lg p-2 pt-1 boton " style="padding: 7px; max-height: 42px;" type="submit" value="Rate">
-                            </form>
+                        <div class="m-4 mb-1 rounded-lg flex">
+                            @for ($i = 1; $i < 6; $i++)
+                            <button wire:click="rate({{$res->id}},{{$i}})">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-5 rating" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    1<path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                                </svg>
+                            </button>
+
+
+                            @endfor
+                        </div>
                         @endif
                     </div>
                     <p class="p-2 whitespace-pre-line  sm:text-sm" style="max-width: 100%;
@@ -76,6 +76,10 @@
                         word-break: break-word;"
                         >{{$res->respuesta}}</p>
                     </div>
+
+                        <i class="fa fa-times p-4 hover:cursor-pointer" style="color:rgb(187, 0, 0)" aria-hidden="true" wire:click="borrar({{$res->id}})"></i>
+
+
                 </div>
                 @endforeach
             @endif
