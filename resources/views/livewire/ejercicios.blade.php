@@ -74,7 +74,7 @@
                                 </li>
                                 @endfor
                             </ul>
-                            {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 3) : '' }}
+                            {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 1) : '' }}
                             <span class="text-xs ml-1 mt-2">(votado por {{ $ejercicio->num_rating }} personas)</span>
                         </div>
                         </div>

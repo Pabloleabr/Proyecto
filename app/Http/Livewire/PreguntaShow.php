@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Pregunta;
 use App\Models\Respuesta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,6 +31,7 @@ class PreguntaShow extends Component
             ->where('user_id', $user->id)
             ->get();
         };
+        $this->pregunta = Pregunta::withAvg('ratings as avg_rating', 'rating')->where('id', $this->pregunta->id)->first();
         return view('livewire.pregunta-show',[
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
@@ -88,6 +90,21 @@ class PreguntaShow extends Component
                     'user_id' => $usuario->id,
                     'rating' => $rating,
                 ],['respuesta_id', 'user_id'], ['rating']);
+            }
+        }
+    }
+    public function ratePregunta($id, $rating){
+        $usuario = Auth::user();
+
+        //Para usar upsert hacia falta el DB creo y por eso se hizo asi
+        if(gettype($rating) == "integer"){
+            if($rating < 6 && $rating > 0){
+
+                DB::table('rating_preguntas')->upsert([
+                    'pregunta_id' => $id,
+                    'user_id' => $usuario->id,
+                    'rating' => $rating,
+                ],['pregunta_id', 'user_id'], ['rating']);
             }
         }
     }

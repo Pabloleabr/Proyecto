@@ -46,7 +46,7 @@
                                 </li>
                                 @endfor
                             </ul>
-                            {{$pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 3 ) : ""}}
+                            {{$pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 1 ) : ""}}
                             <span class="text-xs ml-1 mt-2">(votado por {{$pregunta->num_rating}} personas)</span>
                         </div>
                     </div>

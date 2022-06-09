@@ -312,6 +312,12 @@ select>option {
     color: rgb(234 179 8);
     transform: rotate(360deg);
 }
+.rating:active{
+    color: rgb(234 179 8);
+    transition: all 500ms;
+    transform: scale(1.2) translateY(-10px);
+
+}
 
 
 @media (max-width:640px) {
