@@ -53,6 +53,7 @@
 
         </div>
         <!--Borrar-->
+        <div class="flex flex-wrap">
         @if (!empty(Auth::user()) && Auth::user()->id === $ejercicio->user_id)
             <form action="/delete/ejer/{{$ejercicio->id}}" method="post" class="">
             @csrf
@@ -60,7 +61,13 @@
                 <input type="submit" value="Borrar" class="boton hover:bg-red-500 m-2" onclick="return confirm('Seguro que quieres borrarlo?')">
             </form>
         @endif
-
+            <h2>Lenguajes:</h2>
+            @foreach ($ejercicio->lenguajes as $l)
+            <div class="border-2 rounded-xl p-1 border-red-600 text-xs text-red-200 bg-red-800 font-semibold ml-1 mb-1">
+                {{$l->lenguaje}}
+                </div>
+            @endforeach
+        </div>
 
     </div>
 

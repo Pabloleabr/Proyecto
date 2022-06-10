@@ -20,12 +20,17 @@ function toggleMenu() {
 
 
 }
-//para arreglar bug raro que pasa que se le uita la clase al escribir
-if(br !== null){
-    br.addEventListener('keyup',()=>{
+//para arreglar bug raro que pasa que se le uita la clase al escribi
+function reajusteBusca(){
+    if (br !== null) {
         if (nav.classList.contains("is-active")) {
             setTimeout(()=>br.classList.add("is-active"),300);
         }
+    }
+}
+if(br !== null){
+    br.addEventListener('keyup',()=>{
+        reajusteBusca();
     })
 }
 var menu = document.querySelector('#hamburguesa');

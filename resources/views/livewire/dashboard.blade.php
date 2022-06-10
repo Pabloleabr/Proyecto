@@ -39,7 +39,7 @@
                                         </li>
                                     @endfor
                                 </ul>
-                                {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 3) : '' }}
+                                {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 1) : '' }}
                             </h3>
                             <div class="flex flex-wrap">
                                 @foreach ($ejercicio->lenguajes as $l)
@@ -102,7 +102,7 @@
                                         </li>
                                     @endfor
                                 </ul>
-                                {{ $pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 3) : '' }}
+                                {{ $pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 1) : '' }}
                             </h3>
 
                         </div>

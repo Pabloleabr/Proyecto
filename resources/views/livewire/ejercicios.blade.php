@@ -10,7 +10,7 @@
         <label for="lenguaje">
             <h2>Lenguaje:</h2>
         </label>
-        <select name="lenguaje" id="lenguaje" class="m-2 custom-select" wire:model="lenguaje">
+        <select name="lenguaje" id="lenguaje" class="m-2 custom-select" wire:model="lenguaje" onclick="reajusteBusca()">
             <option value=""></option>
             @foreach ($lenguajes as $lenguaje)
                 <option value="{{ $lenguaje->id }}">{{ $lenguaje->lenguaje }}</option>
@@ -19,7 +19,7 @@
         <label for="dificultad">
             <h2>Dificultad:</h2>
         </label>
-        <select name="dificultad" id="dificultad" class="m-2 custom-select" wire:model="dificultad">
+        <select name="dificultad" id="dificultad" class="m-2 custom-select" wire:model="dificultad" onclick="reajusteBusca()">
             <option value="" style="background: #3F3F3F"></option>
             <option value="facil">fácil</option>
             <option value="normal">normal</option>
@@ -30,13 +30,13 @@
         <label for="orden">
             <h2> Ordenar Por:</h2>
         </label>
-        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select">
+        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select" onclick="reajusteBusca()">
             <option value="created_at">Recientes</option>
             <option value="avg_rating">Rating</option>
             <option value="titulo">Titulo</option>
             <option value="num_rating">Numero Ratings</option>
         </select>
-        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select">
+        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select" onclick="reajusteBusca()">
             <option value="asc">Ascendiente</option>
             <option value="desc">Descendiente</option>
 
@@ -75,13 +75,15 @@
                                 @endfor
                             </ul>
                             {{ $ejercicio->avg_rating > 0 ? round($ejercicio->avg_rating, 1) : '' }}
-                            <span class="text-xs ml-1 mt-2">(votado por {{ $ejercicio->num_rating }} personas)</span>
+                            <span class="text-xs ml-1 mt-2">({{ $ejercicio->num_rating }} votos)</span>
                         </div>
                         </div>
                         </div>
                         <div class="flex flex-wrap">
                             @foreach ($ejercicio->lenguajes as $l)
-                                <p class="ml-2">{{ $l->lenguaje }}</p>
+                            <div class="border-2 rounded-xl p-1 border-red-600 text-xs text-red-200 bg-red-800 font-semibold ml-1 mb-1 max-h-8 ">
+                                {{$l->lenguaje}}
+                                </div>
                             @endforeach
                         </div>
                     </div>

@@ -6,13 +6,13 @@
 
         <!--Orden-->
         <label for="orden" ><h2> Ordenar Por:</h2></label>
-        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select">
+        <select wire:model="orden" name="orden" id="orden" class="m-2 custom-select" onclick="reajusteBusca()">
             <option value="created_at">Recientes</option>
             <option value="avg_rating">Rating</option>
             <option value="titulo">Titulo</option>
             <option value="num_rating">Numero Ratings</option>
         </select>
-        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select">
+        <select wire:model="sentido" name="sentido" id="sentido" class="m-2 custom-select" onclick="reajusteBusca()">
             <option value="asc">Ascendiente</option>
             <option value="desc">Descendiente</option>
 
@@ -47,7 +47,7 @@
                                 @endfor
                             </ul>
                             {{$pregunta->avg_rating > 0 ? round($pregunta->avg_rating, 1 ) : ""}}
-                            <span class="text-xs ml-1 mt-2">(votado por {{$pregunta->num_rating}} personas)</span>
+
                         </div>
                     </div>
 

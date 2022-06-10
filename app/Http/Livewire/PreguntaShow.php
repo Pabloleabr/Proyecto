@@ -27,6 +27,7 @@ class PreguntaShow extends Component
         $user = Auth::user();
         if($user != null){
             $tus_respuestas = Respuesta::withAvg('ratings as avg_rating','rating')
+            ->withCount('ratings as num_rating')
             ->where('pregunta_id',$this->pregunta->id)
             ->where('user_id', $user->id)
             ->get();
