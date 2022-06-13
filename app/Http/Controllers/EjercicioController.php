@@ -240,16 +240,8 @@ class EjercicioController extends Controller
      */
     public function show_soluciones(Ejercicio $ejercicio)
     {
-        $respuestas = DB::table('respuestas', 'r')
-        ->where('ejercicio_id', $ejercicio->id)
-        ->leftJoin('rating_respuestas', 'r.id', '=', 'respuesta_id')
-        ->select('r.respuesta', 'r.id', DB::raw('round(avg(rating), 1) AS avgrating'), DB::raw('count(rating) AS numrating'))
-        ->groupBy('r.id', 'r.respuesta')
-        ->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc')
-        ->paginate(10);
         return view('ejercicios.soluciones', [
             'ejercicio' => $ejercicio,
-            'respuestas' => $respuestas
         ]);
     }
 

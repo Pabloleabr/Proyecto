@@ -78,7 +78,13 @@ class PreguntaShow extends Component
         }
         $res->delete();
     }
-
+    /**
+     * Funcion para puntuar las respuestas
+     *
+     * @param [int] $id
+     * @param [int] $rating
+     * @return void
+     */
     public function rate($id, $rating){
         $usuario = Auth::user();
 
@@ -94,6 +100,13 @@ class PreguntaShow extends Component
             }
         }
     }
+    /**
+     * Funcion para puntuar la Preguta
+     *
+     * @param [int] $id
+     * @param [int] $rating
+     * @return void
+     */
     public function ratePregunta($id, $rating){
         $usuario = Auth::user();
 
