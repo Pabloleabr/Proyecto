@@ -111,7 +111,7 @@ input.addEventListener('input', () =>{
                 const porcentaje = ((correctChars/total)*100).toFixed(2)
                 document.getElementById("aciertos").innerText = porcentaje;
                 //guardado para ultimos resultados
-                if(lastResults.length > 5){
+                if(lastResults.length > 4){
                     lastResults.shift();
                 }
                 for(i in lastResults){
