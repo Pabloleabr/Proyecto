@@ -23,4 +23,4 @@ La Funcionalidad principal es crear un sitio web donde estudiantes como yo y mis
 ## Enlaces
 
 * Documentación:  https://github.com/Pabloleabr/Proyecto/blob/main/Documentacion.pdf
-* Heroku: preguntaspro.herokuapp.com/
+* Heroku: https://preguntaspro.herokuapp.com/
