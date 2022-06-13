@@ -14,9 +14,9 @@
                     <a class="w-10" href="{{ route('ver-ejercicios') }}" >
                         <img  src="{{ URL::to('/') }}/img/logo.png" alt="logo del sitio web">
                     </a>
-                    <h2 class="p-2">
+                    <h1 class="pl-2" style="font-size: 1.7rem !important">
                         PreguntasPro
-                    </h2>
+                    </h1>
                 </div>
                 <!--login-->
                 <div class="flex p-2 mr-4">

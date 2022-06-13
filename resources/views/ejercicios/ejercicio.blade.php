@@ -63,7 +63,7 @@
         @endif
             <h2>Lenguajes:</h2>
             @foreach ($ejercicio->lenguajes as $l)
-            <div class="border-2 rounded-xl p-1 border-red-600 text-xs text-red-200 bg-red-800 font-semibold ml-1 mb-1">
+            <div class="border-2 rounded-xl p-1 border-red-600 text-xs text-red-200 bg-red-800 font-semibold ml-1 mb-1 max-h-8">
                 {{$l->lenguaje}}
                 </div>
             @endforeach
