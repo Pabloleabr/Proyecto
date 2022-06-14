@@ -24,7 +24,7 @@
             <label for="descripcion" class="text-lg font-semibold ">
                 Descrición:</label>
             <textarea name="descripcion" id="descripcion" cols="30" rows="10" style="resize: none"
-                class="text-white block w-full p-2.5 codigo"
+                class="text-white block w-full p-2.5 codigo whitespace-pre"
                 required>{{old('descripcion', '')}}</textarea>
         </div>
 

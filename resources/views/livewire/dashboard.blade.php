@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <hr class="bg-white border-0 h-px">
-                        <p class="whitespace-pre-line max-h-14 truncate">{{ $ejercicio->descripcion }}</p>
+                        <p class="whitespace-pre-wrap max-h-14 truncate">{{ $ejercicio->descripcion }}</p>
                     </div>
                 </a>
                 </a>
@@ -107,7 +107,7 @@
 
                         </div>
                         <hr class="bg-white border-0 h-px">
-                        <p class="whitespace-pre-line max-h-14 truncate">{{ $pregunta->descripcion }}</p>
+                        <p class="whitespace-pre-wrap max-h-14 truncate">{{ $pregunta->descripcion }}</p>
                     </div>
                 </a>
                 </a>

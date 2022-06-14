@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <hr class="bg-white">
-                    <p class="whitespace-pre-line max-h-24 truncate">{{ $ejercicio->descripcion }}</p>
+                    <p class="whitespace-pre-wrap max-h-24 truncate">{{ $ejercicio->descripcion }}</p>
                 </div>
             </a>
         @endforeach

@@ -33,7 +33,7 @@
 
         </div>
         <div class="grid ml-2 mb-2 mr-2">
-            <p class="whitespace-pre-line  sm:text-sm rounded-lg w-full p-2.5 codigo2" style="max-width: 100%;
+            <p class="whitespace-pre-wrap  sm:text-sm rounded-lg w-full p-2.5 codigo2" style="max-width: 100%;
             word-break: break-word;"
             >{{$pregunta->descripcion}}</p>
 
@@ -68,7 +68,7 @@
                         </div>
                         @endif
                     </div>
-                    <p class="p-2 whitespace-pre-line  sm:text-sm" style="max-width: 100%;
+                    <p class="p-2 whitespace-pre-wrap  sm:text-sm" style="max-width: 100%;
                     word-break: break-word;"
                     >{{$res->respuesta}}</p>
                 </div>
@@ -100,7 +100,7 @@
                             <p class="">{{round($res->avg_rating, 1)}}</p>
                             <span class="text-xs ml-1 mt-2">({{$res->num_rating}} votos)</span>
                         </ul>
-                        <p class="p-2 pt-1 whitespace-pre-line sm:text-sm" style="max-width: 100%;
+                        <p class="p-2 pt-1 whitespace-pre-wrap sm:text-sm" style="max-width: 100%;
                         word-break: break-word;"
                         >{{$res->respuesta}}</p>
                     </div>
@@ -120,7 +120,7 @@
              <label for="mi_respuesta" class="text-lg font-semibold ">
                  Escribe una respuesta:</label>
                  <textarea wire:model="mi_respuesta" name="mi_respuesta" id="mi_respuesta" cols="30" rows="10" style="resize: none"
-                 class="text-white block w-full p-2.5 codigo rounded-lg"
+                 class="text-white block w-full p-2.5 codigo rounded-lg whitespace-pre"
                 required>{{old('mi_respuesta', '')}}</textarea>
             </div>
             <button class=" boton m-2" wire:click="create" onclick="window.scrollTo( {top:80, behavior:'smooth'})">

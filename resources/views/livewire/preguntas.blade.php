@@ -54,7 +54,7 @@
 
                 </div>
                 <hr class="bg-white">
-                    <p class="whitespace-pre-line max-h-24 truncate">{{$pregunta->descripcion}}</p>
+                    <p class="whitespace-pre-wrap max-h-24 truncate">{{$pregunta->descripcion}}</p>
                 </div>
             </a>
 

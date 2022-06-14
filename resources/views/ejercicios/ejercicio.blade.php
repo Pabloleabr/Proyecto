@@ -31,13 +31,13 @@
         </div>
         <div class="sm:flex ml-2 mb-2 ">
             <div class="border border-white border-collapse rounded-sm w-full  ">
-                <p class="whitespace-pre-line  rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
+                <p class="whitespace-pre-wrap  rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
                 >{{$ejercicio->descripcion}}</p>
 
             </div>
             <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full mt-4 sm:mt-0 sm:ml-4 mr-2">
                 @csrf
-                <textarea name="code" id="code" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-80 whitespace-pre-line  sm:text-sm  w-full p-2.5"
+                <textarea name="code" id="code" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-80 whitespace-pre  sm:text-sm  w-full p-2.5"
                 placeholder="código aquí...">{{$respuesta}}</textarea>
                 <div class="flex">
                     @if (!empty(Auth::user()))

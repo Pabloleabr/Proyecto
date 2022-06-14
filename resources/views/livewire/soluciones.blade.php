@@ -8,8 +8,7 @@
 
         </div>
         <div class="grid ml-2 mb-2 mr-2">
-            <p class="whitespace-pre-line  sm:text-sm rounded-lg p-2.5 codigo2" style="max-width: fit-content">
-                {{ $ejercicio->descripcion }}</p>
+            <p class="whitespace-pre-wrap  sm:text-sm rounded-lg p-2.5 codigo2" style="max-width: fit-content">{{ $ejercicio->descripcion }}</p>
             <h3 class="mt-2">Respuestas</h3>
             @foreach ($respuestas as $res)
                 <div class="flex justify-between mt-2  rounded-lg codigo2 ">
@@ -45,8 +44,10 @@
                         </div>
                         @endif
                         </div>
-                        <p class="whitespace-pre-line sm:text-sm rounded-lg p-2.5 " style="max-width: 100%;
+                        <p class="whitespace-pre-wrap sm:text-sm rounded-lg p-2.5 " style="max-width: 100%;
                     word-break: break-word;">{{ $res->respuesta }}</p>
+
+
                     </div>
 
                 </div>
