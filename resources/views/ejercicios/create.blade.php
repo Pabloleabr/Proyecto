@@ -1,33 +1,39 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Crear Ejercicio
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            Crea tu ejercicio
         </h2>
     </x-slot>
-
+    <div class="font-semibold text-xl text-white barra p-2 m-6" style="width: auto;">
+        <h2 >
+            Crea tu ejercicio
+        </h2>
+    </div>
+    <div class="barraroja create"
+    style="transform: translate(28px, -145%); margin-bottom:-55px;"></div>
     <form action="{{ route('guardar-ejer') }}" method="POST" class="m-8">
         @csrf
         <div class="mb-6">
-            <label for="titulo" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
-                Título</label>
+            <label for="titulo" class="text-lg font-semibold ">
+                Título:</label>
             <input name="titulo" type="text" id="titulo" value="{{ old('titulo') }}"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                class="text-white block w-full p-2.5 codigo"
                 required>
         </div>
         <div class="mb-6">
-            <label for="descripcion" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
-                Descrición</label>
+            <label for="descripcion" class="text-lg font-semibold ">
+                Descrición:</label>
             <textarea name="descripcion" id="descripcion" cols="30" rows="10" style="resize: none"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                class="text-white block w-full p-2.5 codigo whitespace-pre"
                 required>{{old('descripcion', '')}}</textarea>
         </div>
 
         <div class="mb-6">
-            <label for="dificultad" class="text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">
-                Dificultad</label>
+            <label for="dificultad" class="text-lg font-semibold ">
+                Dificultad:</label>
             <select name="dificultad" type="text" id="dificultad"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                class="text-white block w-full p-2.5 codigo"
                 required>
                 <option value="facil">facil</option>
                 <option value="normal">normal</option>
@@ -35,22 +41,24 @@
                 <option value="extremo">extremo</option>
             </select>
 
-            <span class="mt-2 text-m font-medium text-gray-900 block mb-2 dark:text-gray-300">Lenguajes</span>
-            <div id='lenguajesdiv'
-                class="flex bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5 ">
 
-                @foreach ($lenguajes as $lenguaje)
-                    <input name='lenguajes[]' type="checkbox" value="{{ $lenguaje->id }}">
-                    <span class="ml-1 mr-4">{{ $lenguaje->lenguaje }}</span>
-                @endforeach
+        </div>
+        <span class=" text-lg font-semibold">Lenguajes:</span>
+        <div id='lenguajesdiv'
+            class="flex text-white codigo w-full p-2.5  mb-4 flex-wrap">
 
+            @foreach ($lenguajes as $lenguaje)
+            <div class="flex">
+                <input name='lenguajes[]' type="checkbox" value="{{ $lenguaje->id }}" class="mt-1">
+                <span class="ml-2 mr-6">{{ $lenguaje->lenguaje }}</span>
             </div>
+            @endforeach
 
         </div>
 
         <button type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg text-m px-5 py-2.5 text-center ">
-            crear</button>
+            class=" boton w-full sm:w-4/12">
+            Subir Ejercicio</button>
     </form>
 
 </x-app-layout>

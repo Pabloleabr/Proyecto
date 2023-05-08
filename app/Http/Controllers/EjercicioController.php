@@ -4,13 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Ejercicio;
 use App\Models\Lenguaje;
+use App\Models\Respuesta;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Controlador de ejercicios
+ * hay una mezcla de eloquent, livewire , querbuilder especialmente en este controlodor
+ * devido a que este controlador se empezo antes de saber de eloquent, se ha actualizado lo necesario
+ * y si hace falta se actualizara lo demas
+ */
 class EjercicioController extends Controller
 {
+    /**
+     * create
+     * Returns create view
+     *
+     * @return void
+     */
     public function create()
     {
         return view('ejercicios.create',[
@@ -18,6 +31,12 @@ class EjercicioController extends Controller
         ]);
     }
 
+    /**
+     * store
+     * Stores the created exercise
+     *
+     * @return void
+     */
     public function store()
     {
 
@@ -53,15 +72,22 @@ class EjercicioController extends Controller
 
         //inserto en la tabla de la relacion ejer_lenguajes sus relaciones
         foreach ($validado['lenguajes'] as $lenguaje) {
-            DB::table('ejercicios_lenguajes')->insert([
+            DB::table('ejercicio_lenguaje')->insert([
                 'ejercicio_id' => $ejercicio->id,
                 'lenguaje_id' => $lenguaje,
             ]);
         }
 
-        return redirect(route("mostrar-ejer", $ejercicio));
+        return redirect(route("mostrar-ejer", $ejercicio))->with('success', 'Ejericico creado correctamente');
     }
 
+    /**
+     * show
+     * Shows the selected exercise
+     *
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
     public function show(Ejercicio $ejercicio)
     {
         $respuesta1 = '';
@@ -80,37 +106,60 @@ class EjercicioController extends Controller
 
     }
 
+    /**
+     * ejercicios(index)
+     * Returns main view to be used with livewire
+     * @return void
+     */
     public function ejercicios()
     {
-        $ejer = $this->getEjercicios();
-        $paginado = $ejer->paginate(10);
-        $lenguajes = Lenguaje::all();
-
-        return view('ejercicios.ejercicios', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        return view('ejercicios.ejercicios');
     }
 
-    public function delete_ejer($id)
+    /**
+     * delete_ejer
+     * Deletes the exercise with all its relations
+     *
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
+    public function delete_ejer(Ejercicio $ejercicio)
     {
-        //hace falta hacer un on delete cascade, esperar a ver elocuent a ver si es mas facil
-        //DB::table('ejercicios')->delete($id);
-        return redirect('/mis_ejer');
+        //borro todas sus relaciones
+
+        foreach($ejercicio->ratings as $rating){
+            $rating->delete();
+        }
+        foreach($ejercicio->lenguajes as $lenguaje){
+            $lenguaje->pivot->delete();//borrar pivotes no lenguajes
+        }
+        foreach($ejercicio->respuestas as $res){
+            foreach($res->ratings as $rating){
+                $rating->delete();
+            }
+            $res->delete();
+        }
+        $ejercicio->delete();
+        return redirect('/dashboard')->with('success', 'Ejercicio Borrado');
     }
+
+    /**
+     * mis_ejer
+     * returns the exercise view so it can be manipulated with livewire
+     *
+     * @return void
+     */
     public function mis_ejer()
     {
-
         $usuario = Auth::user();
-        $ejers = $this->getEjercicios();
-        $ejers->where('e.user_id', $usuario->id);
-        $paginado = $ejers->paginate(10);
-        $lenguajes = Lenguaje::all();
+        $points = 0;
+        $respuestas = Respuesta::where('user_id', $usuario->id)->get();
 
-        return view('ejercicios.mis-ejercicios', [
-            'ejercicios' => $paginado,
-            'lenguajes' => $lenguajes,
-        ]);
+        foreach($respuestas as $res){
+            $points += $res->ratings->sum('rating');
+        }
+
+        return view('dashboard',['points' => $points]);
     }
 
     /**
@@ -128,15 +177,22 @@ class EjercicioController extends Controller
             'rating' => 'integer|required|in:1,2,3,4,5'
         ]);
 
-        DB::table('rating_ejer')->upsert([
+        DB::table('rating_ejercicios')->upsert([
             'ejercicio_id' => $ejercicio->id,
             'user_id' => $usuario->id,
             'rating' => $validado['rating'],
-        ],['ejer_id', 'user_id'], ['rating']);
+        ],['ejercicio_id', 'user_id'], ['rating']);
 
         return redirect()->back()->with('success', 'Ejercicio evaluado');
     }
 
+    /**
+     * rate_respuesta
+     * Stores the rating given to the exercise
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function rate_respuesta($id){
 
         $usuario = Auth::user();
@@ -152,7 +208,12 @@ class EjercicioController extends Controller
 
         return redirect()->back()->with('success', 'respuesta evaluada');
     }
-
+    /**
+     * store_solution
+     * Validaetes and stores the sent solution
+     * @param Ejercicio $ejercicio
+     * @return void
+     */
     public function store_solucion(Ejercicio $ejercicio)
     {
 
@@ -161,11 +222,11 @@ class EjercicioController extends Controller
             'code' => 'string|required',
         ]);
 
-        DB::table('respuestas')->upsert([
+        Respuesta::updateOrCreate([
             'ejercicio_id' => $ejercicio->id,
+            'pregunta_id' => null,
             'user_id' => $usuario->id,
-            'respuesta' => $validado['code'],
-        ],['ejercicio_id', 'user_id'], ['respuesta']);
+        ],['respuesta' => $validado['code']]);
 
         return redirect(route('mostrar-ejer', $ejercicio))->with('success', 'solucion guardada');
     }
@@ -179,20 +240,18 @@ class EjercicioController extends Controller
      */
     public function show_soluciones(Ejercicio $ejercicio)
     {
-        $respuestas = DB::table('respuestas', 'r')
-        ->where('ejercicio_id', $ejercicio->id)
-        ->leftJoin('rating_respuestas', 'r.id', '=', 'respuesta_id')
-        ->select('r.respuesta', 'r.id', DB::raw('round(avg(rating), 1) AS avgrating'), DB::raw('count(rating) AS numrating'))
-        ->groupBy('r.id', 'r.respuesta')
-        ->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc')
-        ->paginate(10);
         return view('ejercicios.soluciones', [
             'ejercicio' => $ejercicio,
-            'respuestas' => $respuestas
         ]);
     }
 
-
+    /**
+     * Busca el ejercicio con use titulo e id
+     *
+     * @param [string] $titulo
+     * @param [int] $user_id
+     * @return Collection
+     */
     private function getEjercicio($titulo, $user_id){
         return DB::table('ejercicios')
         ->where('titulo',$titulo)
@@ -200,28 +259,5 @@ class EjercicioController extends Controller
         ->get();
     }
 
-    private function getEjercicios(){
-        $ejer = DB::table('ejercicios', 'e')
-        ->join('ejercicios_lenguajes AS el', 'e.id', '=', 'el.ejercicio_id')
-        ->join('lenguajes AS l', 'el.lenguaje_id', '=', 'l.id')
-        ->leftJoin('rating_ejercicios AS r', 'e.id', '=', 'r.ejercicio_id')
-        ->select('e.id AS id', 'titulo' ,'descripcion', 'lenguaje',
-        'dificultad', DB::raw('ROUND(AVG(rating), 1) AS avgrating'), DB::raw('count(rating) as numrating'))
-        ->groupBy('e.id','titulo','descripcion', 'lenguaje', 'dificultad');
 
-        if(($var = request()->query('lenguaje')) != null){
-            $ejer->where('l.id', $var);
-        }
-
-        if(($var = request()->query('dificultad')) != null){
-            $ejer->where('dificultad', $var);
-        }
-
-        if(($var = request()->query('busqueda')) != null){
-            $ejer->where('titulo', 'ilike', "%$var%")
-            ->orWhere('descripcion', 'ilike', "%$var%");
-        }
-        $ejer->orderByRaw('numrating desc NULLS LAST')->orderBy('avgrating', 'desc');
-        return $ejer;
-    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEjerciciosLenguajesTable extends Migration
+class CreateMecanotestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateEjerciciosLenguajesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ejercicios_lenguajes', function (Blueprint $table) {
-            $table->foreignId('ejercicio_id')->constrained();
-            $table->foreignId('lenguaje_id')->constrained();
-            $table->primary(['ejercicio_id', 'lenguaje_id']);
+        Schema::create('mecanotests', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->smallInteger('pulsaciones');
+            $table->smallInteger('correctas');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateEjerciciosLenguajesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ejercicios_lenguajes');
+        Schema::dropIfExists('mecanotests');
     }
 }

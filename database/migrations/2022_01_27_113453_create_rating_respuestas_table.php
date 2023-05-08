@@ -15,11 +15,12 @@ class CreateRatingRespuestasTable extends Migration
     public function up()
     {
         Schema::create('rating_respuestas', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('respuesta_id')->constrained();
-            $table->integer('rating');
+            $table->smallInteger('rating');
             $table->timestamps();
-            $table->primary(['user_id', 'respuesta_id']);
+            $table->unique(['user_id', 'respuesta_id']);
         });
         DB::statement('ALTER TABLE rating_respuestas ADD CONSTRAINT CK_MAX_RATING CHECK (rating <= 5)');
         DB::statement('ALTER TABLE rating_respuestas ADD CONSTRAINT CK_MIN_RATING CHECK (rating >= 0)');

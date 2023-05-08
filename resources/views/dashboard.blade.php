@@ -1,17 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Dashboard
         </h2>
     </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
+    <div class="flex flex-col">
+        <h2>Ratings recibidos</h2>
+        <div class="flex">
+            <div class="mr-2" style="width:95%">
+                <div id="pointsBarE" class="flex rounded-lg codigo2 h-4 mt-1" style="width:100%"></div>
+                <div id="pointsBar" class="flex rounded-lg bg-yellow-500 h-4"
+                    style="width:50%; transform:translateY(-1rem)"></div>
             </div>
+            <span id="points" class="text-lg text-yellow-500">{{ $points }}</span>
         </div>
+        <div id="current" class="flex justify-between">
+        </div>
+        <livewire:dashboard>
     </div>
+
+
 </x-app-layout>

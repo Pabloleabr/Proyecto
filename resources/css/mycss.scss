@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&family=Open+Sans:wght@300&display=swap');
+
+$rojo:#860000;
+$codigo:#1D1D1D;
+$gray:#3F3F3F;
+$d-gray:#2E2E2E;
+$f-color:white;
+$font: 'Fredoka';
+$nav-width: 200px;
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    background-color: $d-gray;
+    color: $f-color;
+    font-family: $font, 'Open Sans', sans-serif;
+}
+
+.barra {
+    background-color: $gray;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    font-size: large;
+    font-weight: 800;
+    width: 100%;
+}
+
+.barraroja {
+    background-color: $rojo;
+    position: relative;
+    display: flex;
+    z-index: -1;
+    height: 2.5rem;
+    width: 100%;
+    transform: translate(4px, -108%);
+    margin-bottom: -35px;
+}
+
+.mi-flex{
+    display: flex;
+}
+.fondo {
+    background-color: $d-gray;
+}
+.nav-space{
+    margin-left: $nav-width;
+}
+h2 {
+    font-size: large;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.separador {
+    background-color: $rojo;
+    height: 5px;
+    border-radius: 10px;
+    width: $nav-width - 20px;
+    margin: 8px 0px;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+    font-family: $font;
+    border-radius: 10px;
+    color: white;
+    background-color: $gray;
+    border: 1px solid white;
+    height: 40px;
+}
+
+select>option {
+    background-color: $gray;
+    color: white;
+}
+
+.buscador {
+    background-color: $codigo;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border-radius: 25px;
+    z-index: 0;
+    cursor: pointer;
+}
+
+#nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    padding-left: 12px;
+    background-color: $codigo;
+    width: $nav-width;
+    height: 100vh;
+    left: 0;
+    z-index: 1;
+    transition: 1s ;
+    box-shadow: 0px 8px 8px rgb(0, 0, 0, 0.25);
+}
+#nav.is-active {
+    /*posiciona el menu navegacion*/
+    transform: translateX(-$nav-width);
+  }
+#main{
+    margin-left: $nav-width;
+    transition: 1s ;
+}
+#main.is-active {
+    margin-left: 0vw;
+}
+#busquedarara{
+    position: absolute;
+    left:$nav-width + 16px;
+    top:70px;
+    width: calc(95vw - $nav-width - 16px);
+    transition: all 1s;
+}
+#busquedarara.is-active{
+    left: 16px;
+    width:92vw;
+
+}
+.boton {
+    background-color: $gray;
+    color: white;
+    transition: 1s;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.45);
+    padding: 0.7rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid white;
+    cursor: pointer;
+
+}
+
+.boton:hover {
+    filter: brightness(80%);
+    box-shadow: none;
+
+}
+
+
+.navlink {
+    transition: 1s;
+    max-width: $nav-width;
+}
+
+.navlink:hover {
+    text-decoration: underline;
+    text-shadow: 3px 3px $d-gray;
+}
+
+.codigo {
+    background-color: $codigo;
+    color: white;
+    box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+    border: none;
+    width: 100%;
+
+}
+
+.codigo2 {
+    background-color: $codigo;
+    color: white;
+    font-weight: 400;
+
+}
+.max-w-mi{
+    max-width: 70vw;
+    overflow-wrap: break-word;
+}
+/*burguermenu*/
+#hamburguesa {
+    position: relative;
+    background-color: transparent;
+    margin-right: 20px;
+    left: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    padding: 10px 10px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    z-index: 1002;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#hamburguesa.is-active {
+    background-color: transparent;
+}
+
+.z-1{
+    z-index: -1;
+}
+._layer {
+    background: #ffffff;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    width: 28px;
+    height: 4px;
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+
+#hamburguesa:hover .-top {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+#hamburguesa:hover .-bottom {
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+#hamburguesa.is-active .-top {
+    -webkit-transform: translateY(200%) rotate(45deg) !important;
+    -ms-transform: translateY(200%) rotate(45deg) !important;
+    transform: translateY(200%) rotate(45deg) !important;
+}
+
+#hamburguesa.is-active .-mid {
+    opacity: 0;
+}
+
+#hamburguesa.is-active .-bottom {
+    -webkit-transform: translateY(-200%) rotate(135deg) !important;
+    -ms-transform: translateY(-200%) rotate(135deg) !important;
+    transform: translateY(-200%) rotate(135deg) !important;
+}
+.dashel{
+    width: 50%;
+}
+.create{
+    width: 95%;
+}
+#quote{
+
+}
+.correct {
+    color: rgb(177, 255, 131);
+}
+.incorrect {
+    color:red;
+    text-decoration: underline;
+}
+
+.selecAnim{
+    transition: all 1s;
+}
+.selecAnim:hover{
+    transform: translateX(-10px);
+}
+
+.backSquare{
+    position: absolute;
+    user-select: none;
+    z-index: -2;
+    border-radius: 5%;
+    opacity: 0.3;
+    background-color:$rojo;
+}
+
+#pointsBarE, #pointsBar{
+    position: relative;
+    z-index: -1;
+}
+
+.rounded-3xl{
+    border-radius: 1.5rem;
+}
+
+@for $i from 1 to 21 {
+    $rotation: random(360);
+    @keyframes appearSq-#{$i} {
+        0%{
+            transform:scale(0) ;
+        }
+        100%{
+            transform:scale(1) rotate(#{$rotation}deg);
+
+        }
+    }
+    .sqAnim--#{$i}{
+        animation: appearSq-#{$i} 2s ease-in-out 0s 3 alternate;
+        animation-fill-mode: both;
+    }
+}
+
+.rating{
+    color:rgb(0, 0, 0);
+    transition: all 1s;
+}
+.rating:hover{
+    color: rgb(234 179 8);
+    transform: rotate(360deg);
+}
+.rating:active{
+    color: rgb(234 179 8);
+    transition: all 500ms;
+    transform: scale(1.2) translateY(-10px);
+
+}
+.whitespace-pre-wrap{
+    white-space: pre-wrap;
+}
+
+@media (max-width:640px) {
+    .mi-flex{
+        flex-direction: column;
+    }
+    .hide{
+        display: none;
+    }
+    .dashel{
+        width: 100%;
+    }
+    .max-w-mi{
+        max-width: 25vw;
+    }
+    .create{
+        width: 89%;
+    }
+
+}
+
+@media (min-width:640px) and (max-width:860px) {
+    .max-w-mi{
+        max-width: 35vw;
+    }
+    .create{
+        width: 93%;
+    }
+}
+
+@media (max-width:450px) {
+    #main{
+        margin-left: 0px;
+    }
+    .create{
+        width: 85%;
+    }
+    .dashb.is-active{
+        z-index: -1;
+    }
+}

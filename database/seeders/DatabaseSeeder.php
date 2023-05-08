@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pregunta;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,14 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             LenguajeSeeder::class,
+            UserSeeder::class,
+            PreguntaSeeder::class,
+            EjercicioSeeder::class,
+            EjercicioLenguajeSeeder::class,
+            RespuestaSeeder::class,
+            RatingRespuestaSeeder::class,
+            RatingEjercicioSeeder::class,
+            RatingPreguntaSeeder::class,
         ]);
     }
 }

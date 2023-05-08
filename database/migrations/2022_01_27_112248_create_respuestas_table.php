@@ -17,9 +17,10 @@ class CreateRespuestasTable extends Migration
             $table->id();
             $table->text('respuesta');
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('ejercicio_id')->constrained();
+            $table->foreignId('ejercicio_id')->nullable()->constrained();
+            $table->foreignId('pregunta_id')->nullable()->constrained();
             $table->timestamps();
-            $table->unique(['user_id', 'ejercicio_id']);
+
         });
     }
 

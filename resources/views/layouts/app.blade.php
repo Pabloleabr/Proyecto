@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,43 +9,53 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <!--icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- mi cosas css -->
         <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
 
+        <link rel="shortcut icon" href="{{ asset('img/logomini.png') }}" type="image/x-icon">
+
+        @livewireStyles
+
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/myjs.js') }}" defer></script>
+        <!-- alpinejs -->
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="">
+        <div class="" style="position: relative; z-index: 0;">
+
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+            <div class="p-4 " id="main" >
 
-
-            <!-- Page Content -->
-            <main>
+                <!-- Page Content -->
+                <main class="pt-8">
                 @if (session()->has('error'))
-                <div class="bg-red-100 rounded-lg p-4 mt-4 mb-4 text-sm text-red-700" role="alert">
-                    <span class="font-semibold">Error:</span> {{ session('error') }}
-                </div>
-            @endif
+                    <div class=" bg-gray-100 rounded-lg p-4 mt-4 mb-4 text-red-800" role="alert">
+                        <span class="font-semibold">Error:</span> {{ session('error') }}
+                    </div>
+                @endif
 
-            @if (session()->has('success'))
-                <div class="bg-green-100 rounded-lg p-4 mt-4 mb-4 text-sm text-green-700" role="alert">
-                    {{ session('success') }}
+                @if (session()->has('success'))
+                    <div class="bg-gray-100 rounded-lg p-4 mt-4 mb-4 text-m text-green-700" role="alert">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <div class="mt-6" >
+                    {{ $slot }}
+
                 </div>
-            @endif
-                {{ $slot }}
-            </main>
+                </main>
+            </div>
         </div>
+
+        @livewireScripts
     </body>
 </html>

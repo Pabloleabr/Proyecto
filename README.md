@@ -19,3 +19,8 @@ La Funcionalidad principal es crear un sitio web donde estudiantes como yo y mis
 * Sistema de votación 
 * Gestión de avances del usuario 
 * Gestión putuación del usuario 
+
+## Enlaces
+
+* Documentación:  https://github.com/Pabloleabr/Proyecto/blob/main/Documentacion.pdf
+* Heroku: https://preguntaspro.herokuapp.com/

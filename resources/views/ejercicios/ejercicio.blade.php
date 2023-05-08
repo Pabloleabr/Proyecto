@@ -10,53 +10,63 @@
     </x-slot>
 
 
-    <div class="m-8 bg-gray-100 border border-gray-200 rounded-lg p-2.5 ">
+    <div class="sm:m-8 p-2.5 barra rounded-md" style="width:auto">
         <div class="flex justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{$ejercicio->titulo}}
+            <h2 class="font-semibold text-2xl leading-tight underline mb-2">
+                {{$ejercicio->titulo}} <span class="text-xs">by {{$ejercicio->user->name}}</span>
             </h2>
             @if (!empty(Auth::user()))
-            <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2">
+            <form action="{{route('rate-ejer', $ejercicio)}}" method="post" class="p-2 flex">
             @csrf
-                <select name="rating" id="" class="rounded-lg h-10">
+                <select name="rating" id="" class="rounded-lg h-10 barra border border-white focus:outline-none">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input class="bg-slate-300 rounded-lg p-2 hover:bg-gray-600 hover:text-white" type="submit" value="Rate">
+                <input class="boton" style="padding: 7px" type="submit" value="Rate">
             </form>
             @endif
         </div>
-        <div class="flex ml-2 mb-2 ">
-            <p class="whitespace-pre-line max-w-md bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5 "
-            >{{$ejercicio->descripcion}}</p>
-            <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full ml-4 mr-2">
+        <div class="sm:flex ml-2 mb-2 ">
+            <div class="border border-white border-collapse rounded-sm w-full  ">
+                <p class="whitespace-pre-wrap  rounded-sm sm:text-sm  w-full p-2.5  h-full codigo "
+                >{{$ejercicio->descripcion}}</p>
+
+            </div>
+            <form action="{{route('guardar-solucion', $ejercicio)}}" method="POST" class="w-full mt-4 sm:mt-0 sm:ml-4 mr-2">
                 @csrf
-                <textarea name="code" id="code" cols="50" rows="10" style="resize:none" class="h-80 whitespace-pre-line bg-gray-200 border border-gray-300 text-gray-900 sm:text-sm rounded-lg w-full p-2.5"
-                placeholder="codigo aqui...">{{$respuesta}}</textarea>
-                @if (!empty(Auth::user()))
-                <input type="submit" value="Subir" class="bg-gray-200 border border-gray-300 text-gray-900 rounded-lg hover:bg-green-300 p-1 mt-2">
-                @else
-                <p>logueate para subir tu respuesta</p>
-                @endif
+                <textarea name="code" id="code" cols="50" rows="10" style="resize:none; border: none" class="codigo2 rounded-sm h-80 whitespace-pre  sm:text-sm  w-full p-2.5"
+                placeholder="código aquí...">{{$respuesta}}</textarea>
+                <div class="flex">
+                    @if (!empty(Auth::user()))
+                    <input type="submit" value="Subir" class="boton p-1 mt-2 mr-4 hover:bg-green-600 ">
+                    @else
+                    <p class="m-2">logueate para subir tu respuesta</p>
+                    @endif
+                    <a href="{{route('ver-soluciones', $ejercicio)}}" class=" boton p-1 mt-2">Soluciones</a>
+
+                </div>
             </form>
 
-        </div>
-        <div class="flex justify-between" >
-            <a href="{{route('ver-soluciones', $ejercicio)}}" class="hover:text-blue-400">Soluciones</a>
 
-{{--Ponerlo en una página que sea solo para mis ejercicios
-                 @if (App\Http\Controllers\UserController::logueado())
-                @if (Illuminate\Support\Facades\DB::table('users')->where('email', session('usuario'))->first()->id === $ejercicio->user_id)
-                    <form action="/delete/ejer/{{$ejercicio->id}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                        <input type="submit" value="Borrar" class="bg-gray-300 hover:bg-red-500 p-2 rounded-lg" onclick="return confirm('Seguro que quieres borrarlo?')">
-                    </form>
-                @endif
-            @endif --}}
+        </div>
+        <!--Borrar-->
+        <div class="flex flex-wrap">
+        @if (!empty(Auth::user()) && Auth::user()->id === $ejercicio->user_id)
+            <form action="/delete/ejer/{{$ejercicio->id}}" method="post" class="">
+            @csrf
+            @method('DELETE')
+                <input type="submit" value="Borrar" class="boton hover:bg-red-500 m-2" onclick="return confirm('Seguro que quieres borrarlo?')">
+            </form>
+        @endif
+            <h2>Lenguajes:</h2>
+            @foreach ($ejercicio->lenguajes as $l)
+            <div class="border-2 rounded-xl p-1 border-red-600 text-xs text-red-200 bg-red-800 font-semibold ml-1 mb-1 max-h-8">
+                {{$l->lenguaje}}
+                </div>
+            @endforeach
         </div>
 
     </div>

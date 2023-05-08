@@ -9,16 +9,29 @@ class Respuesta extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'respuesta',
+        'user_id',
+        'pregunta_id',
+        'ejercicio_id',
+        'created_at',
+        'updated_at'
+    ];
+
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
     public function ratings()
     {
-        $this->hasMany(Rating_respuesta::class);
+        return $this->hasMany(Rating_respuesta::class);
     }
     public function ejercicio()
     {
-        $this->belongsTo(Ejercicio::class);
+        return $this->belongsTo(Ejercicio::class);
+    }
+    public function pregunta()
+    {
+        return $this->belongsTo(Pregunta::class);
     }
 }
