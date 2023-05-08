@@ -29,12 +29,12 @@ class Ejercicios extends Component
         return view('livewire.ejercicios',[
             'ejercicios' => Ejercicio::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
-            ->where('dificultad', 'ilike',"%$this->dificultad%")
+            ->where('dificultad', 'like',"%$this->dificultad%")
             ->whereHas('lenguajes', function (Builder $query){
-                $query->where('lenguajes.id', 'ilike', "%$this->lenguaje%");
+                $query->where('lenguajes.id', 'like', "%$this->lenguaje%");
             })
-            ->where('titulo', 'ilike', "%$this->busca%")
-            ->orderByRaw("$this->orden $this->sentido NULLS LAST")//para los ratings por si no hay votos
+            ->where('titulo', 'like', "%$this->busca%")
+            ->orderByRaw("$this->orden $this->sentido")//para los ratings por si no hay votos
             ->paginate(5),
             'lenguajes' => Lenguaje::all()
         ]);

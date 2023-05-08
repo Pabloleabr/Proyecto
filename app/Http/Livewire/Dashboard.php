@@ -33,7 +33,7 @@ class Dashboard extends Component
             //Consulta ejericcios
             'ejercicios' => Ejercicio::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
-            ->where('titulo', 'ilike', "%$this->busca%")
+            ->where('titulo', 'like', "%$this->busca%")
             ->where('user_id', $user->id)
             ->orderBy($this->orden, $this->sentido)
             ->paginate(4),
@@ -41,7 +41,7 @@ class Dashboard extends Component
             //Consulta Preguntas
             'preguntas' => Pregunta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
-            ->where('titulo', 'ilike', "%$this->buscaPre%")
+            ->where('titulo', 'like', "%$this->buscaPre%")
             ->where('user_id', $user->id)
             ->orderBy($this->orden, $this->sentido)
             ->paginate(5),
