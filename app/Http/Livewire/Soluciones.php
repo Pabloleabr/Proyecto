@@ -21,7 +21,7 @@ class Soluciones extends Component
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
             ->where('ejercicio_id',$this->ejercicio->id)
-            ->orderByRaw('num_rating desc NULLS LAST')
+            ->orderByRaw('num_rating desc')
             ->orderBy('avg_rating', 'DESC')
             ->paginate(5)
 

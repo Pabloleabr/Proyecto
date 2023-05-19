@@ -37,7 +37,7 @@ class PreguntaShow extends Component
             'respuestas' => Respuesta::withAvg('ratings as avg_rating','rating')
             ->withCount('ratings as num_rating')
             ->where('pregunta_id',$this->pregunta->id)
-            ->orderByRaw('num_rating desc NULLS LAST')
+            ->orderByRaw('num_rating desc')
             ->orderBy('avg_rating', 'DESC')
             ->paginate(5),
             'tus_respuestas' => $tus_respuestas
